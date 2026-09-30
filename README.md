@@ -1,36 +1,336 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stage 2 Shop - Modern E-Commerce Platform
 
-## Getting Started
+A full-stack e-commerce web application built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS**, **Supabase** (PostgreSQL + Auth), and **Zustand** for state management. Features Google OAuth authentication, shopping cart, checkout flow, order management, and email notifications via Mailgun.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Deployed on Vercel**: [https://stage-2-shop.vercel.app](https://stage-2-shop.vercel.app) *(replace with your actual URL)*
+
+---
+
+## ✨ Features
+
+### Customer-Facing
+- **Product Catalog** - Browse products with categories, responsive grid layout
+- **Product Details** - Image gallery, description, quantity selector, add to cart
+- **Shopping Cart** - Slide-out drawer with persistent storage (Zustand + localStorage)
+- **Checkout Flow** - Multi-step form (Contact → Shipping → Payment-ready)
+- **Order Confirmation** - Success page with order summary, email receipt
+- **User Account** - Google OAuth login, order history, profile management
+- **Responsive Design** - Mobile-first, works on all device sizes
+
+### Developer Experience
+- **TypeScript** - Full type safety across frontend, backend, and database
+- **Server Components** - Default RSC for optimal performance
+- **Server Actions / Route Handlers** - Type-safe API layer
+- **Supabase Integration** - SSR-compatible auth with `@supabase/ssr`
+- **Edge-Ready Middleware** - Auth protection for routes
+
+---
+
+## 🛠 Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| **Framework** | Next.js 16 (App Router, React 19) |
+| **Language** | TypeScript 5 |
+| **Styling** | Tailwind CSS 4 |
+| **Database** | Supabase (PostgreSQL) |
+| **Auth** | Supabase Auth + Google OAuth 2.0 |
+| **State** | Zustand 5 (with persist middleware) |
+| **Email** | Mailgun API |
+| **Icons** | Lucide React |
+| **Deployment** | Vercel |
+| **Linting** | ESLint 9 + Next.js config |
+
+---
+
+## 📁 Project Structure
+
+```
+stage-2-shop/
+├── public/                 # Static assets
+├── src/
+│   ├── app/               # Next.js App Router pages
+│   │   ├── api/           # API Route Handlers
+│   │   │   ├── checkout/  # POST /api/checkout - order processing
+│   │   │   └── newsletter/ # POST /api/newsletter - subscriptions
+│   │   ├── auth/          # Auth pages
+│   │   │   ├── callback/  # OAuth callback handler
+│   │   │   ├── login/     # Sign in page
+│   │   │   └── signup/    # Sign up page
+│   │   ├── checkout/      # Checkout flow
+│   │   │   └── success/   # Order confirmation page
+│   │   ├── products/      # Product pages
+│   │   │   └── [id]/      # Dynamic product detail
+│   │   ├── account/       # User dashboard
+│   │   ├── about/         # About page
+│   │   ├── contact/       # Contact form
+│   │   ├── globals.css    # Global styles
+│   │   ├── layout.tsx     # Root layout (Header, Footer, CartDrawer)
+│   │   └── page.tsx       # Home page
+│   ├── components/        # React components
+│   │   ├── Button.tsx
+│   │   ├── CartDrawer.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   ├── ProductCard.tsx
+│   │   ├── ProductDetail.tsx
+│   │   └── AccountPage.tsx
+│   ├── lib/               # Utilities & clients
+│   │   ├── supabase/      # Supabase clients
+│   │   │   ├── client.ts  # Browser client
+│   │   │   └── server.ts  # Server/Server Action client
+│   │   ├── cart-store.ts  # Zustand cart store
+│   │   ├── types.ts       # TypeScript interfaces
+│   │   └── utils.ts       # Helper functions
+│   └── middleware.ts      # Auth middleware
+├── supabase-schema.sql    # Database schema + seed data
+├── supabase-additional.sql # Additional tables (newsletter, views)
+├── .env.local.example     # Environment variable template
+├── next.config.ts
+├── package.json
+└── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏃 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
+- Node.js 20+
+- npm / pnpm / yarn
+- Supabase account
+- Google Cloud Console project
+- Mailgun account (for emails)
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Clone the repository
+git clone https://github.com/your-username/stage-2-shop.git
+cd stage-2-shop
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Install dependencies
+npm install
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Copy environment template
+cp .env.local.example .env.local
 
-## Deploy on Vercel
+# Fill in your credentials in .env.local
+# (See Environment Variables section below)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Run development server
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## ⚙️ Environment Variables
+
+Create `.env.local` from `.env.local.example` and fill in:
+
+```env
+# Supabase (Required)
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+
+# Google OAuth (Required for auth)
+NEXT_PUBLIC_GOOGLE_CLIENT_ID=your-client-id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=your-client-secret
+
+# Mailgun (Required for emails)
+MAILGUN_API_KEY=key-your-mailgun-key
+MAILGUN_DOMAIN=mg.yourdomain.com
+MAILGUN_FROM_EMAIL=noreply@mg.yourdomain.com
+
+# App
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+### Where to Get Credentials
+
+| Service | Dashboard | Keys Needed |
+|---------|-----------|-------------|
+| **Supabase** | [supabase.com/dashboard](https://supabase.com/dashboard/project/_/settings/api) | Project URL, Anon Key, Service Role Key |
+| **Google OAuth** | [console.cloud.google.com](https://console.cloud.google.com/apis/credentials) | Client ID, Client Secret |
+| **Mailgun** | [app.mailgun.com](https://app.mailgun.com/app/sending/domains) | API Key, Domain, From Email |
+
+---
+
+## 🗄 Database Setup
+
+### Run Schema in Supabase
+
+1. Go to Supabase Dashboard → **SQL Editor**
+2. Create **New Query**
+3. Paste contents of `supabase-schema.sql`
+4. Click **Run** (creates tables, indexes, RLS policies, seed data)
+5. Optional: Run `supabase-additional.sql` for newsletter table
+
+### Schema Overview
+
+```sql
+products          # Product catalog
+orders            # Customer orders
+order_items       # Line items per order
+newsletter_subscribers  # Email subscriptions
+```
+
+**RLS Policies** (already included):
+- Products: Public read, admin write
+- Orders: Users see only their own
+- Order Items: Users see only their own order's items
+
+---
+
+## 🔐 Authentication Setup
+
+### Google OAuth Configuration
+
+1. **Google Cloud Console** → APIs & Services → Credentials
+2. Create **OAuth 2.0 Client ID** (Web Application)
+3. Add Authorized Redirect URIs:
+   ```
+   https://your-project.supabase.co/auth/v1/callback
+   http://localhost:3000/auth/callback
+   https://your-app.vercel.app/auth/callback
+   ```
+4. Copy Client ID & Secret to `.env.local`
+
+2. **Supabase Dashboard** → Authentication → Providers → Google
+   - Enable Google provider
+   - Paste Client ID & Secret
+   - Save
+
+---
+
+## 📧 Email Setup (Mailgun)
+
+1. Sign up at [mailgun.com](https://mailgun.com)
+2. Add & verify a sending domain (or use sandbox)
+3. Get **Private API Key** from domain settings
+4. Add `MAILGUN_API_KEY`, `MAILGUN_DOMAIN`, `MAILGUN_FROM_EMAIL` to `.env.local`
+
+**Emails sent:**
+- Order confirmation (HTML receipt) after checkout
+- Newsletter subscription confirmations
+
+---
+
+## 🏗 Build & Deploy
+
+### Local Production Build
+
+```bash
+npm run build
+npm start
+```
+
+### Deploy to Vercel
+
+1. Push to GitHub
+2. Import in [Vercel](https://vercel.com/new)
+3. Add all environment variables in Vercel dashboard
+4. Deploy
+5. Update Google OAuth redirect URI with your Vercel URL
+
+### Environment Variables in Vercel
+
+Go to **Project Settings** → **Environment Variables** and add all from `.env.local`.
+
+---
+
+## 📦 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server (webpack) |
+| `npm run build` | Production build |
+| `npm start` | Start production server |
+| `npm run lint` | Run ESLint |
+
+---
+
+## 🎨 UI/UX Design Reference
+
+Design inspired by **[sliderpals.com](https://www.sliderpals.com)**:
+- Clean, playful aesthetic
+- Card-based product grids
+- Slide-out cart drawer
+- Consistent spacing & typography
+- Subtle hover/tap interactions
+- Accessible color contrast
+
+---
+
+## 🔒 Security Features
+
+- **Row Level Security (RLS)** on all Supabase tables
+- **Server-side auth validation** via middleware
+- **Price verification** on checkout (prevents tampering)
+- **Stock validation** before order creation
+- **Service role key** only used server-side
+- **Environment variables** for all secrets
+
+---
+
+## 🧪 Testing Checklist
+
+Before deploying, verify:
+
+- [ ] Home page loads with featured products
+- [ ] `/products` displays all products with filters
+- [ ] Product detail page shows images, description, add-to-cart
+- [ ] Cart drawer opens, updates quantities, persists on refresh
+- [ ] Checkout form validates required fields
+- [ ] Order creates in Supabase (`orders` + `order_items`)
+- [ ] Stock decrements in `products` table
+- [ ] Confirmation email sent via Mailgun
+- [ ] Google Sign In works (login + signup)
+- [ ] `/account` shows order history for logged-in user
+- [ ] Newsletter signup works
+- [ ] Mobile responsive (test Chrome DevTools device toolbar)
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **Next.js Team** - Amazing framework
+- **Supabase** - Backend-as-a-service
+- **Tailwind CSS** - Utility-first styling
+- **Zustand** - Simple state management
+- **Lucide** - Beautiful icons
+- **Unsplash** - Placeholder product images
+- **sliderpals.com** - UI/UX inspiration
+
+---
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/your-username/stage-2-shop/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/your-username/stage-2-shop/discussions)
+- **Email**: support@yourdomain.com
+
+---
+
+Built with ❤️ using Next.js, Supabase, and Tailwind CSS
