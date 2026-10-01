@@ -151,14 +151,24 @@ CREATE POLICY "Admins can manage newsletter subscribers"
   USING (auth.jwt() ->> 'role' = 'service_role');
 
 -- ============================================
--- SEED DATA (Optional - run after table creation)
+-- RESEED DUMMY PRODUCTS (Development / Demo)
 -- ============================================
+-- Run this block when you want to replace old sample data.
+-- It clears order records first because order_items references products.
+DELETE FROM order_items;
+DELETE FROM orders;
+DELETE FROM products;
+
 INSERT INTO products (title, description, price, stock_quantity, image_url, category) VALUES
-('Classic Cotton T-Shirt', 'Premium quality cotton t-shirt with a comfortable fit. Perfect for everyday wear. Made from 100% organic cotton that gets softer with every wash.', 29.99, 50, 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop', 'Clothing'),
-('Wireless Bluetooth Headphones', 'High-quality wireless headphones with active noise cancellation and 30-hour battery life. Features premium drivers for rich, detailed sound.', 149.99, 25, 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=800&fit=crop', 'Electronics'),
-('Minimalist Leather Wallet', 'Handcrafted genuine leather wallet with RFID protection. Slim design fits in any pocket while holding up to 8 cards and cash.', 49.99, 30, 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=800&h=800&fit=crop', 'Accessories'),
-('Ceramic Coffee Mug Set', 'Set of 4 handcrafted ceramic mugs. Microwave and dishwasher safe. Each mug holds 12oz and features a comfortable handle.', 34.99, 40, 'https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?w=800&h=800&fit=crop', 'Home'),
-('Stainless Steel Water Bottle', 'Insulated water bottle keeps drinks cold for 24 hours or hot for 12 hours. Double-wall vacuum insulation prevents condensation.', 24.99, 60, 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop', 'Accessories'),
-('Organic Cotton Hoodie', 'Cozy organic cotton hoodie with brushed interior. Ethically manufactured in a fair-trade certified facility.', 69.99, 35, 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&h=800&fit=crop', 'Clothing'),
-('Bamboo Cutting Board', 'Eco-friendly bamboo cutting board with juice groove. Gentle on knives and naturally antimicrobial.', 22.99, 45, 'https://images.unsplash.com/photo-1584990347449-1514a8a7377e?w=800&h=800&fit=crop', 'Home'),
-('Smart Watch Series 5', 'Advanced health tracking, GPS, and cellular connectivity. Water resistant to 50m. Always-on retina display.', 399.99, 15, 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=800&fit=crop', 'Electronics');
+('AeroLite Everyday Backpack', 'Water-resistant backpack with a 20L capacity, padded laptop compartment, and breathable back panel for daily commutes.', 79.99, 28, 'https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?w=800&h=800&fit=crop', 'Accessories'),
+('Nova Wireless Earbuds', 'True wireless earbuds with active noise cancellation, 32-hour battery life, and fast USB-C charging case.', 129.99, 42, 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&h=800&fit=crop', 'Electronics'),
+('CloudSoft Knit Sweater', 'Lightweight knit sweater made from a soft cotton blend. Relaxed fit with ribbed cuffs and hem.', 54.99, 36, 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=800&fit=crop', 'Clothing'),
+('Terra Ceramic Dinner Set', '12-piece ceramic dinner set with a matte glaze finish. Microwave and dishwasher safe for daily use.', 94.99, 19, 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=800&h=800&fit=crop', 'Home'),
+('Luna Glass Water Bottle', 'Durable borosilicate glass bottle with protective silicone sleeve and leak-proof bamboo lid.', 27.99, 63, 'https://images.unsplash.com/photo-1523362628745-0c100150b504?w=800&h=800&fit=crop', 'Accessories'),
+('Pulse Smart Fitness Watch', 'Fitness smartwatch with heart-rate tracking, sleep analytics, GPS, and 7-day battery life.', 189.99, 22, 'https://images.unsplash.com/photo-1544117519-31a4b719223d?w=800&h=800&fit=crop', 'Electronics'),
+('Summit Insulated Hoodie', 'Midweight fleece hoodie with brushed interior and moisture-wicking fabric for year-round comfort.', 64.99, 31, 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&h=800&fit=crop', 'Clothing'),
+('Oakwood Serving Board', 'Large acacia serving board perfect for charcuterie or prep. Includes carved side grips for easy handling.', 39.99, 27, 'https://images.unsplash.com/photo-1577140917170-285929fb55b7?w=800&h=800&fit=crop', 'Home'),
+('Arc LED Desk Lamp', 'Adjustable LED desk lamp with three color temperatures and touch controls for brightness levels.', 45.99, 34, 'https://images.unsplash.com/photo-1534073828943-f801091bb18c?w=800&h=800&fit=crop', 'Electronics'),
+('Drift Canvas Slip-Ons', 'Breathable canvas slip-on shoes with cushioned insole and flexible rubber outsole for all-day wear.', 49.99, 48, 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&h=800&fit=crop', 'Clothing'),
+('Harbor Throw Blanket', 'Soft woven throw blanket with textured pattern and fringe edges. Great for sofa or bedroom styling.', 34.99, 40, 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=800&h=800&fit=crop', 'Home'),
+('Orbit Magnetic Phone Stand', 'Aluminum magnetic phone stand with adjustable viewing angles and anti-slip base for desks.', 24.99, 75, 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&h=800&fit=crop', 'Accessories');

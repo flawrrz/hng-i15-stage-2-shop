@@ -8,7 +8,7 @@
   - Styling: Tailwind CSS
   - Database & BaaS: Supabase (PostgreSQL, Row Level Security, `@supabase/ssr` / `@supabase/supabase-js`)
   - Authentication: Supabase Auth via Google Console (OAuth 2.0)
-  - Email Notifications: Mailgun API (via Next.js Route Handlers / Server Actions)
+  - Email Notifications: Gmail SMTP via Nodemailer (through Next.js Route Handlers / Server Actions)
 
 ## UI/UX Reference Site Guidelines
 - **Design Inspiration:** Reference [www.sliderpals.com](https://www.sliderpals.com) for UI/UX visual style, layout composition, component design, micro-interactions, color palettes, and purchasing flows.
@@ -17,10 +17,10 @@
 
 ## Next.js Architecture & Coding Style
 - **App Router Standards:** Utilize the Next.js App Router (`/app` directory). Leverage Server Components (`page.js`/`page.tsx`) by default for data fetching, and use `"use client"` explicitly only when interactive state (e.g., hooks, click listeners, cart drawers) is required.
-- **Backend API Layer:** Write backend endpoint handlers using **Next.js Route Handlers** (`app/api/.../route.js`) or **Server Actions** for form submissions, database updates, and Mailgun email triggers.
+- **Backend API Layer:** Write backend endpoint handlers using **Next.js Route Handlers** (`app/api/.../route.js`) or **Server Actions** for form submissions, database updates, and Gmail SMTP email triggers (send mail through the shared helper in `src/lib/email.ts`).
 - **Simplicity & Readability:** Write clean, explicit code. Avoid complex one-liners. Add clear comments explaining *why* a particular piece of logic exists, especially around Supabase client initialization, OAuth redirects, and API calls.
 - **Error Handling:** Never leave empty `catch` blocks. Always display user-friendly toast/UI messages and log detailed server error details via `console.error`.
-- **Environment Variables:** Never hardcode secrets. Access keys via process.env (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `MAILGUN_API_KEY`, `MAILGUN_DOMAIN`).
+- **Environment Variables:** Never hardcode secrets. Access keys via process.env (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `GMAIL_SMTP_USER`, `GMAIL_SMTP_APP_PASSWORD`).
 
 ## Commands
 - **Install Dependencies:** `npm install`

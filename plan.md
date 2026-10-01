@@ -29,16 +29,16 @@
 - [ ] **Interactive Shopping Cart:** Build a slide-out cart drawer component using React Context / Zustand to track items, quantities, and subtotal calculations.
 - [ ] Build a checkout form page (`app/checkout/page.js`) to collect shipping and customer information.
 
-## Milestone 5: Backend Order Processing & Mailgun Email Integration
+## Milestone 5: Backend Order Processing & Gmail SMTP Email Integration
 - [ ] Create a Next.js Server Action or API Route Handler (`app/api/checkout/route.js`) to process order submissions:
   - Verify cart prices against database records.
   - Insert order data into `orders` and `order_items` tables using Supabase server client.
-- [ ] Integrate **Mailgun API** inside the Next.js backend endpoint (`mailgun-js` or direct REST API call):
-  - Configure Mailgun domain/sandbox and API keys in `.env.local`.
+- [ ] Integrate **Gmail SMTP (Nodemailer)** inside the Next.js backend endpoint (shared helper in `src/lib/email.ts`):
+  - Configure `GMAIL_SMTP_USER`, `GMAIL_SMTP_APP_PASSWORD`, and `GMAIL_FROM_NAME` in `.env.local`.
   - Trigger an automated HTML confirmation email to the customer containing order summary details upon successful checkout.
 - [ ] Build a dedicated "Order Success" receipt page (`app/checkout/success/page.js`) echoing sliderpals.com's UI design.
 
 ## Milestone 6: Testing, Polish & Vercel Deployment
-- [ ] Perform end-to-end testing (Google auth login, catalog browsing, cart updates, order creation in Supabase, and Mailgun confirmation delivery).
+- [ ] Perform end-to-end testing (Google auth login, catalog browsing, cart updates, order creation in Supabase, and Gmail SMTP confirmation delivery).
 - [ ] Audit UI responsiveness across mobile, tablet, and desktop viewports against sliderpals.com visual standards.
 - [ ] Configure environment variables in the Vercel (or preferred host) dashboard and complete the production deployment.

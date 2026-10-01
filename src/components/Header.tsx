@@ -1,18 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { FormEvent, useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { useCartStore } from "@/lib/cart-store";
-import { Button } from "./Button";
-import { ChevronDown, LogOut, User, Package } from "lucide-react";
+import { ChevronDown, LogOut, Menu, Package, Search, User, X } from "lucide-react";
 
 export function Header() {
-  const { isOpen, getItemCount, toggleCart } = useCartStore();
+  const { getItemCount, toggleCart } = useCartStore();
   const itemCount = getItemCount();
+  const router = useRouter();
   const [user, setUser] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const accountMenuRef = useRef<HTMLDivElement | null>(null);
 
   const supabase = createClient();
 
@@ -34,9 +39,35 @@ export function Header() {
     return () => subscription.unsubscribe();
   }, [supabase]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        accountMenuRef.current &&
+        !accountMenuRef.current.contains(event.target as Node)
+      ) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     setShowDropdown(false);
+    setShowMobileMenu(false);
+  };
+
+  const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const query = searchQuery.trim();
+    const targetPath = query
+      ? `/products?search=${encodeURIComponent(query)}`
+      : "/products";
+    router.push(targetPath);
+    setShowSearch(false);
+    setShowMobileMenu(false);
   };
 
   if (isLoading) {
@@ -72,22 +103,26 @@ export function Header() {
           <div className="hidden md:flex items-center gap-8">
             <Link href="/" className="text-gray-700 hover:text-black transition-colors font-medium">Home</Link>
             <Link href="/products" className="text-gray-700 hover:text-black transition-colors font-medium">Shop</Link>
-            <Link href="/about" className="text-gray-700 hover:text-black transition-colors font-medium">About</Link>
             <Link href="/contact" className="text-gray-700 hover:text-black transition-colors font-medium">Contact</Link>
           </div>
 
           {/* Actions */}
           <div className="flex items-center gap-4">
             {/* Search */}
-            <button className="md:hidden p-2 text-gray-600 hover:text-black" aria-label="Search">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
+            <button
+              className="p-2 text-gray-600 hover:text-black transition-colors"
+              aria-label="Search products"
+              onClick={() => {
+                setShowSearch((prev) => !prev);
+                setShowMobileMenu(false);
+              }}
+            >
+              <Search className="w-5 h-5" />
             </button>
 
             {/* User Account / Auth */}
             {user ? (
-              <div className="relative" onMouseEnter={() => setShowDropdown(true)} onMouseLeave={() => setShowDropdown(false)}>
+              <div className="relative" ref={accountMenuRef}>
                 <button
                   className="flex items-center gap-2 p-2 text-gray-600 hover:text-black transition-colors"
                   aria-label="Account menu"
@@ -104,7 +139,9 @@ export function Header() {
                       <User className="w-5 h-5 text-gray-400" />
                     </div>
                   )}
-                  <span className="hidden sm:font-medium text-sm">{user.user_metadata?.full_name || user.email?.split("@")[0]}</span>
+                  <span className="hidden sm:font-medium text-sm">
+                    {user.user_metadata?.full_name || user.email?.split("@")[0]}
+                  </span>
                   <ChevronDown className="w-4 h-4 text-gray-400" />
                 </button>
 
@@ -176,14 +213,97 @@ export function Header() {
             </button>
 
             {/* Mobile Menu Button */}
-            <button className="md:hidden p-2 text-gray-600 hover:text-black" aria-label="Open menu">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+            <button
+              className="md:hidden p-2 text-gray-600 hover:text-black transition-colors"
+              aria-label={showMobileMenu ? "Close menu" : "Open menu"}
+              onClick={() => {
+                setShowMobileMenu((prev) => !prev);
+                setShowSearch(false);
+              }}
+            >
+              {showMobileMenu ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
       </nav>
+
+      {showSearch && (
+        <div className="border-t border-gray-100 bg-white">
+          <form
+            onSubmit={handleSearchSubmit}
+            className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-2"
+          >
+            <input
+              type="search"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              placeholder="Search for products..."
+              className="flex-1 px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+            />
+            <button
+              type="submit"
+              className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+      )}
+
+      {showMobileMenu && (
+        <div className="md:hidden border-t border-gray-100 bg-white">
+          <div className="px-4 py-4 space-y-2">
+            <Link href="/" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50">
+              Home
+            </Link>
+            <Link href="/products" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50">
+              Shop
+            </Link>
+            <Link href="/contact" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50">
+             Contact
+            </Link>
+          </div>
+          <div className="px-4 pb-4 border-t border-gray-100 pt-4">
+            {user ? (
+              <div className="space-y-2">
+                <Link href="/account" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50">
+                  My Account
+                </Link>
+                <Link href="/account" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50">
+                  My Orders
+                </Link>
+                <button
+                  onClick={handleSignOut}
+                  className="w-full text-left px-3 py-2 rounded-lg text-red-600 hover:bg-gray-50"
+                >
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <div className="space-y-2">
+                <Link
+                  href="/auth/login"
+                  onClick={() => setShowMobileMenu(false)}
+                  className="block px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50"
+                >
+                  Sign In
+                </Link>
+                <Link
+                  href="/auth/signup"
+                  onClick={() => setShowMobileMenu(false)}
+                  className="block px-3 py-2 rounded-lg bg-black text-white hover:bg-gray-800"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       <style jsx>{`
         @keyframes fade-in {

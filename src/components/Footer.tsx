@@ -19,7 +19,6 @@ export function Footer() {
       { label: "Track Order", href: "/track-order" },
     ],
     company: [
-      { label: "About Us", href: "/about" },
       { label: "Careers", href: "/careers" },
       { label: "Press", href: "/press" },
       { label: "Sustainability", href: "/sustainability" },

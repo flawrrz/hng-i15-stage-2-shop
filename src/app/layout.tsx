@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   title: "Shop - Discover Quality Products",
   description: "Shop curated products you'll love. Quality items, fair prices, delivered to your door.",
   keywords: ["ecommerce", "shop", "online shopping", "products"],
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export const viewport: Viewport = {

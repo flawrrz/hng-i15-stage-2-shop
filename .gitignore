@@ -32,6 +32,8 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# ...but keep the template that new developers copy from
+!.env.local.example
 
 # vercel
 .vercel
@@ -39,3 +41,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Session From Previous Agent (OpenCode)
+building-project-per-agents-md-and-plan-md.json

@@ -1,6 +1,6 @@
 # Stage 2 Shop - Modern E-Commerce Platform
 
-A full-stack e-commerce web application built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS**, **Supabase** (PostgreSQL + Auth), and **Zustand** for state management. Features Google OAuth authentication, shopping cart, checkout flow, order management, and email notifications via Mailgun.
+A full-stack e-commerce web application built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS**, **Supabase** (PostgreSQL + Auth), and **Zustand** for state management. Features Google OAuth authentication, shopping cart, checkout flow, order management, and email notifications via Gmail SMTP.
 
 ## 🚀 Live Demo
 
@@ -24,7 +24,7 @@ A full-stack e-commerce web application built with **Next.js 16 (App Router)**, 
 - **Server Components** - Default RSC for optimal performance
 - **Server Actions / Route Handlers** - Type-safe API layer
 - **Supabase Integration** - SSR-compatible auth with `@supabase/ssr`
-- **Edge-Ready Middleware** - Auth protection for routes
+- **Edge-Ready Proxy** - Auth protection for routes
 
 ---
 
@@ -38,7 +38,7 @@ A full-stack e-commerce web application built with **Next.js 16 (App Router)**, 
 | **Database** | Supabase (PostgreSQL) |
 | **Auth** | Supabase Auth + Google OAuth 2.0 |
 | **State** | Zustand 5 (with persist middleware) |
-| **Email** | Mailgun API |
+| **Email** | Gmail SMTP (Nodemailer) |
 | **Icons** | Lucide React |
 | **Deployment** | Vercel |
 | **Linting** | ESLint 9 + Next.js config |
@@ -84,7 +84,7 @@ stage-2-shop/
 │   │   ├── cart-store.ts  # Zustand cart store
 │   │   ├── types.ts       # TypeScript interfaces
 │   │   └── utils.ts       # Helper functions
-│   └── middleware.ts      # Auth middleware
+│   └── proxy.ts           # Auth proxy (Next.js v16+)
 ├── supabase-schema.sql    # Database schema + seed data
 ├── supabase-additional.sql # Additional tables (newsletter, views)
 ├── .env.local.example     # Environment variable template
@@ -102,7 +102,7 @@ stage-2-shop/
 - npm / pnpm / yarn
 - Supabase account
 - Google Cloud Console project
-- Mailgun account (for emails)
+- Gmail account with App Password (for emails)
 
 ### Installation
 
@@ -142,10 +142,10 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 NEXT_PUBLIC_GOOGLE_CLIENT_ID=your-client-id.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=your-client-secret
 
-# Mailgun (Required for emails)
-MAILGUN_API_KEY=key-your-mailgun-key
-MAILGUN_DOMAIN=mg.yourdomain.com
-MAILGUN_FROM_EMAIL=noreply@mg.yourdomain.com
+# Gmail SMTP (Required for emails)
+GMAIL_SMTP_USER=yourgmail@gmail.com
+GMAIL_SMTP_APP_PASSWORD=your-16-character-app-password
+GMAIL_FROM_NAME=Shop
 
 # App
 NEXT_PUBLIC_APP_URL=http://localhost:3000
@@ -157,7 +157,7 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 |---------|-----------|-------------|
 | **Supabase** | [supabase.com/dashboard](https://supabase.com/dashboard/project/_/settings/api) | Project URL, Anon Key, Service Role Key |
 | **Google OAuth** | [console.cloud.google.com](https://console.cloud.google.com/apis/credentials) | Client ID, Client Secret |
-| **Mailgun** | [app.mailgun.com](https://app.mailgun.com/app/sending/domains) | API Key, Domain, From Email |
+| **Gmail SMTP** | [myaccount.google.com](https://myaccount.google.com) | Gmail address, 16-char app password |
 
 ---
 
@@ -208,12 +208,13 @@ newsletter_subscribers  # Email subscriptions
 
 ---
 
-## 📧 Email Setup (Mailgun)
+## 📧 Email Setup (Gmail SMTP)
 
-1. Sign up at [mailgun.com](https://mailgun.com)
-2. Add & verify a sending domain (or use sandbox)
-3. Get **Private API Key** from domain settings
-4. Add `MAILGUN_API_KEY`, `MAILGUN_DOMAIN`, `MAILGUN_FROM_EMAIL` to `.env.local`
+1. Go to your Google account: [myaccount.google.com](https://myaccount.google.com)
+2. Turn on **2-Step Verification** (required before App Passwords are available)
+3. Open **Security → App passwords** and create a new app password
+4. Copy the generated 16-character password
+5. Add `GMAIL_SMTP_USER`, `GMAIL_SMTP_APP_PASSWORD`, and `GMAIL_FROM_NAME` to `.env.local`
 
 **Emails sent:**
 - Order confirmation (HTML receipt) after checkout
@@ -289,7 +290,7 @@ Before deploying, verify:
 - [ ] Checkout form validates required fields
 - [ ] Order creates in Supabase (`orders` + `order_items`)
 - [ ] Stock decrements in `products` table
-- [ ] Confirmation email sent via Mailgun
+- [ ] Confirmation email sent via Gmail SMTP
 - [ ] Google Sign In works (login + signup)
 - [ ] `/account` shows order history for logged-in user
 - [ ] Newsletter signup works

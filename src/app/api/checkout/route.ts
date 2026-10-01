@@ -1,8 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/server";
 import { NextRequest, NextResponse } from "next/server";
-import Mailgun from "mailgun.js";
-import formData from "form-data";
+import { isEmailConfigured, sendEmail, escapeHtml } from "@/lib/email";
 
 interface CheckoutItem {
   product_id: string;
@@ -37,22 +36,6 @@ interface CheckoutRequest {
   total: number;
 }
 
-// Initialize Mailgun lazily
-function getMailgunClient() {
-  const apiKey = process.env.MAILGUN_API_KEY;
-  const domain = process.env.MAILGUN_DOMAIN;
-  
-  if (!apiKey || !domain) {
-    return null;
-  }
-  
-  const mailgun = new Mailgun(formData);
-  return mailgun.client({
-    username: "api",
-    key: apiKey,
-  });
-}
-
 async function sendOrderConfirmationEmail(
   orderId: string,
   customerEmail: string,
@@ -64,11 +47,9 @@ async function sendOrderConfirmationEmail(
   tax: number,
   total: number
 ) {
-  const mailgunDomain = process.env.MAILGUN_DOMAIN;
-  const fromEmail = process.env.MAILGUN_FROM_EMAIL;
-
-  if (!mailgunDomain || !fromEmail) {
-    console.warn("Mailgun not configured, skipping email");
+  // Skip early so we don't render the whole receipt HTML when no credentials exist.
+  if (!isEmailConfigured()) {
+    console.warn("Gmail SMTP not configured, skipping email");
     return;
   }
 
@@ -103,7 +84,7 @@ async function sendOrderConfirmationEmail(
         <!-- Header -->
         <div style="background: #111827; color: white; padding: 32px; text-align: center;">
           <h1 style="margin: 0; font-size: 28px; font-weight: 700;">Order Confirmed</h1>
-          <p style="margin: 8px 0 0; opacity: 0.8;">Thank you for your order, ${customerName}!</p>
+          <p style="margin: 8px 0 0; opacity: 0.8;">Thank you for your order, ${escapeHtml(customerName)}!</p>
         </div>
 
         <!-- Order Details -->
@@ -151,11 +132,11 @@ async function sendOrderConfirmationEmail(
           <div style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #e5e7eb;">
             <h3 style="margin: 0 0 12px; font-size: 16px; font-weight: 600;">Shipping Address</h3>
             <address style="margin: 0; font-style: normal; color: #374151; white-space: pre-line;">
-${shippingAddress.full_name}
-${shippingAddress.address_line_1}
-${shippingAddress.address_line_2 || ""}
-${shippingAddress.city}, ${shippingAddress.state} ${shippingAddress.postal_code}
-${shippingAddress.country}
+${escapeHtml(shippingAddress.full_name)}
+${escapeHtml(shippingAddress.address_line_1)}
+${escapeHtml(shippingAddress.address_line_2 || "")}
+${escapeHtml(shippingAddress.city)}, ${escapeHtml(shippingAddress.state)} ${escapeHtml(shippingAddress.postal_code)}
+${escapeHtml(shippingAddress.country)}
             </address>
           </div>
 
@@ -181,18 +162,15 @@ ${shippingAddress.country}
   `;
 
   try {
-    const mg = getMailgunClient();
-    if (mg) {
-      await mg.messages.create(mailgunDomain, {
-        from: `Shop <${fromEmail}>`,
-        to: [customerEmail],
-        subject: `Order Confirmation #${orderId.slice(0, 8).toUpperCase()}`,
-        html,
-      });
-      console.log("Order confirmation email sent to:", customerEmail);
-    } else {
-      console.log("Mailgun not configured, skipping email send");
-    }
+    // Gmail SMTP transport lives in src/lib/email.ts so every endpoint sends
+    // mail from the same account with the same settings.
+    await sendEmail({
+      to: customerEmail,
+      subject: `Order Confirmation #${orderId.slice(0, 8).toUpperCase()}`,
+      html,
+    });
+
+    console.log("Order confirmation email sent to:", customerEmail);
   } catch (error) {
     console.error("Failed to send confirmation email:", error);
     // Don't throw - we don't want to fail the order if email fails
@@ -221,8 +199,9 @@ export async function POST(request: NextRequest) {
     } = await supabase.auth.getUser();
 
     // Verify product prices and stock
-    const productIds = body.items.map((item) => item.product_id);
-    const { data: products, error: productsError } = await supabase
+    // Use admin client so guest checkout is not blocked by products table RLS.
+    const productIds = [...new Set(body.items.map((item) => item.product_id))];
+    const { data: products, error: productsError } = await adminClient
       .from("products")
       .select("id, price, stock_quantity, title")
       .in("id", productIds);

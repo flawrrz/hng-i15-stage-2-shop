@@ -5,11 +5,12 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/Button";
 import { formatDate, format } from "@/lib/utils";
-import { LogOut, User, Package, Settings, ChevronDown, ChevronUp } from "lucide-react";
+import { LogOut, User, Package, Settings } from "lucide-react";
 
 interface User {
   id: string;
   email: string | undefined;
+  created_at?: string;
   user_metadata: {
     full_name?: string;
     avatar_url?: string;
@@ -40,7 +41,7 @@ interface AccountPageProps {
 }
 
 export function AccountPage({ user, orders }: AccountPageProps) {
-  const [activeTab, setActiveTab] = useState<"profile" | "orders">("profile");
+  const [activeTab, setActiveTab] = useState<"profile" | "orders" | "settings">("profile");
   const [isSigningOut, setIsSigningOut] = useState(false);
 
   const supabase = createClient();
@@ -53,6 +54,7 @@ export function AccountPage({ user, orders }: AccountPageProps) {
 
   const displayName = user.user_metadata.full_name || (user.email ? user.email.split("@")[0] : "User");
   const avatarUrl = user.user_metadata.avatar_url;
+  const memberSinceText = user.created_at ? formatDate(user.created_at) : "Not available";
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -111,7 +113,12 @@ export function AccountPage({ user, orders }: AccountPageProps) {
                   Orders
                 </button>
                 <button
-                  className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+                  onClick={() => setActiveTab("settings")}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                    activeTab === "settings"
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                  }`}
                 >
                   <Settings className="w-5 h-5" />
                   Settings
@@ -148,7 +155,7 @@ export function AccountPage({ user, orders }: AccountPageProps) {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-500 mb-1">Member Since</label>
-                    <p className="text-gray-900">{formatDate(user.id)}</p>
+                    <p className="text-gray-900">{memberSinceText}</p>
                   </div>
                 </div>
               </div>
@@ -239,6 +246,34 @@ export function AccountPage({ user, orders }: AccountPageProps) {
                     ))}
                   </div>
                 )}
+              </div>
+            )}
+
+            {activeTab === "settings" && (
+              <div className="bg-white rounded-xl border border-gray-100 p-6">
+                <h2 className="text-xl font-semibold text-gray-900 mb-6">Account Settings</h2>
+                <div className="space-y-4 max-w-xl">
+                  <div className="p-4 border border-gray-100 rounded-lg">
+                    <p className="text-sm font-medium text-gray-500 mb-1">Signed in as</p>
+                    <p className="text-gray-900">{user.email || "No email"}</p>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link href="/contact" className="w-full sm:w-auto">
+                      <Button variant="outline" className="w-full sm:w-auto">
+                        Contact Support
+                      </Button>
+                    </Link>
+                    <Button
+                      onClick={handleSignOut}
+                      variant="ghost"
+                      className="w-full sm:w-auto text-red-600 hover:bg-red-50"
+                      isLoading={isSigningOut}
+                    >
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Sign Out
+                    </Button>
+                  </div>
+                </div>
               </div>
             )}
           </main>
