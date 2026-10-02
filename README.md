@@ -4,7 +4,7 @@ A full-stack e-commerce web application built with **Next.js 16 (App Router)**, 
 
 ## 🚀 Live Demo
 
-**Deployed on Vercel**: [https://stage-2-shop.vercel.app](https://stage-2-shop.vercel.app) *(replace with your actual URL)*
+**Deployed on Vercel**: [https://hng-i15-stage-2-shop.vercel.app](https://hng-i15-stage-2-shop.vercel.app)
 
 ---
 
