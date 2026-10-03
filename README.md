@@ -2,6 +2,8 @@
 
 A full-stack e-commerce web application built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS**, **Supabase** (PostgreSQL + Auth), and **Zustand** for state management. Features Google OAuth authentication, shopping cart, checkout flow, order management, and email notifications via Gmail SMTP.
 
+It also ships with a **companion mobile app** in [`mobile/`](mobile/README.md) — an Expo (SDK 57) app that talks to the *same* Supabase project and the same `/api/*` routes, so both platforms share one catalog, one cart/checkout contract and one order history.
+
 ## 🚀 Live Demo
 
 **Deployed on Vercel**: [https://hng-i15-stage-2-shop.vercel.app](https://hng-i15-stage-2-shop.vercel.app)
@@ -85,6 +87,11 @@ stage-2-shop/
 │   │   ├── types.ts       # TypeScript interfaces
 │   │   └── utils.ts       # Helper functions
 │   └── proxy.ts           # Auth proxy (Next.js v16+)
+├── mobile/               # Expo mobile app (iOS + Android)
+│   ├── app.json          # scheme stage2shop · bundle com.stage2shop.app
+│   ├── eas.json          # EAS build profiles (dev/preview/production)
+│   ├── .env.example      # EXPO_PUBLIC_* template (copy to .env)
+│   └── src/              # screens (app/), components/, lib/ — see mobile/README.md
 ├── supabase-schema.sql    # Database schema + seed data
 ├── supabase-additional.sql # Additional tables (newsletter, views)
 ├── .env.local.example     # Environment variable template
@@ -253,6 +260,30 @@ Go to **Project Settings** → **Environment Variables** and add all from `.env.
 | `npm run build` | Production build |
 | `npm start` | Start production server |
 | `npm run lint` | Run ESLint |
+
+---
+
+## 📱 Mobile App (Expo)
+
+A full shop experience for iOS & Android lives in [`mobile/`](mobile/README.md):
+
+- **Shop / Cart / Account** native tabs with a live cart badge
+- Browse products, product detail, cart, checkout → posts to the web app's
+  `/api/checkout` (guest checkout included), newsletter via `/api/newsletter`
+- Email/password auth + Google OAuth via deep links, order history — all backed
+  by the same Supabase project and RLS policies
+- Cart & session persisted with `expo-sqlite`'s localStorage
+
+```bash
+npm run dev            # terminal 1: web app = the mobile backend
+cd mobile && npm install
+npx expo start         # terminal 2: scan the QR with Expo Go
+```
+
+Setup details (env vars, Supabase redirect URLs `stage2shop://**` / `exp://**`,
+EAS builds, App Store Guideline 4.8 note) → **[mobile/README.md](mobile/README.md)**.
+
+Quality gates: `npx expo lint` · `npx tsc --noEmit` · `npx expo-doctor`
 
 ---
 

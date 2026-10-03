@@ -32,8 +32,9 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
-# ...but keep the template that new developers copy from
+# ...but keep the templates that new developers copy from
 !.env.local.example
+!.env.example
 
 # vercel
 .vercel
