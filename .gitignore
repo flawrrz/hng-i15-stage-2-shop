@@ -36,6 +36,9 @@ yarn-error.log*
 !.env.local.example
 !.env.example
 
+# expo (the mobile app lives in /mobile; ignore stray Expo cache from accidental root runs)
+.expo/
+
 # vercel
 .vercel
 

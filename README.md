@@ -16,6 +16,7 @@ It also ships with a **companion mobile app** in [`mobile/`](mobile/README.md) �
 - **Product Catalog** - Browse products with categories, responsive grid layout
 - **Product Details** - Image gallery, description, quantity selector, add to cart
 - **Shopping Cart** - Slide-out drawer with persistent storage (Zustand + localStorage)
+- **Cross-Device Cart Sync** - Signed-in carts sync live between the web app and the mobile app (Supabase Realtime)
 - **Checkout Flow** - Multi-step form (Contact → Shipping → Payment-ready)
 - **Order Confirmation** - Success page with order summary, email receipt
 - **User Account** - Google OAuth login, order history, profile management
@@ -74,6 +75,7 @@ stage-2-shop/
 │   ├── components/        # React components
 │   │   ├── Button.tsx
 │   │   ├── CartDrawer.tsx
+│   │   ├── CartSync.tsx   # Mounts cart sync (renders null)
 │   │   ├── Footer.tsx
 │   │   ├── Header.tsx
 │   │   ├── ProductCard.tsx
@@ -84,6 +86,7 @@ stage-2-shop/
 │   │   │   ├── client.ts  # Browser client
 │   │   │   └── server.ts  # Server/Server Action client
 │   │   ├── cart-store.ts  # Zustand cart store
+│   │   ├── cart-sync.ts   # Web ↔ mobile cart sync engine
 │   │   ├── types.ts       # TypeScript interfaces
 │   │   └── utils.ts       # Helper functions
 │   └── proxy.ts           # Auth proxy (Next.js v16+)
@@ -94,6 +97,7 @@ stage-2-shop/
 │   └── src/              # screens (app/), components/, lib/ — see mobile/README.md
 ├── supabase-schema.sql    # Database schema + seed data
 ├── supabase-additional.sql # Additional tables (newsletter, views)
+├── supabase-cart-sync.sql  # cart_items table + realtime (web ↔ mobile sync)
 ├── .env.local.example     # Environment variable template
 ├── next.config.ts
 ├── package.json
@@ -177,6 +181,8 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 3. Paste contents of `supabase-schema.sql`
 4. Click **Run** (creates tables, indexes, RLS policies, seed data)
 5. Optional: Run `supabase-additional.sql` for newsletter table
+6. Run `supabase-cart-sync.sql` — required for cart sync between the web app
+   and the mobile app (creates the `cart_items` table + realtime publication)
 
 ### Schema Overview
 
@@ -185,12 +191,14 @@ products          # Product catalog
 orders            # Customer orders
 order_items       # Line items per order
 newsletter_subscribers  # Email subscriptions
+cart_items        # Signed-in cart, shared by web + mobile (realtime)
 ```
 
 **RLS Policies** (already included):
 - Products: Public read, admin write
 - Orders: Users see only their own
 - Order Items: Users see only their own order's items
+- Cart Items: Signed-in users read/write only their own rows (no anon access)
 
 ---
 

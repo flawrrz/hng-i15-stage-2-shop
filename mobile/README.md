@@ -17,6 +17,7 @@ Zustand (cart) · expo-sqlite (local storage) · TypeScript
 - **Checkout** — same validation and payloads as the website, guest checkout supported
 - **Account tab** — email/password sign-in & sign-up, Google OAuth (deep-linked), order history, sign out
 - **Persists locally** — cart and session survive app restarts (localStorage backed by expo-sqlite)
+- **Live cart sync** — signed-in carts are shared instantly with the web shop (Supabase Realtime); a guest cart merges into the account at sign-in
 
 ---
 
@@ -88,6 +89,20 @@ same pattern as Supabase's official Expo example. Session storage is
 
 ---
 
+## 🛒 Cart Sync Setup (one-time)
+
+Signed-in carts sync live between this app and the web shop through a
+`cart_items` table + Supabase Realtime. Run it once:
+
+1. Supabase Dashboard → **SQL Editor** → **New Query**
+2. Paste the repo root's [`supabase-cart-sync.sql`](../supabase-cart-sync.sql)
+3. Click **Run**
+
+Until the table exists everything still works locally — sync just stays
+inactive and logs a console error naming that file (run it and reload).
+
+---
+
 ## 🛠 Development Commands
 
 ```bash
@@ -155,7 +170,7 @@ mobile/
 ├── .env / .env.example    # EXPO_PUBLIC_* config (only .env.example is committed)
 └── src/
     ├── app/               # screens (Expo Router file-based routes)
-    │   ├── _layout.tsx    # root stack + AuthProvider + splash
+    │   ├── _layout.tsx    # root stack + AuthProvider + CartSync + splash
     │   ├── (tabs)/        # Shop · Cart · Account (native tab bar + badge)
     │   ├── product/[id].tsx
     │   ├── checkout/      # index (form) · success (confirmation)
@@ -166,6 +181,7 @@ mobile/
         ├── supabase.ts    # client (localStorage session, AppState token refresh)
         ├── auth.tsx       # AuthProvider: password + Google OAuth + deep links
         ├── cart-store.ts  # zustand + persist (mirrors web cart-store)
+        ├── cart-sync.ts   # web ↔ mobile cart sync engine (mirrors web)
         ├── api.ts         # /api/checkout, /api/newsletter calls, totals
         ├── theme.ts       # design tokens (same palette as web)
         └── types.ts       # shared Supabase row types

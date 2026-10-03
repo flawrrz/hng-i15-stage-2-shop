@@ -11,6 +11,12 @@ import type { CartItem } from './types';
  */
 interface CartState {
   items: CartItem[];
+  /**
+   * Account whose server cart this local cart belongs to (null = guest).
+   * lib/cart-sync.ts uses it to decide between "server wins" (same account
+   * again) and "merge my guest items in" (first sign-in on this device).
+   */
+  syncedUserId: string | null;
   /** true once persisted state has been read from storage. */
   hydrated: boolean;
   markHydrated: () => void;
@@ -18,6 +24,10 @@ interface CartState {
   removeItem: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
+  /** Replaces the whole cart. Only cart-sync should call this. */
+  setItems: (items: CartItem[]) => void;
+  /** Records which account the cart is synced to. Only cart-sync calls this. */
+  setSyncedUserId: (userId: string | null) => void;
   getSubtotal: () => number;
   getItemCount: () => number;
 }
@@ -26,6 +36,7 @@ export const useCartStore = create<CartState>()(
   persist(
     (set, get) => ({
       items: [],
+      syncedUserId: null,
       hydrated: false,
 
       markHydrated: () => set({ hydrated: true }),
@@ -66,6 +77,10 @@ export const useCartStore = create<CartState>()(
 
       clearCart: () => set({ items: [] }),
 
+      setItems: (items) => set({ items }),
+
+      setSyncedUserId: (syncedUserId) => set({ syncedUserId }),
+
       getSubtotal: () =>
         get().items.reduce((sum, item) => sum + item.price * item.quantity, 0),
 
@@ -75,8 +90,11 @@ export const useCartStore = create<CartState>()(
     {
       name: 'shop-cart',
       storage: createJSONStorage(() => appStorage),
-      // Only items are persisted — functions and flags are recreated at runtime.
-      partialize: (state) => ({ items: state.items }),
+      // Only cart data is persisted — functions and flags are recreated at runtime.
+      partialize: (state) => ({
+        items: state.items,
+        syncedUserId: state.syncedUserId,
+      }),
       onRehydrateStorage: () => (state) => {
         // Lets screens avoid flashing an empty cart while storage loads.
         state?.markHydrated();
