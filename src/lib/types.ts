@@ -50,6 +50,8 @@ export interface CartItem {
   price: number;
   image_url: string | null;
   quantity: number;
+  /** Optional: stock level used to cap quantities (see lib/cart-store.ts). */
+  stock_quantity?: number;
 }
 
 export interface CheckoutData {

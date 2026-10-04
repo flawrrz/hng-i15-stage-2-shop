@@ -4,6 +4,7 @@ import { REALTIME_SUBSCRIBE_STATES } from "@supabase/supabase-js";
 
 import { createClient } from "@/lib/supabase/client";
 import { useCartStore, type CartItem } from "@/lib/cart-store";
+import { useToastStore } from "@/lib/toast-store";
 
 /**
  * Cart sync — keeps a signed-in account's cart identical between the web app
@@ -47,12 +48,14 @@ interface ServerCartRow {
         title: string;
         price: number | string;
         image_url: string | null;
+        stock_quantity: number | string;
       }
     | {
         id: string;
         title: string;
         price: number | string;
         image_url: string | null;
+        stock_quantity: number | string;
       }[]
     | null;
 }
@@ -190,7 +193,9 @@ function startSession(userId: string): () => void {
     try {
       const { data, error } = await supabase
         .from("cart_items")
-        .select("product_id, quantity, created_at, products(id, title, price, image_url)")
+        .select(
+          "product_id, quantity, created_at, products(id, title, price, image_url, stock_quantity)"
+        )
         .eq("user_id", userId)
         .order("created_at", { ascending: true });
       if (error) throw error;
@@ -210,6 +215,7 @@ function startSession(userId: string): () => void {
             title: product.title,
             price: Number(product.price),
             image_url: product.image_url,
+            stock_quantity: Number(product.stock_quantity),
             quantity: row.quantity,
           } satisfies CartItem,
         ];
@@ -309,6 +315,10 @@ function startSession(userId: string): () => void {
       } finally {
         applyingRemote = false;
       }
+      // Explain the surprise: the cart changed without the user touching it.
+      // Our own push's echo never lands here — the signature guard above
+      // already filtered it — so this fires only for genuinely remote edits.
+      useToastStore.getState().push("Cart updated from another device");
     }
   };
 
@@ -359,6 +369,11 @@ function startSession(userId: string): () => void {
       // wins so removals made on the other device aren't resurrected locally.
       const next = alreadySynced ? server : mergeCarts(server, state.items);
 
+      // Tell the user when this reconcile visibly changes the cart: a guest
+      // cart merging into the account, account items arriving on a new
+      // device, or edits made elsewhere while this session was closed.
+      const changedVisibly = signature(state.items) !== signature(next);
+
       applyingRemote = true;
       try {
         state.setItems(next);
@@ -366,6 +381,16 @@ function startSession(userId: string): () => void {
         applyingRemote = false;
       }
       store.getState().setSyncedUserId(userId); // only after a successful pull
+
+      if (changedVisibly) {
+        useToastStore
+          .getState()
+          .push(
+            alreadySynced
+              ? "Cart updated from another device"
+              : "Your cart was synced to your account"
+          );
+      }
 
       if (!alreadySynced) schedulePush(); // upload local-only guest extras
     }

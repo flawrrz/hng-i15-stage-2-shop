@@ -74,6 +74,7 @@ export default function ProductScreen() {
         title: product.title,
         price: product.price,
         image_url: product.image_url,
+        stock_quantity: product.stock_quantity,
       });
     }
 

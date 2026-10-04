@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
 import { CartSync } from '@/components/CartSync';
+import { SyncToast } from '@/components/SyncToast';
 import { AuthProvider } from '@/lib/auth';
 
 /**
@@ -22,6 +23,8 @@ export default function RootLayout() {
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack>
+        {/* After the navigator so cart-sync toasts float over every screen */}
+        <SyncToast />
         <StatusBar style="dark" />
       </AuthProvider>
     </ThemeProvider>

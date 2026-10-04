@@ -1,13 +1,18 @@
 "use client";
 
-import { useEffect } from "react";
-import { X, Plus, Minus, Trash2, ChevronLeft } from "lucide-react";
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { X, Plus, Minus, Trash2 } from "lucide-react";
 import { Button } from "./Button";
 import { useCartStore } from "@/lib/cart-store";
 import { format } from "@/lib/utils";
 
 export function CartDrawer() {
   const { isOpen, items, closeCart, removeItem, updateQuantity, getSubtotal, getItemCount } = useCartStore();
+  const router = useRouter();
+  /** The drawer panel — focused on open so keyboard users land inside it. */
+  const panelRef = useRef<HTMLElement | null>(null);
   const subtotal = getSubtotal();
   const itemCount = getItemCount();
   const shipping = subtotal > 0 ? (subtotal >= 50 ? 0 : 5.99) : 0;
@@ -25,6 +30,39 @@ export function CartDrawer() {
     };
   }, [isOpen]);
 
+  // Escape closes the drawer: a dialog without an escape hatch traps
+  // keyboard-only users behind it (WCAG 2.1.2).
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeCart();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [isOpen, closeCart]);
+
+  // Focus moves into the panel when it opens and returns to whatever had
+  // focus before (usually the header cart button) when it closes.
+  useEffect(() => {
+    if (!isOpen) return;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    panelRef.current?.focus();
+    return () => {
+      // Real clicks/keyboard activation leave focus on the trigger, so this
+      // normally restores it there. If the drawer was opened programmatically
+      // (focus still on <body>, which ignores .focus()), fall back to the
+      // header cart button rather than dropping focus on the document.
+      const usable =
+        previouslyFocused &&
+        previouslyFocused !== document.body &&
+        document.contains(previouslyFocused);
+      const trigger = document.querySelector<HTMLElement>(
+        'header button[aria-label^="Shopping cart"]'
+      );
+      (usable ? previouslyFocused : trigger)?.focus();
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -37,7 +75,14 @@ export function CartDrawer() {
       />
 
       {/* Cart Panel */}
-      <aside className="fixed right-0 top-0 h-full w-full max-w-md bg-white z-50 flex flex-col shadow-xl animate-slide-in" role="dialog" aria-label="Shopping cart">
+      <aside
+        ref={panelRef}
+        tabIndex={-1}
+        aria-modal="true"
+        className="fixed right-0 top-0 h-full w-full max-w-md bg-white z-50 flex flex-col shadow-xl animate-slide-in outline-none"
+        role="dialog"
+        aria-label="Shopping cart"
+      >
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-100">
           <h2 className="text-lg font-semibold text-gray-900">Shopping Cart ({itemCount})</h2>
@@ -58,7 +103,7 @@ export function CartDrawer() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
               <h3 className="text-lg font-medium text-gray-900 mb-1">Your cart is empty</h3>
-              <p className="text-gray-500 text-sm mb-6">Looks like you haven't added anything yet.</p>
+              <p className="text-gray-500 text-sm mb-6">Looks like you haven&apos;t added anything yet.</p>
               <Button onClick={closeCart} variant="primary">
                 Continue Shopping
               </Button>
@@ -68,7 +113,13 @@ export function CartDrawer() {
               <div key={item.id} className="flex gap-4">
                 <div className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden bg-gray-50">
                   {item.image_url ? (
-                    <img src={item.image_url} alt={item.title} className="w-full h-full object-cover" />
+                    <Image
+                      src={item.image_url}
+                      alt={item.title}
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-cover"
+                    />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-gray-400">
                       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,7 +194,7 @@ export function CartDrawer() {
             <Button
               onClick={() => {
                 closeCart();
-                window.location.href = "/checkout";
+                router.push("/checkout"); // client navigation: no full page reload
               }}
               className="w-full mt-2"
               size="lg"

@@ -60,6 +60,15 @@ export async function POST(request: NextRequest) {
     const formData = await request.formData();
     const email = formData.get("email") as string;
 
+    // The newsletter form fetches this route with Accept: application/json;
+    // the plain no-JS <form> posts with an HTML Accept header. JS clients
+    // get JSON back (fetch would otherwise follow our success redirect with
+    // a POST, landing on a 404 from the home page and logging a scary error
+    // even though the signup worked).
+    const wantsJson = (request.headers.get("accept") || "").includes(
+      "application/json"
+    );
+
     if (!email || !email.includes("@")) {
       return NextResponse.json(
         { error: "Valid email is required" },
@@ -105,7 +114,12 @@ export async function POST(request: NextRequest) {
       console.error("Failed to send newsletter confirmation email:", error);
     }
 
-    // Redirect back with success
+    // Success: JSON clients get an explicit 200 (a redirect would be
+    // followed by fetch as a POST and 404 on the home page); the no-JS form
+    // still gets redirected to /?subscribed=true for the banner fallback.
+    if (wantsJson) {
+      return NextResponse.json({ ok: true });
+    }
     const redirectUrl = new URL("/", request.url);
     redirectUrl.searchParams.set("subscribed", "true");
     return NextResponse.redirect(redirectUrl);

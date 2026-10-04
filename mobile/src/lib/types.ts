@@ -22,6 +22,12 @@ export interface CartItem {
   price: number;
   image_url: string | null;
   quantity: number;
+  /**
+   * Stock level of the product — carts cap quantities at it so you can't
+   * add more than exists. Optional because carts persisted before this
+   * field existed won't have it (those fall back to a 99 ceiling).
+   */
+  stock_quantity?: number;
 }
 
 export interface ShippingAddress {

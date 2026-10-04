@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Minus, Plus, Check, Truck, RotateCcw, Shield } from "lucide-react";
+import Link from "next/link";
+import { ChevronRight, Minus, Plus, Truck, RotateCcw, Shield } from "lucide-react";
 import { Button } from "@/components/Button";
 import { useCartStore } from "@/lib/cart-store";
 import { Product } from "@/lib/types";
@@ -15,7 +16,21 @@ interface ProductDetailProps {
 export function ProductDetail({ product }: ProductDetailProps) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const { addItem, openCart } = useCartStore();
+  const { addItem } = useCartStore();
+
+  // "Added ✓" feedback instead of auto-opening the cart drawer (same policy
+  // as ProductCard): the drawer only opens when the header cart is clicked,
+  // so the page you're on stays visible after adding.
+  const [added, setAdded] = useState(false);
+  const addedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Clear the pending timer on unmount so setAdded never fires afterwards.
+  useEffect(
+    () => () => {
+      if (addedTimer.current) clearTimeout(addedTimer.current);
+    },
+    []
+  );
 
   const isOutOfStock = product.stock_quantity <= 0;
   const maxQuantity = Math.min(product.stock_quantity, 10);
@@ -23,14 +38,23 @@ export function ProductDetail({ product }: ProductDetailProps) {
   const handleAddToCart = () => {
     if (isOutOfStock) return;
 
-    addItem({
-      id: `${product.id}-${Date.now()}`,
-      product_id: product.id,
-      title: product.title,
-      price: product.price,
-      image_url: product.image_url,
-    });
-    openCart();
+    // The store's addItem adds one unit per call, so repeat `quantity` times
+    // to honor the chosen picker value (mirrors how the Expo app adds from
+    // its product screen). The store caps each call at the stock level.
+    for (let i = 0; i < quantity; i++) {
+      addItem({
+        id: `${product.id}-${Date.now()}`,
+        product_id: product.id,
+        title: product.title,
+        price: product.price,
+        image_url: product.image_url,
+        stock_quantity: product.stock_quantity,
+      });
+    }
+
+    setAdded(true);
+    if (addedTimer.current) clearTimeout(addedTimer.current);
+    addedTimer.current = setTimeout(() => setAdded(false), 1500);
   };
 
   const handleQuantityChange = (delta: number) => {
@@ -50,11 +74,11 @@ export function ProductDetail({ product }: ProductDetailProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ol className="flex items-center gap-2 text-sm">
             <li>
-              <a href="/" className="text-gray-500 hover:text-gray-700">Home</a>
+              <Link href="/" className="text-gray-500 hover:text-gray-700">Home</Link>
             </li>
             <li className="flex items-center gap-2 text-gray-400">
               <ChevronRight className="w-4 h-4" />
-              <a href="/products" className="text-gray-500 hover:text-gray-700">Shop</a>
+              <Link href="/products" className="text-gray-500 hover:text-gray-700">Shop</Link>
             </li>
             <li className="flex items-center gap-2 text-gray-400">
               <ChevronRight className="w-4 h-4" />
@@ -196,7 +220,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 className="w-full"
                 size="lg"
               >
-                {isOutOfStock ? "Out of Stock" : "Add to Cart"}
+                {isOutOfStock ? "Out of Stock" : added ? "Added ✓" : "Add to Cart"}
               </Button>
 
               {/* Trust Badges */}

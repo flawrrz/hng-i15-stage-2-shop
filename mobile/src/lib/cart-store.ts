@@ -47,10 +47,19 @@ export const useCartStore = create<CartState>()(
             (i) => i.product_id === item.product_id
           );
           if (existing) {
+            // Cap at the product's stock level so re-adding can't exceed
+            // what's for sale (99 fallback when the level is unknown — e.g.
+            // a cart persisted before stock_quantity existed).
+            const cap = existing.stock_quantity ?? item.stock_quantity ?? 99;
+            if (existing.quantity >= cap) return {}; // already at the cap
             return {
               items: state.items.map((i) =>
                 i.product_id === item.product_id
-                  ? { ...i, quantity: i.quantity + 1 }
+                  ? {
+                      ...i,
+                      quantity: Math.min(existing.quantity + 1, cap),
+                      stock_quantity: item.stock_quantity ?? i.stock_quantity,
+                    }
                   : i
               ),
             };
@@ -70,7 +79,9 @@ export const useCartStore = create<CartState>()(
               ? state.items.filter((i) => i.product_id !== productId)
               : state.items.map((i) =>
                   i.product_id === productId
-                    ? { ...i, quantity: Math.min(quantity, 99) }
+                    ? // Same stock cap as addItem — the "+" button stops at
+                      // stock (99 fallback when the level is unknown).
+                      { ...i, quantity: Math.min(quantity, i.stock_quantity ?? 99) }
                     : i
                 ),
         })),

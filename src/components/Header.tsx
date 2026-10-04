@@ -2,7 +2,9 @@
 
 import { FormEvent, useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import type { User as SupabaseUser } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/client";
 import { useCartStore } from "@/lib/cart-store";
 import { ChevronDown, LogOut, Menu, Package, Search, User, X } from "lucide-react";
@@ -11,7 +13,7 @@ export function Header() {
   const { getItemCount, toggleCart } = useCartStore();
   const itemCount = getItemCount();
   const router = useRouter();
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<SupabaseUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -129,9 +131,15 @@ export function Header() {
                   onClick={() => setShowDropdown(!showDropdown)}
                 >
                   {user.user_metadata?.avatar_url ? (
-                    <img
+                    // unoptimized: OAuth avatar URLs point at arbitrary hosts
+                    // (Google, GitHub, …) that next/image would refuse unless
+                    // whitelisted — for a 32px avatar, pass the bytes through.
+                    <Image
                       src={user.user_metadata.avatar_url}
                       alt=""
+                      width={32}
+                      height={32}
+                      unoptimized
                       className="w-8 h-8 rounded-full"
                     />
                   ) : (
@@ -206,7 +214,13 @@ export function Header() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
               {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-black text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                // key remounts the badge whenever the count changes so the
+                // pop animation replays — visible confirmation that an item
+                // was added (locally or synced from the phone).
+                <span
+                  key={itemCount}
+                  className="animate-badge-pop absolute -top-1 -right-1 bg-black text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
+                >
                   {itemCount > 99 ? "99+" : itemCount}
                 </span>
               )}
@@ -312,6 +326,14 @@ export function Header() {
         }
         .animate-fade-in {
           animation: fade-in 0.15s ease-out;
+        }
+        @keyframes badge-pop {
+          0% { transform: scale(1); }
+          40% { transform: scale(1.4); }
+          100% { transform: scale(1); }
+        }
+        .animate-badge-pop {
+          animation: badge-pop 0.3s ease-out;
         }
       `}</style>
     </header>

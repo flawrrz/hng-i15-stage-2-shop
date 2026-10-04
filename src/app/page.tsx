@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/Button";
+import { LoadError } from "@/components/LoadError";
+import { NewsletterForm } from "@/components/NewsletterForm";
 import { ProductCard } from "@/components/ProductCard";
 import { createClient } from "@/lib/supabase/server";
 import { Product } from "@/lib/types";
@@ -13,15 +15,35 @@ async function getProducts(): Promise<Product[]> {
     .limit(8);
 
   if (error) {
+    // Throw (not return []) so the catch in the page body renders the
+    // retryable LoadError UI — an empty array would masquerade as "the shop
+    // has no products".
     console.error("Error fetching products:", error);
-    return [];
+    throw new Error("Could not load products from the database.");
   }
 
   return data || [];
 }
 
-export default async function HomePage() {
-  const products = await getProducts();
+export default async function HomePage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ subscribed?: string }>;
+}) {
+  const params = searchParams ? await searchParams : {};
+  // The newsletter endpoint redirects back with ?subscribed=true for the
+  // no-JavaScript fallback; with JavaScript the NewsletterForm reports
+  // success inline instead.
+  const subscribed = params?.subscribed === "true";
+  // getProducts logs the detail and throws; catch here so the featured
+  // section can show a retryable LoadError instead of an empty grid that
+  // looks like "the shop has no products".
+  let products: Product[] | null = null;
+  try {
+    products = await getProducts();
+  } catch {
+    products = null;
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -38,7 +60,7 @@ export default async function HomePage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Discover Products
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">You'll Love</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">You&apos;ll Love</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl">
               Curated selection of quality items at fair prices. From everyday essentials to unique finds, 
@@ -96,7 +118,7 @@ export default async function HomePage() {
                 </svg>
               </div>
               <h3 className="font-semibold text-gray-900">24/7 Support</h3>
-              <p className="text-sm text-gray-500 mt-1">We're here to help</p>
+              <p className="text-sm text-gray-500 mt-1">We&apos;re here to help</p>
             </div>
           </div>
         </div>
@@ -118,11 +140,15 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          {products === null ? (
+            <LoadError what="featured products" />
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          )}
 
           <div className="mt-10 text-center md:hidden">
             <Link href="/products">
@@ -141,18 +167,15 @@ export default async function HomePage() {
           <p className="text-gray-300 text-lg mb-8">
             Subscribe to our newsletter for exclusive offers, new arrivals, and style inspiration.
           </p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" action="/api/newsletter" method="POST">
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              required
-              className="flex-1 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 text-white placeholder-gray-500"
-            />
-            <Button type="submit" className="w-full sm:w-auto">
-              Subscribe
-            </Button>
-          </form>
+          {subscribed && (
+            <p
+              role="status"
+              className="mb-6 inline-block px-4 py-2 rounded-full bg-green-500/15 border border-green-400/30 text-green-300 text-sm font-medium"
+            >
+              🎉 You&apos;re subscribed — welcome aboard!
+            </p>
+          )}
+          <NewsletterForm />
           <p className="text-xs text-gray-500 mt-4">No spam, unsubscribe anytime.</p>
         </div>
       </section>

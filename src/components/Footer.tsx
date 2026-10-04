@@ -4,12 +4,15 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
+    // Shop links point at real, working filter views on /products — the old
+    // ?filter=new|bestsellers|sale links and /gift-cards were dead ends that
+    // led to an unfiltered list or a 404.
     shop: [
       { label: "All Products", href: "/products" },
-      { label: "New Arrivals", href: "/products?filter=new" },
-      { label: "Best Sellers", href: "/products?filter=bestsellers" },
-      { label: "Sale", href: "/products?filter=sale" },
-      { label: "Gift Cards", href: "/gift-cards" },
+      { label: "Accessories", href: "/products?category=accessories" },
+      { label: "Clothing", href: "/products?category=clothing" },
+      { label: "Electronics", href: "/products?category=electronics" },
+      { label: "Home", href: "/products?category=home" },
     ],
     support: [
       { label: "Contact Us", href: "/contact" },
@@ -73,7 +76,7 @@ export function Footer() {
               <span className="font-bold text-xl tracking-tight text-white">Shop</span>
             </Link>
             <p className="text-sm text-gray-400 mb-6 max-w-xs">
-              Discover curated products you'll love. Quality items, fair prices, delivered to your door.
+              Discover curated products you&apos;ll love. Quality items, fair prices, delivered to your door.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (

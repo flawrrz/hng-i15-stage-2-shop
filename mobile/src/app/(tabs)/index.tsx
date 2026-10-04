@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import {
   ActivityIndicator,
   FlatList,
+  Pressable,
   RefreshControl,
   StyleSheet,
   Text,
@@ -29,6 +30,7 @@ export default function ShopScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState('');
+  const [category, setCategory] = useState<string | null>(null);
 
   // Promise chain rather than async/await: react-hooks' set-state-in-effect
   // rule requires state updates to live in async callbacks (like the fetching
@@ -59,15 +61,33 @@ export default function ShopScreen() {
     load();
   }, [load]);
 
+  // Categories present in the catalog — the same data-derived chip list the
+  // web /products page builds. Mobile has no URL params, so the filter lives
+  // in component state instead of the address bar.
+  const categories = [
+    ...new Set(
+      products.map((p) => p.category).filter((c): c is string => Boolean(c))
+    ),
+  ].sort((a, b) => a.localeCompare(b));
+
   const query = search.trim().toLowerCase();
-  const filtered = query
-    ? products.filter(
-        (p) =>
-          p.title.toLowerCase().includes(query) ||
-          (p.description ?? '').toLowerCase().includes(query) ||
-          (p.category ?? '').toLowerCase().includes(query)
-      )
-    : products;
+  // Search and category compose: both must match for a card to show.
+  const filtered = products.filter((p) => {
+    const matchesQuery =
+      !query ||
+      p.title.toLowerCase().includes(query) ||
+      (p.description ?? '').toLowerCase().includes(query) ||
+      (p.category ?? '').toLowerCase().includes(query);
+    const matchesCategory = !category || (p.category ?? '') === category;
+    return matchesQuery && matchesCategory;
+  });
+
+  // Heading reflects what's actually being shown.
+  const titleParts: string[] = [];
+  if (query) titleParts.push(`Results for “${search.trim()}”`);
+  if (category) titleParts.push(category);
+  const sectionTitle =
+    titleParts.length > 0 ? titleParts.join(' in ') : 'All Products';
 
   if (loading) {
     return (
@@ -119,6 +139,46 @@ export default function ShopScreen() {
             />
           </View>
 
+          {/* Category chips — mirrors the web /products filter chips */}
+          <View style={styles.chipsRow}>
+            <Pressable
+              onPress={() => setCategory(null)}
+              accessibilityRole="button"
+              accessibilityState={{ selected: category === null }}
+              style={({ pressed }) => [
+                styles.chip,
+                category === null && styles.chipActive,
+                pressed && styles.chipPressed,
+              ]}
+            >
+              <Text
+                style={[styles.chipText, category === null && styles.chipTextActive]}
+              >
+                All
+              </Text>
+            </Pressable>
+            {categories.map((chip) => {
+              const isActive = chip === category;
+              return (
+                <Pressable
+                  key={chip}
+                  onPress={() => setCategory(isActive ? null : chip)}
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: isActive }}
+                  style={({ pressed }) => [
+                    styles.chip,
+                    isActive && styles.chipActive,
+                    pressed && styles.chipPressed,
+                  ]}
+                >
+                  <Text style={[styles.chipText, isActive && styles.chipTextActive]}>
+                    {chip}
+                  </Text>
+                </Pressable>
+              );
+            })}
+          </View>
+
           {/* Search */}
           <View style={styles.searchWrap}>
             <Ionicons name="search" size={18} color={colors.gray400} />
@@ -141,16 +201,20 @@ export default function ShopScreen() {
             ) : null}
           </View>
 
-          <Text style={styles.sectionTitle}>
-            {query ? `Results for “${search.trim()}”` : 'All Products'}
-          </Text>
+          <Text style={styles.sectionTitle}>{sectionTitle}</Text>
         </View>
       }
       ListEmptyComponent={
         <View style={styles.emptyResults}>
           <Ionicons name="search-outline" size={36} color={colors.gray400} />
-          <Text style={styles.errorTitle}>No products found</Text>
-          <Text style={styles.centerText}>Try a different search term.</Text>
+          <Text style={styles.errorTitle}>
+            {category && !query ? `Nothing in ${category} yet` : 'No products found'}
+          </Text>
+          <Text style={styles.centerText}>
+            {query
+              ? 'Try a different search term.'
+              : 'Check back soon — new items land every week.'}
+          </Text>
         </View>
       }
       ListFooterComponent={
@@ -262,6 +326,35 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.gray900,
     paddingVertical: 10,
+  },
+  chipsRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginBottom: 16,
+  },
+  chip: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: radius.full,
+    borderWidth: 1,
+    borderColor: colors.gray200,
+    backgroundColor: colors.white,
+  },
+  chipActive: {
+    backgroundColor: colors.black,
+    borderColor: colors.black,
+  },
+  chipPressed: {
+    opacity: 0.7,
+  },
+  chipText: {
+    fontSize: 13,
+    fontWeight: '500',
+    color: colors.gray500,
+  },
+  chipTextActive: {
+    color: colors.white,
   },
   sectionTitle: {
     fontSize: 18,

@@ -10,6 +10,13 @@ export interface CartItem {
   price: number;
   image_url: string | null;
   quantity: number;
+  /**
+   * Stock level of the product (from the `products` table). Carts cap their
+   * quantities at it so you can't sell more than exists. Optional because
+   * carts persisted before this field existed won't have it — those fall
+   * back to a generic 99 ceiling (same as the mobile store).
+   */
+  stock_quantity?: number;
 }
 
 interface CartState {
@@ -47,10 +54,19 @@ export const useCartStore = create<CartState>()(
         set((state) => {
           const existingItem = state.items.find((i) => i.product_id === item.product_id);
           if (existingItem) {
+            // Cap the line at the product's stock level so re-adding can never
+            // exceed what's for sale (99 fallback when the level is unknown —
+            // e.g. a cart persisted before stock_quantity existed).
+            const cap = existingItem.stock_quantity ?? item.stock_quantity ?? 99;
+            if (existingItem.quantity >= cap) return {}; // already at the cap
             return {
               items: state.items.map((i) =>
                 i.product_id === item.product_id
-                  ? { ...i, quantity: i.quantity + 1 }
+                  ? {
+                      ...i,
+                      quantity: Math.min(existingItem.quantity + 1, cap),
+                      stock_quantity: item.stock_quantity ?? i.stock_quantity,
+                    }
                   : i
               ),
             };
@@ -70,7 +86,10 @@ export const useCartStore = create<CartState>()(
           }
           return {
             items: state.items.map((i) =>
-              i.product_id === productId ? { ...i, quantity } : i
+              i.product_id === productId
+                ? // Same stock cap as addItem — the "+" button stops at stock.
+                  { ...i, quantity: Math.min(quantity, i.stock_quantity ?? 99) }
+                : i
             ),
           };
         }),
