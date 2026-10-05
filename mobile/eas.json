@@ -8,7 +8,15 @@
       "distribution": "internal"
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_SUPABASE_URL": "https://tpveipnnpwxoiouhkozk.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRwdmVpcG5ucHd4b2lvdWhrb3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA3OTI1ODYsImV4cCI6MjEwNjM2ODU4Nn0.GMah4JKFN84KA73nqpqNtYwHA4L6z7WtivCPiSagvKk",
+        "EXPO_PUBLIC_API_URL": "https://hng-i15-stage-2-shop.vercel.app"
+      }
     },
     "production": {
       "autoIncrement": true
