@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Caprasimo, Outfit } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -7,20 +7,33 @@ import { CartDrawer } from "@/components/CartDrawer";
 import { CartSync } from "@/components/CartSync";
 import { ToastHost } from "@/components/ToastHost";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Caprasimo = display serif (headlines, masthead) — the retro chunky face the
+// Figma template uses for "Our Blooms". Outfit = geometric sans for UI/body.
+const caprasimo = Caprasimo({
+  weight: "400",
+  variable: "--font-caprasimo",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Shop - Discover Quality Products",
-  description: "Shop curated products you'll love. Quality items, fair prices, delivered to your door.",
-  keywords: ["ecommerce", "shop", "online shopping", "products"],
+  title: "The Green Gazette™ — Plants, Delivered",
+  description:
+    "The Green Gazette™ is a plant shop for indoor plants, ferns, succulents and trees — every plant comes with expert care notes and is delivered across Nigeria.",
+  keywords: [
+    "plants",
+    "houseplants",
+    "plant shop",
+    "indoor plants",
+    "succulents",
+    "plant delivery",
+    "Nigeria",
+    "The Green Gazette",
+  ],
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
@@ -29,15 +42,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#2c2825",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-screen flex flex-col bg-white">
+    <html lang="en" className={`${caprasimo.variable} ${outfit.variable} h-full antialiased`}>
+      <body className="min-h-screen flex flex-col bg-white text-ink">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

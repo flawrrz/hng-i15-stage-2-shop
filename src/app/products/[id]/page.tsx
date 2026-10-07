@@ -29,12 +29,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = await getProduct(id);
 
   if (!product) {
-    return { title: "Product Not Found" };
+    return { title: "Product Not Found - The Green Gazette™" };
   }
 
   return {
-    title: `${product.title} - Shop`,
-    description: product.description || `Shop ${product.title} at our store.`,
+    title: `${product.title} - The Green Gazette™`,
+    description:
+      product.description ||
+      `Buy ${product.title} from The Green Gazette™ — delivered across Nigeria with care notes.`,
     openGraph: {
       title: product.title,
       description: product.description || "",

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ChevronRight, CreditCard, Truck, Lock, Mail, MapPin, Phone, User, RotateCcw } from "lucide-react";
 import { Button } from "@/components/Button";
 import { useCartStore } from "@/lib/cart-store";
-import { format } from "@/lib/utils";
+import { formatNaira, deliveryFee, vatFor, EXPRESS_DELIVERY_FEE } from "@/lib/utils";
 
 interface FormData {
   email: string;
@@ -56,8 +56,9 @@ export default function CheckoutForm() {
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const subtotal = getSubtotal();
-  const shipping = subtotal >= 50 ? 0 : 5.99;
-  const tax = subtotal * 0.08; // 8% tax
+  // Free delivery at ₦50,000+, otherwise a flat fee (shared with cart & success page).
+  const shipping = deliveryFee(subtotal);
+  const tax = vatFor(subtotal); // 7.5% Nigerian VAT
   const total = subtotal + shipping + tax;
 
   const validateForm = (): boolean => {
@@ -176,8 +177,8 @@ export default function CheckoutForm() {
             <svg className="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Your cart is empty</h1>
-            <p className="text-gray-500 mb-6">Add some items to your cart before checking out.</p>
+            <h1 className="font-display text-2xl font-bold text-ink mb-2">Your cart is empty</h1>
+            <p className="text-ink-soft mb-6">Add some items to your cart before checking out.</p>
             <Link href="/products">
               <Button>Continue Shopping</Button>
             </Link>
@@ -190,18 +191,18 @@ export default function CheckoutForm() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Checkout Header */}
-      <section className="bg-gray-50 border-b border-gray-100 py-8">
+      <section className="bg-surface border-b border-line py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-8 max-w-4xl">
             <div className="flex items-center gap-3 text-gray-400">
-              <div className="w-8 h-8 rounded-full border-2 border-black flex items-center justify-center font-bold text-sm">1</div>
-              <div className="w-32 h-0.5 bg-black"></div>
-              <div className="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-sm">2</div>
-              <div className="w-32 h-0.5 bg-gray-300"></div>
-              <div className="w-8 h-8 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-sm">3</div>
+              <div className="w-8 h-8 rounded-full border-2 border-leaf flex items-center justify-center font-bold text-sm">1</div>
+              <div className="w-32 h-0.5 bg-leaf"></div>
+              <div className="w-8 h-8 rounded-full border-2 border-line flex items-center justify-center font-bold text-sm">2</div>
+              <div className="w-32 h-0.5 bg-line"></div>
+              <div className="w-8 h-8 rounded-full border-2 border-line flex items-center justify-center font-bold text-sm">3</div>
             </div>
             <div className="flex items-center gap-3 text-sm font-medium">
-              <span className="text-black">Information</span>
+              <span className="text-ink">Information</span>
               <ChevronRight className="w-4 h-4 text-gray-400" />
               <span className="text-gray-400">Shipping</span>
               <ChevronRight className="w-4 h-4 text-gray-400" />
@@ -219,13 +220,13 @@ export default function CheckoutForm() {
             <div className="lg:col-span-2 space-y-8">
               {/* Contact Information */}
               <section>
-                <h2 className="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2">
+                <h2 className="text-lg font-semibold text-ink mb-6 flex items-center gap-2">
                   <Mail className="w-5 h-5" />
                   Contact Information
                 </h2>
                 <div className="space-y-4">
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-ink-soft mb-1">
                       Email <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -234,8 +235,8 @@ export default function CheckoutForm() {
                       name="email"
                       value={formData.email}
                       onChange={(e) => handleChange("email", e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
-                        errors.email ? "border-red-500" : "border-gray-300"
+                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf ${
+                        errors.email ? "border-red-500" : "border-line"
                       }`}
                       placeholder="you@example.com"
                       required
@@ -247,14 +248,14 @@ export default function CheckoutForm() {
 
               {/* Shipping Address */}
               <section>
-                <h2 className="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2">
+                <h2 className="text-lg font-semibold text-ink mb-6 flex items-center gap-2">
                   <MapPin className="w-5 h-5" />
                   Shipping Address
                 </h2>
                 <div className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="firstName" className="block text-sm font-medium text-ink-soft mb-1">
                         First Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -262,8 +263,8 @@ export default function CheckoutForm() {
                         id="firstName"
                         value={formData.firstName}
                         onChange={(e) => handleChange("firstName", e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
-                          errors.firstName ? "border-red-500" : "border-gray-300"
+                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf ${
+                          errors.firstName ? "border-red-500" : "border-line"
                         }`}
                         placeholder="John"
                         required
@@ -271,7 +272,7 @@ export default function CheckoutForm() {
                       {errors.firstName && <p className="mt-1 text-sm text-red-500">{errors.firstName}</p>}
                     </div>
                     <div>
-                      <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="lastName" className="block text-sm font-medium text-ink-soft mb-1">
                         Last Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -279,8 +280,8 @@ export default function CheckoutForm() {
                         id="lastName"
                         value={formData.lastName}
                         onChange={(e) => handleChange("lastName", e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
-                          errors.lastName ? "border-red-500" : "border-gray-300"
+                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf ${
+                          errors.lastName ? "border-red-500" : "border-line"
                         }`}
                         placeholder="Doe"
                         required
@@ -290,7 +291,7 @@ export default function CheckoutForm() {
                   </div>
 
                   <div>
-                    <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="address" className="block text-sm font-medium text-ink-soft mb-1">
                       Address <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -298,8 +299,8 @@ export default function CheckoutForm() {
                       id="address"
                       value={formData.address}
                       onChange={(e) => handleChange("address", e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
-                        errors.address ? "border-red-500" : "border-gray-300"
+                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf ${
+                        errors.address ? "border-red-500" : "border-line"
                       }`}
                       placeholder="123 Main Street"
                       required
@@ -308,7 +309,7 @@ export default function CheckoutForm() {
                   </div>
 
                   <div>
-                    <label htmlFor="apartment" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="apartment" className="block text-sm font-medium text-ink-soft mb-1">
                       Apartment, suite, etc. (optional)
                     </label>
                     <input
@@ -316,14 +317,14 @@ export default function CheckoutForm() {
                       id="apartment"
                       value={formData.apartment}
                       onChange={(e) => handleChange("apartment", e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                      className="w-full px-4 py-3 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf"
                       placeholder="Apt 4B"
                     />
                   </div>
 
                   <div className="grid sm:grid-cols-3 gap-4">
                     <div>
-                      <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="city" className="block text-sm font-medium text-ink-soft mb-1">
                         City <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -331,8 +332,8 @@ export default function CheckoutForm() {
                         id="city"
                         value={formData.city}
                         onChange={(e) => handleChange("city", e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
-                          errors.city ? "border-red-500" : "border-gray-300"
+                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf ${
+                          errors.city ? "border-red-500" : "border-line"
                         }`}
                         placeholder="New York"
                         required
@@ -340,7 +341,7 @@ export default function CheckoutForm() {
                       {errors.city && <p className="mt-1 text-sm text-red-500">{errors.city}</p>}
                     </div>
                     <div>
-                      <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="state" className="block text-sm font-medium text-ink-soft mb-1">
                         State <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -348,8 +349,8 @@ export default function CheckoutForm() {
                         id="state"
                         value={formData.state}
                         onChange={(e) => handleChange("state", e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
-                          errors.state ? "border-red-500" : "border-gray-300"
+                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf ${
+                          errors.state ? "border-red-500" : "border-line"
                         }`}
                         placeholder="NY"
                         required
@@ -357,7 +358,7 @@ export default function CheckoutForm() {
                       {errors.state && <p className="mt-1 text-sm text-red-500">{errors.state}</p>}
                     </div>
                     <div>
-                      <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="zipCode" className="block text-sm font-medium text-ink-soft mb-1">
                         ZIP Code <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -365,8 +366,8 @@ export default function CheckoutForm() {
                         id="zipCode"
                         value={formData.zipCode}
                         onChange={(e) => handleChange("zipCode", e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
-                          errors.zipCode ? "border-red-500" : "border-gray-300"
+                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf ${
+                          errors.zipCode ? "border-red-500" : "border-line"
                         }`}
                         placeholder="10001"
                         required
@@ -376,14 +377,14 @@ export default function CheckoutForm() {
                   </div>
 
                   <div>
-                    <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="country" className="block text-sm font-medium text-ink-soft mb-1">
                       Country
                     </label>
                     <select
                       id="country"
                       value={formData.country}
                       onChange={(e) => handleChange("country", e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                      className="w-full px-4 py-3 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf"
                     >
                       <option value="US">United States</option>
                       <option value="CA">Canada</option>
@@ -393,7 +394,7 @@ export default function CheckoutForm() {
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="phone" className="block text-sm font-medium text-ink-soft mb-1">
                       Phone <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -401,8 +402,8 @@ export default function CheckoutForm() {
                       id="phone"
                       value={formData.phone}
                       onChange={(e) => handleChange("phone", e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
-                        errors.phone ? "border-red-500" : "border-gray-300"
+                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf ${
+                        errors.phone ? "border-red-500" : "border-line"
                       }`}
                       placeholder="+1 (555) 000-0000"
                       required
@@ -414,28 +415,28 @@ export default function CheckoutForm() {
 
               {/* Shipping Method */}
               <section>
-                <h2 className="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2">
+                <h2 className="text-lg font-semibold text-ink mb-6 flex items-center gap-2">
                   <Truck className="w-5 h-5" />
                   Shipping Method
                 </h2>
                 <div className="space-y-3">
-                  <label className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-gray-300 transition-colors">
+                  <label className="flex items-center gap-4 p-4 border border-line rounded-lg cursor-pointer hover:border-leaf-soft transition-colors">
                     <input type="radio" name="shipping" value="standard" defaultChecked className="sr-only peer" />
-                    <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-black peer-checked:bg-black peer-checked:bg-center peer-checked:bg-[length:10px_10px] peer-checked:bg-[radial-gradient(circle_at_center,_white_50%,_transparent_50%)]"></div>
+                    <div className="w-5 h-5 border-2 border-line rounded-full peer-checked:border-leaf peer-checked:bg-leaf peer-checked:bg-center peer-checked:bg-[length:10px_10px] peer-checked:bg-[radial-gradient(circle_at_center,_white_50%,_transparent_50%)]"></div>
                     <div className="flex-1">
-                      <p className="font-medium text-gray-900">Standard Shipping</p>
-                      <p className="text-sm text-gray-500">5-7 business days</p>
+                      <p className="font-medium text-ink">Standard Shipping</p>
+                      <p className="text-sm text-ink-soft">5-7 business days</p>
                     </div>
-                    <span className="font-medium text-gray-900">{shipping === 0 ? "Free" : `$${format(shipping)}`}</span>
+                    <span className="font-medium text-ink">{shipping === 0 ? "Free" : formatNaira(shipping)}</span>
                   </label>
-                  <label className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-gray-300 transition-colors">
+                  <label className="flex items-center gap-4 p-4 border border-line rounded-lg cursor-pointer hover:border-leaf-soft transition-colors">
                     <input type="radio" name="shipping" value="express" className="sr-only peer" />
-                    <div className="w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-black peer-checked:bg-black peer-checked:bg-center peer-checked:bg-[length:10px_10px] peer-checked:bg-[radial-gradient(circle_at_center,_white_50%,_transparent_50%)]"></div>
+                    <div className="w-5 h-5 border-2 border-line rounded-full peer-checked:border-leaf peer-checked:bg-leaf peer-checked:bg-center peer-checked:bg-[length:10px_10px] peer-checked:bg-[radial-gradient(circle_at_center,_white_50%,_transparent_50%)]"></div>
                     <div className="flex-1">
-                      <p className="font-medium text-gray-900">Express Shipping</p>
-                      <p className="text-sm text-gray-500">2-3 business days</p>
+                      <p className="font-medium text-ink">Express Shipping</p>
+                      <p className="text-sm text-ink-soft">2-3 business days</p>
                     </div>
-                    <span className="font-medium text-gray-900">$12.99</span>
+                    <span className="font-medium text-ink">{formatNaira(EXPRESS_DELIVERY_FEE)}</span>
                   </label>
                 </div>
               </section>
@@ -454,13 +455,13 @@ export default function CheckoutForm() {
 
             {/* Order Summary */}
             <div className="lg:col-span-1">
-              <div className="sticky top-24 bg-gray-50 rounded-2xl p-6">
-                <h2 className="text-lg font-semibold text-gray-900 mb-6">Order Summary</h2>
+              <div className="sticky top-24 bg-surface rounded-2xl p-6">
+                <h2 className="text-lg font-semibold text-ink mb-6">Order Summary</h2>
 
                 <div className="space-y-4 mb-6 max-h-64 overflow-y-auto pr-2">
                   {items.map((item) => (
                     <div key={item.id} className="flex gap-3">
-                      <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
+                      <div className="w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden bg-surface">
                         {item.image_url ? (
                           <img src={item.image_url} alt={item.title} className="w-full h-full object-cover" />
                         ) : (
@@ -472,34 +473,34 @@ export default function CheckoutForm() {
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="font-medium text-gray-900 truncate">{item.title}</p>
-                        <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
-                        <p className="text-sm font-medium text-gray-900">${format(item.price * item.quantity)}</p>
+                        <p className="font-medium text-ink truncate">{item.title}</p>
+                        <p className="text-sm text-ink-soft">Qty: {item.quantity}</p>
+                        <p className="text-sm font-medium text-ink">{formatNaira(item.price * item.quantity)}</p>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="border-t border-gray-200 pt-4 space-y-3">
+                <div className="border-t border-line pt-4 space-y-3">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Subtotal</span>
-                    <span className="font-medium">${format(subtotal)}</span>
+                    <span className="text-ink-soft">Subtotal</span>
+                    <span className="font-medium">{formatNaira(subtotal)}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Shipping</span>
-                    <span className="font-medium">{shipping === 0 ? "Free" : `$${format(shipping)}`}</span>
+                    <span className="text-ink-soft">Delivery</span>
+                    <span className="font-medium">{shipping === 0 ? "Free" : formatNaira(shipping)}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Estimated Tax (8%)</span>
-                    <span className="font-medium">${format(tax)}</span>
+                    <span className="text-ink-soft">Estimated Tax (7.5%)</span>
+                    <span className="font-medium">{formatNaira(tax)}</span>
                   </div>
-                  <div className="flex justify-between text-base font-semibold pt-3 border-t border-gray-200">
+                  <div className="flex justify-between text-base font-semibold pt-3 border-t border-line">
                     <span>Total</span>
-                    <span>${format(total)}</span>
+                    <span>{formatNaira(total)}</span>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-gray-200 space-y-3 text-sm text-gray-600">
+                <div className="mt-6 pt-6 border-t border-line space-y-3 text-sm text-ink-soft">
                   <div className="flex items-center gap-2">
                     <Lock className="w-4 h-4 text-gray-400" />
                     <span>Secure checkout</span>

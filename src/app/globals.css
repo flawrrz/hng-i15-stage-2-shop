@@ -1,22 +1,39 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ---------------------------------------------------------------------------
+   The Green Gazette™ design tokens
+   Palette + type extracted from the Sweet Flower Shop Figma template:
+   warm near-black ink, mid-green buttons, yellow sticker accents, off-white
+   surfaces. Caprasimo (display serif) for headlines, Outfit for UI/body.
+--------------------------------------------------------------------------- */
 @theme inline {
+  --color-ink: #2c2825;        /* primary text + dark surfaces (warm black) */
+  --color-ink-soft: #565656;   /* secondary text */
+  --color-leaf: #486c49;       /* primary green: buttons, links, accents */
+  --color-leaf-dark: #3a5a3b;  /* green hover */
+  --color-leaf-soft: #8e9b77;  /* sage: subtle accents */
+  --color-mint: #deecc5;       /* light green: tints, hover washes */
+  --color-sun: #ffc700;        /* yellow: badges, stickers, highlights */
+  --color-surface: #f7f7f7;    /* off-white page tint */
+  --color-line: #e8e8e8;       /* dividers, hairlines */
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-caprasimo), ui-serif, Georgia, serif;
 }
 
-/* Disable dark mode for now - we'll use light mode only */
+:root {
+  --background: #ffffff;
+  --foreground: #2c2825;
+}
+
+/* Light-mode only — the template is a light, paper-like design. */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #ffffff;
-    --foreground: #171717;
+    --foreground: #2c2825;
   }
 }
 
@@ -24,6 +41,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Display headlines: Caprasimo is a single-weight retro serif that matches the
+   template's "Our Blooms" masthead. Kept at normal letter-spacing — the face
+   is chunky enough already. */
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
 }
 
 /* Custom scrollbar */
@@ -45,15 +70,15 @@ body {
   background: #a1a1a1;
 }
 
-/* Focus styles */
+/* Focus styles — leaf green so keyboard focus reads as "brand", not error */
 *:focus-visible {
-  outline: 2px solid #000;
+  outline: 2px solid #486c49;
   outline-offset: 2px;
 }
 
 /* Selection styles */
 ::selection {
-  background: #000;
+  background: #486c49;
   color: #fff;
 }
 

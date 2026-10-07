@@ -28,9 +28,9 @@ const initialFormData: FormData = {
 const subjects = [
   { value: "general", label: "General Inquiry" },
   { value: "order", label: "Order Question" },
-  { value: "shipping", label: "Shipping & Delivery" },
-  { value: "returns", label: "Returns & Exchanges" },
-  { value: "wholesale", label: "Wholesale & Partnerships" },
+  { value: "shipping", label: "Delivery & Shipping" },
+  { value: "care", label: "Plant Care Advice" },
+  { value: "styling", label: "Styling & Events" },
   { value: "other", label: "Other" },
 ];
 
@@ -78,10 +78,12 @@ export default function ContactPage() {
     try {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      
+
       setSubmitStatus("success");
       setFormData(initialFormData);
     } catch {
+      // The timeout above can't realistically fail, but if submission wiring
+      // changes later the user still gets a clear error instead of silence.
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -99,31 +101,42 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: "Email Us",
-      details: ["support@shop.com", "help@shop.com"],
+      details: ["hello@thegreengazette.ng"],
       description: "We respond within 24 hours",
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: ["1-800-SHOP-NOW", "Mon-Fri 9am-6pm EST"],
+      details: ["+234 801 234 5678", "Mon–Fri 9am–6pm WAT"],
       description: "Available during business hours",
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      details: ["123 Commerce St", "New York, NY 10001"],
+      details: ["14 Adeola Odeku Street", "Victoria Island, Lagos"],
       description: "Showroom open by appointment",
     },
   ];
 
+  // Shared input classes — theme tokens (line borders, leaf focus ring).
+  // `hasError` accepts the error *message* (truthy string) or a boolean.
+  const inputClass = (hasError?: boolean | string) =>
+    `w-full px-4 py-3 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf transition-colors ${
+      hasError ? "border-red-500" : "border-line"
+    }`;
+
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gray-900 text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-            Have a question? We'd love to hear from you. Our team is here to help.
+      {/* Header band — mirrors the About page's oversized title */}
+      <section className="bg-surface border-b border-line py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="font-display text-sm tracking-[0.2em] uppercase text-leaf mb-3">
+            Say Hello
+          </p>
+          <h1 className="font-display text-5xl md:text-7xl text-ink">Contact</h1>
+          <p className="text-lg md:text-xl text-ink-soft max-w-2xl mt-4">
+            Have a question about a plant, an order, or a space that needs
+            greening? We&apos;d love to hear from you.
           </p>
         </div>
       </section>
@@ -136,39 +149,39 @@ export default function ContactPage() {
               <div className="space-y-8">
                 {contactInfo.map((item) => (
                   <div key={item.title} className="flex gap-4">
-                    <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <item.icon className="w-6 h-6 text-gray-900" />
+                    <div className="w-12 h-12 bg-mint rounded-full flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-6 h-6 text-leaf" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">{item.title}</h3>
+                      <h3 className="font-semibold text-ink">{item.title}</h3>
                       <div className="space-y-1 mt-1">
                         {item.details.map((detail, i) => (
-                          <p key={i} className="text-gray-600">{detail}</p>
+                          <p key={i} className="text-ink-soft">{detail}</p>
                         ))}
                       </div>
-                      <p className="text-sm text-gray-500 mt-2">{item.description}</p>
+                      <p className="text-sm text-ink-soft/80 mt-2">{item.description}</p>
                     </div>
                   </div>
                 ))}
 
                 {/* Hours */}
-                <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                  <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                    <Clock className="w-5 h-5" />
+                <div className="bg-surface rounded-2xl p-6 border border-line">
+                  <h3 className="font-semibold text-ink mb-4 flex items-center gap-2">
+                    <Clock className="w-5 h-5 text-leaf" />
                     Business Hours
                   </h3>
-                  <div className="space-y-2 text-gray-600">
+                  <div className="space-y-2 text-ink-soft text-sm">
                     <div className="flex justify-between">
-                      <span>Monday - Friday</span>
-                      <span className="font-medium">9:00 AM - 6:00 PM EST</span>
+                      <span>Monday – Friday</span>
+                      <span className="font-medium text-ink">9:00 – 18:00 WAT</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Saturday</span>
-                      <span className="font-medium">10:00 AM - 4:00 PM EST</span>
+                      <span className="font-medium text-ink">10:00 – 16:00 WAT</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Sunday</span>
-                      <span className="font-medium">Closed</span>
+                      <span className="font-medium text-ink">Closed</span>
                     </div>
                   </div>
                 </div>
@@ -177,25 +190,27 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl border border-gray-100 p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+              <div className="bg-white rounded-3xl border border-line p-8">
+                <h2 className="font-display text-2xl text-ink mb-6">Send Us a Message</h2>
 
                 {submitStatus === "success" && (
-                  <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3 text-green-700" role="alert">
+                  <div className="mb-6 p-4 bg-mint/60 border border-leaf-soft rounded-xl flex items-center gap-3 text-leaf-dark" role="alert">
                     <CheckCircle className="w-5 h-5 flex-shrink-0" />
                     <div>
-                      <p className="font-medium">Message Sent!</p>
-                      <p className="text-sm">We'll get back to you within 24 hours.</p>
+                      <p className="font-medium text-ink">Message Sent!</p>
+                      <p className="text-sm text-ink-soft">We&apos;ll get back to you within 24 hours.</p>
                     </div>
                   </div>
                 )}
 
                 {submitStatus === "error" && (
-                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3 text-red-700" role="alert">
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3 text-red-700" role="alert">
                     <AlertCircle className="w-5 h-5 flex-shrink-0" />
                     <div>
                       <p className="font-medium">Something went wrong</p>
-                      <p className="text-sm">Please try again or email us directly at support@shop.com</p>
+                      <p className="text-sm">
+                        Please try again or email us directly at hello@thegreengazette.ng
+                      </p>
                     </div>
                   </div>
                 )}
@@ -203,7 +218,7 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="name" className="block text-sm font-medium text-ink mb-1">
                         Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -211,10 +226,8 @@ export default function ContactPage() {
                         id="name"
                         value={formData.name}
                         onChange={(e) => handleChange("name", e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
-                          errors.name ? "border-red-500" : "border-gray-300"
-                        }`}
-                        placeholder="John Doe"
+                        className={inputClass(errors.name)}
+                        placeholder="Ada Obi"
                         required
                         disabled={isSubmitting}
                       />
@@ -222,7 +235,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="email" className="block text-sm font-medium text-ink mb-1">
                         Email <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -230,10 +243,8 @@ export default function ContactPage() {
                         id="email"
                         value={formData.email}
                         onChange={(e) => handleChange("email", e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
-                          errors.email ? "border-red-500" : "border-gray-300"
-                        }`}
-                        placeholder="john@example.com"
+                        className={inputClass(errors.email)}
+                        placeholder="ada@example.com"
                         required
                         disabled={isSubmitting}
                       />
@@ -242,16 +253,14 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="subject" className="block text-sm font-medium text-ink mb-1">
                       Subject <span className="text-red-500">*</span>
                     </label>
                     <select
                       id="subject"
                       value={formData.subject}
                       onChange={(e) => handleChange("subject", e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black ${
-                        errors.subject ? "border-red-500" : "border-gray-300"
-                      }`}
+                      className={inputClass(errors.subject)}
                       required
                       disabled={isSubmitting}
                     >
@@ -266,7 +275,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="message" className="block text-sm font-medium text-ink mb-1">
                       Message <span className="text-red-500">*</span>
                     </label>
                     <textarea
@@ -274,9 +283,7 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={(e) => handleChange("message", e.target.value)}
                       rows={6}
-                      className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-black resize-none ${
-                        errors.message ? "border-red-500" : "border-gray-300"
-                      }`}
+                      className={`${inputClass(errors.message)} resize-none`}
                       placeholder="Tell us how we can help..."
                       required
                       disabled={isSubmitting}

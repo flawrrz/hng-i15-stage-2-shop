@@ -2,6 +2,8 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/server";
 import { NextRequest, NextResponse } from "next/server";
 import { isEmailConfigured, sendEmail, escapeHtml } from "@/lib/email";
+// Server-safe (no browser deps): shared Naira formatter used for the receipt.
+import { formatNaira } from "@/lib/utils";
 
 interface CheckoutItem {
   product_id: string;
@@ -62,10 +64,10 @@ async function sendOrderConfirmationEmail(
         <div style="font-size: 14px; color: #6b7280;">Quantity: ${item.quantity}</div>
       </td>
       <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: right; color: #111827;">
-        $${item.price_at_purchase.toFixed(2)}
+        ${formatNaira(item.price_at_purchase)}
       </td>
       <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: right; color: #111827;">
-        $${(item.price_at_purchase * item.quantity).toFixed(2)}
+        ${formatNaira(item.price_at_purchase * item.quantity)}
       </td>
     </tr>
   `
@@ -112,19 +114,19 @@ async function sendOrderConfirmationEmail(
           <div style="background: #f9fafb; border-radius: 8px; padding: 20px; margin-bottom: 24px;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
               <span style="color: #6b7280;">Subtotal</span>
-              <span style="font-weight: 500;">$${subtotal.toFixed(2)}</span>
+              <span style="font-weight: 500;">${formatNaira(subtotal)}</span>
             </div>
             <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-              <span style="color: #6b7280;">Shipping</span>
-              <span style="font-weight: 500;">${shipping === 0 ? "Free" : "$" + shipping.toFixed(2)}</span>
+              <span style="color: #6b7280;">Delivery</span>
+              <span style="font-weight: 500;">${shipping === 0 ? "Free" : formatNaira(shipping)}</span>
             </div>
             <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
               <span style="color: #6b7280;">Tax</span>
-              <span style="font-weight: 500;">$${tax.toFixed(2)}</span>
+              <span style="font-weight: 500;">${formatNaira(tax)}</span>
             </div>
             <div style="display: flex; justify-content: space-between; border-top: 1px solid #e5e7eb; padding-top: 12px; margin-top: 8px; font-size: 18px; font-weight: 700;">
               <span>Total</span>
-              <span>$${total.toFixed(2)}</span>
+              <span>${formatNaira(total)}</span>
             </div>
           </div>
 
@@ -146,7 +148,7 @@ ${escapeHtml(shippingAddress.country)}
             <ul style="margin: 0; padding-left: 20px; color: #0369a1;">
               <li style="margin-bottom: 4px;">We'll process your order within 1-2 business days</li>
               <li style="margin-bottom: 4px;">You'll receive a shipping confirmation with tracking info</li>
-              <li>Contact us at support@shop.com if you have any questions</li>
+              <li>Contact us at hello@thegreengazette.ng if you have any questions</li>
             </ul>
           </div>
         </div>

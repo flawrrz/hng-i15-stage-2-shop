@@ -3,14 +3,103 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight, Minus, Plus, Truck, RotateCcw, Shield } from "lucide-react";
+import {
+  ChevronRight,
+  Minus,
+  Plus,
+  Truck,
+  RotateCcw,
+  Shield,
+  Droplets,
+  Sun,
+  Sprout,
+  Leaf,
+  AlertTriangle,
+} from "lucide-react";
 import { Button } from "@/components/Button";
 import { useCartStore } from "@/lib/cart-store";
-import { Product } from "@/lib/types";
-import { format } from "@/lib/utils";
+import { CareDetails, Product } from "@/lib/types";
+import { formatNaira, FREE_DELIVERY_THRESHOLD } from "@/lib/utils";
 
 interface ProductDetailProps {
   product: Product;
+}
+
+/** Renders one care fact; arrays join with commas, booleans read as Yes/No. */
+function CareRow({ label, value }: { label: string; value: unknown }) {
+  if (value === undefined || value === null || value === "") return null;
+  let display: string;
+  if (typeof value === "boolean") display = value ? "Yes" : "No";
+  else if (Array.isArray(value)) display = value.join(", ");
+  else if (typeof value === "object") {
+    const v = value as { min?: string; max?: string };
+    display = [v.min, v.max].filter(Boolean).join(" – ");
+    if (!display) return null;
+  } else display = String(value);
+
+  return (
+    <div className="flex justify-between gap-4 py-2 border-b border-line last:border-0">
+      <dt className="text-ink-soft shrink-0">{label}</dt>
+      <dd className="text-ink font-medium text-right">{display}</dd>
+    </div>
+  );
+}
+
+/** The care card: icon-led headline facts + the full spec list underneath. */
+function CareSection({ care }: { care: CareDetails }) {
+  const headline = [
+    { icon: Droplets, label: "Watering", value: care.watering },
+    { icon: Sun, label: "Light", value: Array.isArray(care.sunlight) ? care.sunlight.join(", ") : care.sunlight },
+    { icon: Sprout, label: "Care Level", value: care.care_level },
+    { icon: Leaf, label: "Cycle", value: care.cycle },
+  ].filter((f) => f.value);
+
+  return (
+    <section className="border-t border-line pt-6" aria-labelledby="care-heading">
+      <h2 id="care-heading" className="font-display text-2xl text-ink mb-4">
+        Care Details
+      </h2>
+
+      {headline.length > 0 && (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+          {headline.map((fact) => (
+            <div key={fact.label} className="bg-surface rounded-2xl p-4">
+              <fact.icon className="w-5 h-5 text-leaf mb-2" aria-hidden="true" />
+              <p className="text-xs text-ink-soft">{fact.label}</p>
+              <p className="text-sm font-medium text-ink mt-0.5">{fact.value}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <dl className="text-sm">
+        <CareRow label="Scientific name" value={care.scientific_name} />
+        <CareRow label="Other names" value={care.other_names} />
+        <CareRow label="Type" value={care.type} />
+        <CareRow label="Origin" value={care.origin} />
+        <CareRow label="Watering" value={care.watering} />
+        <CareRow label="Watering guide" value={care.watering_benchmark} />
+        <CareRow label="Sunlight" value={care.sunlight} />
+        <CareRow label="Soil" value={care.soil} />
+        <CareRow label="Care level" value={care.care_level} />
+        <CareRow label="Maintenance" value={care.maintenance} />
+        <CareRow label="Growth rate" value={care.growth_rate} />
+        <CareRow label="Hardiness" value={care.hardiness} />
+        <CareRow label="Flowering season" value={care.flowering_season} />
+        <CareRow label="Suitable indoors" value={care.indoor} />
+      </dl>
+
+      {(care.poisonous_to_pets || care.poisonous_to_humans) && (
+        <p className="mt-4 flex items-start gap-2 text-sm bg-sun/20 border border-sun/50 rounded-xl px-4 py-3 text-ink">
+          <AlertTriangle className="w-4 h-4 mt-0.5 shrink-0 text-ink" aria-hidden="true" />
+          <span>
+            {care.poisonous_to_pets && "Toxic to pets. "}
+            {care.poisonous_to_humans && "Toxic if ingested by humans."}
+          </span>
+        </p>
+      )}
+    </section>
+  );
 }
 
 export function ProductDetail({ product }: ProductDetailProps) {
@@ -66,23 +155,24 @@ export function ProductDetail({ product }: ProductDetailProps) {
 
   // Use product image or placeholder
   const productImages = product.image_url ? [product.image_url] : [];
+  const care = product.care_details;
 
   return (
     <div className="flex flex-col min-h-screen">
       {/* Breadcrumb */}
-      <nav className="bg-gray-50 border-b border-gray-100 py-4" aria-label="Breadcrumb">
+      <nav className="bg-surface border-b border-line py-4" aria-label="Breadcrumb">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ol className="flex items-center gap-2 text-sm">
             <li>
-              <Link href="/" className="text-gray-500 hover:text-gray-700">Home</Link>
+              <Link href="/" className="text-ink-soft hover:text-leaf">Home</Link>
             </li>
-            <li className="flex items-center gap-2 text-gray-400">
+            <li className="flex items-center gap-2 text-ink-soft">
               <ChevronRight className="w-4 h-4" />
-              <Link href="/products" className="text-gray-500 hover:text-gray-700">Shop</Link>
+              <Link href="/products" className="text-ink-soft hover:text-leaf">Shop</Link>
             </li>
-            <li className="flex items-center gap-2 text-gray-400">
+            <li className="flex items-center gap-2 text-ink-soft">
               <ChevronRight className="w-4 h-4" />
-              <span className="text-gray-900 font-medium" aria-current="page">{product.title}</span>
+              <span className="text-ink font-medium" aria-current="page">{product.title}</span>
             </li>
           </ol>
         </div>
@@ -95,7 +185,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
             {/* Product Gallery */}
             <div className="space-y-4">
               {/* Main Image */}
-              <div className="relative aspect-square rounded-2xl overflow-hidden bg-gray-50">
+              <div className="relative aspect-square rounded-3xl overflow-hidden bg-surface">
                 {productImages.length > 0 ? (
                   <Image
                     src={productImages[selectedImage]}
@@ -106,7 +196,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                  <div className="w-full h-full flex items-center justify-center text-leaf-soft">
                     <svg className="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
@@ -115,7 +205,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
 
                 {/* Stock Badge */}
                 {isOutOfStock && (
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-ink/50 flex items-center justify-center">
                     <span className="bg-white text-lg font-semibold px-6 py-3 rounded-xl">Out of Stock</span>
                   </div>
                 )}
@@ -128,8 +218,8 @@ export function ProductDetail({ product }: ProductDetailProps) {
                     <button
                       key={index}
                       onClick={() => setSelectedImage(index)}
-                      className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                        selectedImage === index ? "border-black" : "border-transparent hover:border-gray-300"
+                      className={`relative flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-all ${
+                        selectedImage === index ? "border-leaf" : "border-transparent hover:border-leaf-soft"
                       }`}
                       aria-label={`View image ${index + 1}`}
                       aria-current={selectedImage === index ? "true" : "false"}
@@ -152,16 +242,22 @@ export function ProductDetail({ product }: ProductDetailProps) {
               {/* Category & Title */}
               <div>
                 {product.category && (
-                  <span className="inline-block text-sm font-medium text-gray-500 mb-2">{product.category}</span>
+                  <span className="inline-block text-sm font-medium text-leaf mb-2">
+                    <span className="inline-block w-2 h-2 rounded-full bg-leaf mr-2 align-middle" />
+                    {product.category}
+                  </span>
                 )}
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-900">{product.title}</h1>
+                <h1 className="font-display text-3xl md:text-4xl text-ink">{product.title}</h1>
+                {care?.scientific_name && (
+                  <p className="text-ink-soft italic mt-1">{care.scientific_name}</p>
+                )}
               </div>
 
               {/* Price */}
               <div className="flex items-baseline gap-4">
-                <span className="text-3xl font-bold text-gray-900">${format(product.price)}</span>
+                <span className="text-3xl font-bold text-ink">{formatNaira(product.price)}</span>
                 {product.stock_quantity > 0 && product.stock_quantity < 10 && (
-                  <span className="text-sm text-orange-600 bg-orange-50 px-2 py-1 rounded-full">
+                  <span className="text-sm text-orange-700 bg-orange-50 px-2 py-1 rounded-full">
                     Only {product.stock_quantity} left in stock
                   </span>
                 )}
@@ -169,20 +265,20 @@ export function ProductDetail({ product }: ProductDetailProps) {
 
               {/* Description */}
               <div className="prose prose-gray max-w-none">
-                <p className="text-gray-600 leading-relaxed">{product.description}</p>
+                <p className="text-ink-soft leading-relaxed">{product.description}</p>
               </div>
 
               {/* Quantity Selector */}
-              <div className="border-t border-b border-gray-100 py-6">
-                <label htmlFor="quantity" className="block text-sm font-medium text-gray-700 mb-3">
+              <div className="border-t border-b border-line py-6">
+                <label htmlFor="quantity" className="block text-sm font-medium text-ink mb-3">
                   Quantity
                 </label>
                 <div className="flex items-center gap-4">
-                  <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden">
+                  <div className="flex items-center border border-line rounded-lg overflow-hidden">
                     <button
                       onClick={() => handleQuantityChange(-1)}
                       disabled={quantity <= 1}
-                      className="px-4 py-3 text-gray-600 hover:text-gray-900 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="px-4 py-3 text-ink-soft hover:text-ink hover:bg-surface disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                       aria-label="Decrease quantity"
                     >
                       <Minus className="w-5 h-5" />
@@ -197,19 +293,19 @@ export function ProductDetail({ product }: ProductDetailProps) {
                       }}
                       min={1}
                       max={maxQuantity}
-                      className="w-16 text-center border-x border-gray-200 focus:outline-none text-lg font-medium"
+                      className="w-16 text-center border-x border-line focus:outline-none text-lg font-medium"
                       aria-label="Quantity"
                     />
                     <button
                       onClick={() => handleQuantityChange(1)}
                       disabled={quantity >= maxQuantity}
-                      className="px-4 py-3 text-gray-600 hover:text-gray-900 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="px-4 py-3 text-ink-soft hover:text-ink hover:bg-surface disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                       aria-label="Increase quantity"
                     >
                       <Plus className="w-5 h-5" />
                     </button>
                   </div>
-                  <span className="text-sm text-gray-500">Max {maxQuantity} per order</span>
+                  <span className="text-sm text-ink-soft">Max {maxQuantity} per order</span>
                 </div>
               </div>
 
@@ -224,37 +320,42 @@ export function ProductDetail({ product }: ProductDetailProps) {
               </Button>
 
               {/* Trust Badges */}
-              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-100">
+              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-line">
                 <div className="flex flex-col items-center gap-2 p-4">
-                  <Truck className="w-6 h-6 text-gray-400" />
-                  <span className="text-sm font-medium text-gray-700">Free Shipping</span>
-                  <span className="text-xs text-gray-500">On orders over $50</span>
+                  <Truck className="w-6 h-6 text-leaf" />
+                  <span className="text-sm font-medium text-ink">Free Delivery</span>
+                  <span className="text-xs text-ink-soft text-center">
+                    On orders over {formatNaira(FREE_DELIVERY_THRESHOLD)}
+                  </span>
                 </div>
                 <div className="flex flex-col items-center gap-2 p-4">
-                  <RotateCcw className="w-6 h-6 text-gray-400" />
-                  <span className="text-sm font-medium text-gray-700">Easy Returns</span>
-                  <span className="text-xs text-gray-500">30-day policy</span>
+                  <RotateCcw className="w-6 h-6 text-leaf" />
+                  <span className="text-sm font-medium text-ink">Easy Returns</span>
+                  <span className="text-xs text-ink-soft">30-day policy</span>
                 </div>
                 <div className="flex flex-col items-center gap-2 p-4">
-                  <Shield className="w-6 h-6 text-gray-400" />
-                  <span className="text-sm font-medium text-gray-700">Secure Payment</span>
-                  <span className="text-xs text-gray-500">100% protected</span>
+                  <Shield className="w-6 h-6 text-leaf" />
+                  <span className="text-sm font-medium text-ink">Secure Payment</span>
+                  <span className="text-xs text-ink-soft">100% protected</span>
                 </div>
               </div>
 
               {/* Product Meta */}
-              <dl className="space-y-3 text-sm text-gray-600 border-t border-gray-100 pt-6">
+              <dl className="space-y-3 text-sm border-t border-line pt-6">
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">SKU</dt>
-                  <dd className="font-medium font-mono">{product.id}</dd>
+                  <dt className="text-ink-soft">SKU</dt>
+                  <dd className="font-medium font-mono text-ink">{product.id}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-500">Availability</dt>
-                  <dd className={isOutOfStock ? "text-red-600" : "text-green-600"}>
+                  <dt className="text-ink-soft">Availability</dt>
+                  <dd className={isOutOfStock ? "text-red-600" : "text-leaf font-medium"}>
                     {isOutOfStock ? "Out of Stock" : "In Stock"}
                   </dd>
                 </div>
               </dl>
+
+              {/* Care details — populated from the care_details JSONB column */}
+              {care && <CareSection care={care} />}
             </div>
           </div>
         </div>

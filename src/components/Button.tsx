@@ -12,11 +12,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className = "", variant = "primary", size = "md", isLoading = false, children, disabled, ...props }, ref) => {
     const baseStyles = "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
 
+    // Template palette: primary actions are mid-green (#486C49), dark surfaces
+    // use warm ink (#2C2825) instead of pure black.
     const variants = {
-      primary: "bg-black text-white hover:bg-gray-800 focus:ring-black",
-      secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200 focus:ring-gray-400",
-      outline: "border-2 border-black text-black hover:bg-black hover:text-white focus:ring-black",
-      ghost: "text-gray-700 hover:bg-gray-100 focus:ring-gray-400",
+      primary: "bg-leaf text-white hover:bg-leaf-dark focus:ring-leaf",
+      secondary: "bg-mint text-ink hover:bg-leaf-soft hover:text-white focus:ring-leaf-soft",
+      outline: "border-2 border-ink text-ink hover:bg-ink hover:text-white focus:ring-ink",
+      ghost: "text-ink-soft hover:bg-surface hover:text-ink focus:ring-leaf-soft",
     };
 
     const sizes = {

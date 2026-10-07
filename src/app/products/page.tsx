@@ -7,8 +7,8 @@ import { createClient } from "@/lib/supabase/server";
 import { Product } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "All Products - Shop",
-  description: "Browse our complete collection of curated products.",
+  title: "The Catalogue - The Green Gazette™",
+  description: "Browse indoor plants, succulents, ferns and trees — every plant delivered with care notes.",
 };
 
 interface ProductsPageProps {
@@ -71,8 +71,8 @@ function buildHref(current: Filters, patch: { category?: string | null; sort?: s
 const chipClass = (active: boolean): string =>
   `px-4 py-1.5 rounded-full text-sm font-medium border transition-colors ${
     active
-      ? "bg-black text-white border-black"
-      : "bg-white text-gray-700 border-gray-200 hover:border-gray-400"
+      ? "bg-leaf text-white border-leaf"
+      : "bg-white text-ink-soft border-line hover:border-leaf-soft hover:text-ink"
   }`;
 
 export default async function ProductsPage({ searchParams }: ProductsPageProps) {
@@ -129,22 +129,25 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   const filters: Filters = { search: searchTerm, category: activeCategory, sort: activeSort };
 
   // Heading / subtitle reflect what's actually being shown.
-  const heading = activeCategory ? activeCategoryLabel : "All Products";
+  const heading = activeCategory ? activeCategoryLabel : "The Catalogue";
   const context: string[] = [];
   if (searchTerm) context.push(`Showing results for "${searchTerm}"`);
   if (activeCategory) context.push(searchTerm ? `in ${activeCategoryLabel}` : `Browsing ${activeCategoryLabel}`);
   const subtitle =
     context.length > 0
       ? `${context.join(" ")}.`
-      : "Discover our complete collection of curated quality products.";
+      : "Seasonal arrangements of indoor plants, succulents, ferns and trees — every one delivered with care notes.";
 
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="bg-gray-50 border-b border-gray-100 py-12 md:py-16">
+      <section className="bg-surface border-b border-line py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">{heading}</h1>
-            <p className="text-lg text-gray-500">{subtitle}</p>
+            <p className="font-display text-sm tracking-[0.2em] uppercase text-leaf mb-3">
+              Seasonal Arrangements
+            </p>
+            <h1 className="font-display text-4xl md:text-6xl text-ink mb-4">{heading}</h1>
+            <p className="text-lg text-ink-soft">{subtitle}</p>
           </div>
         </div>
       </section>
@@ -181,7 +184,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           </nav>
 
           <nav aria-label="Sort products" className="flex flex-wrap items-center gap-2 mb-6 text-sm">
-            <span className="text-gray-500">Sort:</span>
+            <span className="text-ink-soft">Sort:</span>
             {SORT_OPTIONS.map((option) => (
               <Link
                 key={option.key}
@@ -194,8 +197,8 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
             ))}
           </nav>
 
-          <div className="mb-6 text-sm text-gray-500">
-            {filteredProducts.length} product
+          <div className="mb-6 text-sm text-ink-soft">
+            {filteredProducts.length} plant
             {filteredProducts.length === 1 ? "" : "s"} found
           </div>
 
@@ -208,7 +211,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           {filteredProducts.length === 0 && (
             <div className="text-center py-20">
               <svg
-                className="w-16 h-16 text-gray-300 mx-auto mb-4"
+                className="w-16 h-16 text-leaf-soft mx-auto mb-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -220,24 +223,24 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
                   d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
                 />
               </svg>
-              <h2 className="text-xl font-semibold text-gray-900 mb-2">
+              <h2 className="font-display text-xl text-ink mb-2">
                 {searchTerm
-                  ? "No products found"
+                  ? "No plants found"
                   : activeCategory
                     ? `Nothing in ${activeCategoryLabel} yet`
-                    : "No products found"}
+                    : "No plants found"}
               </h2>
-              <p className="text-gray-500">
+              <p className="text-ink-soft">
                 {searchTerm
-                  ? "Try a different search term or browse all products."
-                  : "Check back soon — new items land every week."}
+                  ? "Try a different search term or browse the full catalogue."
+                  : "Check back soon — new plants land every week."}
               </p>
               {(searchTerm || activeCategory) && (
                 <Link
                   href="/products"
-                  className="inline-block mt-5 px-5 py-2.5 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
+                  className="inline-block mt-5 px-5 py-2.5 bg-leaf text-white text-sm font-medium rounded-lg hover:bg-leaf-dark transition-colors"
                 >
-                  View all products
+                  View all plants
                 </Link>
               )}
             </div>
@@ -247,11 +250,11 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
         </div>
       </section>
 
-      <section className="bg-gray-900 text-white py-16">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay in the Loop</h2>
-          <p className="text-gray-300 text-lg mb-8">
-            Get 10% off your first order when you subscribe to our newsletter.
+      <section id="newsletter" className="bg-ink text-white py-16 scroll-mt-20">
+        <div className="max-w-3xl mx-auto text-center px-4">
+          <h2 className="font-display text-3xl mb-4">Stay in the Loop</h2>
+          <p className="text-white/70 text-lg mb-8">
+            Get 10% off your first order when you subscribe to the Gazette.
           </p>
           <NewsletterForm />
         </div>

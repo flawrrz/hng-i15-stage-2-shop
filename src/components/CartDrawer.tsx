@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { X, Plus, Minus, Trash2 } from "lucide-react";
 import { Button } from "./Button";
 import { useCartStore } from "@/lib/cart-store";
-import { format } from "@/lib/utils";
+import { formatNaira, deliveryFee, FREE_DELIVERY_THRESHOLD } from "@/lib/utils";
 
 export function CartDrawer() {
   const { isOpen, items, closeCart, removeItem, updateQuantity, getSubtotal, getItemCount } = useCartStore();
@@ -15,7 +15,7 @@ export function CartDrawer() {
   const panelRef = useRef<HTMLElement | null>(null);
   const subtotal = getSubtotal();
   const itemCount = getItemCount();
-  const shipping = subtotal > 0 ? (subtotal >= 50 ? 0 : 5.99) : 0;
+  const shipping = subtotal > 0 ? deliveryFee(subtotal) : 0;
   const total = subtotal + shipping;
 
   // Prevent body scroll when cart is open
@@ -133,7 +133,7 @@ export function CartDrawer() {
                   <div className="flex items-start justify-between">
                     <div className="min-w-0 mr-2">
                       <h4 className="font-medium text-gray-900 truncate">{item.title}</h4>
-                      <p className="text-sm text-gray-500">${format(item.price)}</p>
+                      <p className="text-sm text-gray-500">{formatNaira(item.price)}</p>
                     </div>
                     <button
                       onClick={() => removeItem(item.product_id)}
@@ -173,22 +173,22 @@ export function CartDrawer() {
           <div className="border-t border-gray-100 p-4 space-y-3">
             <div className="flex justify-between text-sm">
               <span className="text-gray-600">Subtotal</span>
-              <span className="font-medium">${format(subtotal)}</span>
+              <span className="font-medium">{formatNaira(subtotal)}</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-gray-600">Shipping</span>
+              <span className="text-gray-600">Delivery</span>
               <span className="font-medium">
-                {shipping === 0 ? "Free" : `$${format(shipping)}`}
+                {shipping === 0 ? "Free" : formatNaira(shipping)}
               </span>
             </div>
             {shipping > 0 && (
               <p className="text-xs text-gray-500 text-center">
-                Add ${format(50 - subtotal)} more for free shipping!
+                Add {formatNaira(FREE_DELIVERY_THRESHOLD - subtotal)} more for free delivery!
               </p>
             )}
             <div className="flex justify-between text-base font-semibold pt-2 border-t border-gray-100">
               <span>Total</span>
-              <span>${format(total)}</span>
+              <span>{formatNaira(total)}</span>
             </div>
 
             <Button

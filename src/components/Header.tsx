@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/client";
 import { useCartStore } from "@/lib/cart-store";
-import { ChevronDown, LogOut, Menu, Package, Search, User, X } from "lucide-react";
+import { ChevronDown, LogOut, Menu, Search, User, X } from "lucide-react";
 
 export function Header() {
   const { getItemCount, toggleCart } = useCartStore();
@@ -24,9 +24,9 @@ export function Header() {
   const supabase = createClient();
 
   useEffect(() => {
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
+    // Get initial user
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      setUser(user);
       setIsLoading(false);
     });
 
@@ -74,45 +74,51 @@ export function Header() {
 
   if (isLoading) {
     return (
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
+      <header className="sticky top-0 z-50 bg-white border-b border-line">
         <div className="max-w-7xl mx-auto px-4 h-16" />
       </header>
     );
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
+    <header className="sticky top-0 z-50 bg-white border-b border-line">
       {/* Top Bar */}
-      <div className="bg-gray-900 text-white text-sm">
+      <div className="bg-ink text-white text-sm">
         <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
-          <span className="hidden sm:block">Free shipping on orders over $50</span>
-          <span className="sm:hidden">Free shipping on orders over $50</span>
+          <span>Free delivery on orders over ₦50,000</span>
         </div>
       </div>
 
       {/* Main Navigation */}
       <nav className="max-w-7xl mx-auto px-4" aria-label="Main navigation">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo — Caprasimo wordmark, per the template's masthead style */}
           <Link href="/" className="flex items-center gap-2" aria-label="Go to homepage">
-            <svg className="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            <svg className="w-7 h-7" viewBox="0 0 32 32" aria-hidden="true">
+              <path
+                d="M23 7c-7.5.3-13.2 4-14.6 10.2-.5 2.2.1 4.4 1.5 6.1l1.9-1.9c-.7-1-1-2.2-.7-3.5C12 12.6 16.4 9.6 22 9V7h1z"
+                fill="#486C49"
+              />
+              <circle cx="9.5" cy="23" r="3" fill="#FFC700" />
             </svg>
-            <span className="font-bold text-xl tracking-tight">Shop</span>
+            <span className="font-display text-xl tracking-tight text-ink">
+              The Green Gazette<sup className="text-[0.55em] align-super">™</sup>
+            </span>
           </Link>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-gray-700 hover:text-black transition-colors font-medium">Home</Link>
-            <Link href="/products" className="text-gray-700 hover:text-black transition-colors font-medium">Shop</Link>
-            <Link href="/contact" className="text-gray-700 hover:text-black transition-colors font-medium">Contact</Link>
+            <Link href="/" className="text-ink-soft hover:text-leaf transition-colors font-medium">Home</Link>
+            <Link href="/products" className="text-ink-soft hover:text-leaf transition-colors font-medium">Shop</Link>
+            <Link href="/about" className="text-ink-soft hover:text-leaf transition-colors font-medium">About</Link>
+            <Link href="/contact" className="text-ink-soft hover:text-leaf transition-colors font-medium">Contact</Link>
           </div>
 
           {/* Actions */}
           <div className="flex items-center gap-4">
             {/* Search */}
             <button
-              className="p-2 text-gray-600 hover:text-black transition-colors"
+              className="p-2 text-ink-soft hover:text-leaf transition-colors"
               aria-label="Search products"
               onClick={() => {
                 setShowSearch((prev) => !prev);
@@ -126,7 +132,7 @@ export function Header() {
             {user ? (
               <div className="relative" ref={accountMenuRef}>
                 <button
-                  className="flex items-center gap-2 p-2 text-gray-600 hover:text-black transition-colors"
+                  className="flex items-center gap-2 p-2 text-ink-soft hover:text-leaf transition-colors"
                   aria-label="Account menu"
                   onClick={() => setShowDropdown(!showDropdown)}
                 >
@@ -143,43 +149,38 @@ export function Header() {
                       className="w-8 h-8 rounded-full"
                     />
                   ) : (
-                    <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
-                      <User className="w-5 h-5 text-gray-400" />
+                    <div className="w-8 h-8 rounded-full bg-mint flex items-center justify-center">
+                      <User className="w-5 h-5 text-leaf" />
                     </div>
                   )}
-                  <span className="hidden sm:font-medium text-sm">
+                  <span className="hidden sm:font-medium text-sm text-ink">
                     {user.user_metadata?.full_name || user.email?.split("@")[0]}
                   </span>
-                  <ChevronDown className="w-4 h-4 text-gray-400" />
+                  <ChevronDown className="w-4 h-4 text-ink-soft" />
                 </button>
 
                 {/* Dropdown Menu */}
                 {showDropdown && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-1 z-50 animate-fade-in">
-                    <div className="px-4 py-2 border-b border-gray-100">
-                      <p className="text-sm font-medium text-gray-900 truncate">{user.user_metadata?.full_name || user.email?.split("@")[0]}</p>
-                      <p className="text-xs text-gray-500 truncate">{user.email}</p>
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-line py-1 z-50 animate-fade-in">
+                    <div className="px-4 py-2 border-b border-line">
+                      <p className="text-sm font-medium text-ink truncate">{user.user_metadata?.full_name || user.email?.split("@")[0]}</p>
+                      <p className="text-xs text-ink-soft truncate">{user.email}</p>
                     </div>
+                    {/* Single account link: /account already lists orders below
+                        the profile header — the old duplicate "My Orders" entry
+                        pointed at the exact same URL. */}
                     <Link
                       href="/account"
-                      className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-ink hover:bg-surface"
                       onClick={() => setShowDropdown(false)}
                     >
                       <User className="w-4 h-4" />
                       My Account
                     </Link>
-                    <Link
-                      href="/account"
-                      className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
-                      onClick={() => setShowDropdown(false)}
-                    >
-                      <Package className="w-4 h-4" />
-                      My Orders
-                    </Link>
-                    <hr className="my-1 border-gray-100" />
+                    <hr className="my-1 border-line" />
                     <button
                       onClick={handleSignOut}
-                      className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-gray-50"
+                      className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-surface"
                     >
                       <LogOut className="w-4 h-4" />
                       Sign Out
@@ -191,13 +192,13 @@ export function Header() {
               <div className="hidden sm:flex items-center gap-2">
                 <Link
                   href="/auth/login"
-                  className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-ink hover:text-leaf transition-colors"
                 >
                   Sign In
                 </Link>
                 <Link
                   href="/auth/signup"
-                  className="px-4 py-2 text-sm font-medium text-white bg-black rounded-lg hover:bg-gray-800 transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-white bg-leaf rounded-lg hover:bg-leaf-dark transition-colors"
                 >
                   Sign Up
                 </Link>
@@ -207,7 +208,7 @@ export function Header() {
             {/* Cart Button */}
             <button
               onClick={toggleCart}
-              className="relative p-2 text-gray-600 hover:text-black transition-colors"
+              className="relative p-2 text-ink-soft hover:text-leaf transition-colors"
               aria-label={`Shopping cart${itemCount > 0 ? ` with ${itemCount} items` : " is empty"}`}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -219,7 +220,7 @@ export function Header() {
                 // was added (locally or synced from the phone).
                 <span
                   key={itemCount}
-                  className="animate-badge-pop absolute -top-1 -right-1 bg-black text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
+                  className="animate-badge-pop absolute -top-1 -right-1 bg-sun text-ink text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
                 >
                   {itemCount > 99 ? "99+" : itemCount}
                 </span>
@@ -228,7 +229,7 @@ export function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-gray-600 hover:text-black transition-colors"
+              className="md:hidden p-2 text-ink-soft hover:text-leaf transition-colors"
               aria-label={showMobileMenu ? "Close menu" : "Open menu"}
               onClick={() => {
                 setShowMobileMenu((prev) => !prev);
@@ -246,7 +247,7 @@ export function Header() {
       </nav>
 
       {showSearch && (
-        <div className="border-t border-gray-100 bg-white">
+        <div className="border-t border-line bg-white">
           <form
             onSubmit={handleSearchSubmit}
             className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-2"
@@ -255,12 +256,12 @@ export function Header() {
               type="search"
               value={searchQuery}
               onChange={(event) => setSearchQuery(event.target.value)}
-              placeholder="Search for products..."
-              className="flex-1 px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+              placeholder="Search for plants..."
+              className="flex-1 px-4 py-2 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf"
             />
             <button
               type="submit"
-              className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+              className="px-4 py-2 bg-leaf text-white rounded-lg hover:bg-leaf-dark transition-colors"
             >
               Search
             </button>
@@ -269,30 +270,30 @@ export function Header() {
       )}
 
       {showMobileMenu && (
-        <div className="md:hidden border-t border-gray-100 bg-white">
+        <div className="md:hidden border-t border-line bg-white">
           <div className="px-4 py-4 space-y-2">
-            <Link href="/" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50">
+            <Link href="/" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-ink hover:bg-surface">
               Home
             </Link>
-            <Link href="/products" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50">
+            <Link href="/products" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-ink hover:bg-surface">
               Shop
             </Link>
-            <Link href="/contact" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50">
-             Contact
+            <Link href="/about" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-ink hover:bg-surface">
+              About
+            </Link>
+            <Link href="/contact" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-ink hover:bg-surface">
+              Contact
             </Link>
           </div>
-          <div className="px-4 pb-4 border-t border-gray-100 pt-4">
+          <div className="px-4 pb-4 border-t border-line pt-4">
             {user ? (
               <div className="space-y-2">
-                <Link href="/account" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50">
+                <Link href="/account" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-ink hover:bg-surface">
                   My Account
-                </Link>
-                <Link href="/account" onClick={() => setShowMobileMenu(false)} className="block px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50">
-                  My Orders
                 </Link>
                 <button
                   onClick={handleSignOut}
-                  className="w-full text-left px-3 py-2 rounded-lg text-red-600 hover:bg-gray-50"
+                  className="w-full text-left px-3 py-2 rounded-lg text-red-600 hover:bg-surface"
                 >
                   Sign Out
                 </button>
@@ -302,14 +303,14 @@ export function Header() {
                 <Link
                   href="/auth/login"
                   onClick={() => setShowMobileMenu(false)}
-                  className="block px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-50"
+                  className="block px-3 py-2 rounded-lg text-ink hover:bg-surface"
                 >
                   Sign In
                 </Link>
                 <Link
                   href="/auth/signup"
                   onClick={() => setShowMobileMenu(false)}
-                  className="block px-3 py-2 rounded-lg bg-black text-white hover:bg-gray-800"
+                  className="block px-3 py-2 rounded-lg bg-leaf text-white hover:bg-leaf-dark"
                 >
                   Sign Up
                 </Link>

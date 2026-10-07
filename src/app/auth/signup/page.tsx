@@ -66,8 +66,8 @@ export default function SignupForm() {
   return (
     <div className="max-w-md mx-auto">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Create Account</h1>
-        <p className="text-gray-500 mt-2">Start shopping with us</p>
+        <h1 className="font-display text-3xl font-bold text-ink">Create Account</h1>
+        <p className="text-ink-soft mt-2">Start shopping with us</p>
       </div>
 
       {error && (
@@ -106,17 +106,17 @@ export default function SignupForm() {
 
       <div className="relative mb-6">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-200" />
+          <div className="w-full border-t border-line" />
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="px-2 bg-white text-gray-500">Or continue with email</span>
+          <span className="px-2 bg-white text-ink-soft">Or continue with email</span>
         </div>
       </div>
 
       {/* Email/Password Form */}
       <form onSubmit={handleSignup} className="space-y-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="email" className="block text-sm font-medium text-ink-soft mb-1">
             Email
           </label>
           <input
@@ -124,7 +124,7 @@ export default function SignupForm() {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+            className="w-full px-4 py-3 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf"
             placeholder="you@example.com"
             required
             disabled={isLoading}
@@ -132,7 +132,7 @@ export default function SignupForm() {
         </div>
 
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="password" className="block text-sm font-medium text-ink-soft mb-1">
             Password
           </label>
           <input
@@ -140,7 +140,7 @@ export default function SignupForm() {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+            className="w-full px-4 py-3 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf"
             placeholder="••••••••"
             required
             disabled={isLoading}
@@ -149,7 +149,7 @@ export default function SignupForm() {
         </div>
 
         <div>
-          <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="confirmPassword" className="block text-sm font-medium text-ink-soft mb-1">
             Confirm Password
           </label>
           <input
@@ -157,7 +157,7 @@ export default function SignupForm() {
             id="confirmPassword"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+            className="w-full px-4 py-3 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf/40 focus:border-leaf"
             placeholder="••••••••"
             required
             disabled={isLoading}
@@ -169,9 +169,9 @@ export default function SignupForm() {
         </Button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-gray-500">
+      <p className="mt-6 text-center text-sm text-ink-soft">
         Already have an account?{" "}
-        <Link href="/auth/login" className="text-black font-medium hover:underline">
+        <Link href="/auth/login" className="text-ink font-medium hover:underline">
           Sign in
         </Link>
       </p>

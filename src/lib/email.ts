@@ -10,7 +10,7 @@ import nodemailer from "nodemailer";
  * Required environment variables (see .env.local.example):
  * - GMAIL_SMTP_USER          -> Gmail address that sends the mail
  * - GMAIL_SMTP_APP_PASSWORD  -> 16-character Google App Password (not your login password)
- * - GMAIL_FROM_NAME          -> optional display name, defaults to "Shop"
+ * - GMAIL_FROM_NAME          -> optional display name, defaults to the brand
  */
 
 interface GmailConfig {
@@ -31,7 +31,7 @@ function getGmailConfig(): GmailConfig | null {
   return {
     user,
     appPassword,
-    fromName: process.env.GMAIL_FROM_NAME || "Shop",
+    fromName: process.env.GMAIL_FROM_NAME || "The Green Gazette",
   };
 }
 

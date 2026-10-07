@@ -1,4 +1,4 @@
-import { createServerClient } from "@supabase/ssr";
+import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function proxy(request: NextRequest) {
@@ -14,8 +14,8 @@ export async function proxy(request: NextRequest) {
         getAll() {
           return request.cookies.getAll();
         },
-        setAll(cookiesToSet: { name: string; value: string; options: any }[]) {
-          cookiesToSet.forEach(({ name, value, options }) =>
+        setAll(cookiesToSet: { name: string; value: string; options?: CookieOptions }[]) {
+          cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value)
           );
           supabaseResponse = NextResponse.next({
@@ -55,6 +55,38 @@ export async function proxy(request: NextRequest) {
 
   if (isAuthPath && user) {
     return NextResponse.redirect(new URL("/account", request.url));
+  }
+
+  // Admin area: allowlist comes from the ADMIN_EMAILS env var (comma-separated
+  // emails, case-insensitive). No schema change — add yourself to .env.local
+  // locally and to Vercel's environment variables to grant access.
+  const isAdminPath = request.nextUrl.pathname.startsWith("/admin");
+  const isAdminApi = request.nextUrl.pathname.startsWith("/api/admin");
+
+  if (isAdminPath || isAdminApi) {
+    const adminEmails = (process.env.ADMIN_EMAILS ?? "")
+      .split(",")
+      .map((email) => email.trim().toLowerCase())
+      .filter(Boolean);
+
+    const email = user?.email?.toLowerCase() ?? "";
+    const isAllowed = Boolean(email) && adminEmails.includes(email);
+
+    if (!isAllowed) {
+      // JSON 403 for API calls (fetch() callers expect a status, not HTML),
+      // login redirect for the page itself.
+      if (isAdminApi) {
+        return NextResponse.json(
+          { error: "Not authorized for admin access." },
+          { status: 403 }
+        );
+      }
+      const redirectUrl = new URL(user ? "/account" : "/auth/login", request.url);
+      if (!user) {
+        redirectUrl.searchParams.set("redirectTo", request.nextUrl.pathname);
+      }
+      return NextResponse.redirect(redirectUrl);
+    }
   }
 
   return supabaseResponse;
