@@ -1,6 +1,11 @@
+import { deliveryFee, vatFor } from './utils';
 import type { CartItem, CheckoutRequest, Product } from './types';
 
-/** Format a number as currency (2 decimal places) — same as the web app. */
+/**
+ * Format a number as currency (2 decimal places).
+ * Prices are displayed with formatNaira (lib/utils.ts) — this stays for the
+ * rare non-naira number, mirroring the web app's legacy `format` helper.
+ */
 export function format(value: number): string {
   return value.toFixed(2);
 }
@@ -15,13 +20,14 @@ export function formatDate(dateString: string): string {
 }
 
 /**
- * Shipping/tax rules — must stay identical to src/app/checkout/page.tsx in the
- * web app, otherwise the totals shown here wouldn't match what the server
- * records. Free shipping at $50+, flat $5.99 below, 8% tax on subtotal.
+ * Shipping/tax rules — must stay identical to the web checkout
+ * (src/app/checkout/page.tsx), otherwise the totals shown here wouldn't
+ * match what the server records: standard delivery of ₦3,500, free at
+ * ₦50,000+, plus Nigeria's 7.5% VAT on the subtotal.
  */
 export function calculateTotals(subtotal: number) {
-  const shipping = subtotal >= 50 ? 0 : 5.99;
-  const tax = subtotal * 0.08;
+  const shipping = deliveryFee(subtotal);
+  const tax = vatFor(subtotal);
   const total = subtotal + shipping + tax;
   return { shipping, tax, total };
 }

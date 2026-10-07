@@ -1,11 +1,15 @@
 import { NativeTabs } from 'expo-router/unstable-native-tabs';
 
 import { useCartStore } from '@/lib/cart-store';
-import { colors } from '@/lib/theme';
+import { colors, fonts } from '@/theme/theme';
 
 /**
  * Bottom tab bar: Shop, Cart, Account.
  * The Cart tab shows a badge with the total number of items.
+ *
+ * Colors follow the Green Gazette palette: white bar, soft mint pill behind
+ * the selected tab, leaf-green tint on the active icon/label (the web app's
+ * accent color), Outfit for labels.
  */
 export default function TabsLayout() {
   const itemCount = useCartStore((state) =>
@@ -15,8 +19,12 @@ export default function TabsLayout() {
   return (
     <NativeTabs
       backgroundColor={colors.white}
-      indicatorColor={colors.gray100}
-      labelStyle={{ selected: { color: colors.black } }}
+      indicatorColor={colors.mint}
+      tintColor={colors.leaf}
+      labelStyle={{
+        default: { fontFamily: fonts.bodySemiBold, color: colors.inkSoft },
+        selected: { fontFamily: fonts.bodySemiBold, color: colors.ink },
+      }}
     >
       <NativeTabs.Trigger name="index">
         <NativeTabs.Trigger.Label>Shop</NativeTabs.Trigger.Label>

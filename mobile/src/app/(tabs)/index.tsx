@@ -15,7 +15,7 @@ import { Button } from '@/components/Button';
 import { NewsletterForm } from '@/components/NewsletterForm';
 import { ProductCard } from '@/components/ProductCard';
 import { fetchProducts } from '@/lib/api';
-import { colors, radius } from '@/lib/theme';
+import { colors, fonts, radius } from '@/theme/theme';
 import type { Product } from '@/lib/types';
 
 /**
@@ -92,7 +92,7 @@ export default function ShopScreen() {
   if (loading) {
     return (
       <View style={styles.center}>
-        <ActivityIndicator size="large" color={colors.black} />
+        <ActivityIndicator size="large" color={colors.leaf} />
         <Text style={styles.centerText}>Loading products…</Text>
       </View>
     );
@@ -101,7 +101,7 @@ export default function ShopScreen() {
   if (error && products.length === 0) {
     return (
       <View style={styles.center}>
-        <Ionicons name="cloud-offline-outline" size={40} color={colors.gray400} />
+        <Ionicons name="cloud-offline-outline" size={40} color={colors.inkMuted} />
         <Text style={styles.errorTitle}>Couldn&apos;t load the shop</Text>
         <Text style={styles.centerText}>{error}</Text>
         <Button title="Retry" onPress={load} fullWidth={false} style={styles.retry} />
@@ -121,17 +121,18 @@ export default function ShopScreen() {
       }
       ListHeaderComponent={
         <View>
-          {/* Hero — same copy as the web home page */}
+          {/* Hero — the gazette masthead, same brand voice as the web home */}
           <View style={styles.hero}>
             <View style={styles.heroChip}>
-              <Text style={styles.heroChipText}>New Collection Now Available</Text>
+              <Text style={styles.heroChipText}>In This Issue</Text>
             </View>
-            <Text style={styles.heroTitle}>Discover Products You&apos;ll Love</Text>
+            <Text style={styles.heroTitle}>The Green Gazette™</Text>
             <Text style={styles.heroSubtitle}>
-              Handpicked essentials designed to make your everyday extraordinary.
+              Handpicked plants from the greenhouse — delivered across Lagos and
+              Nigeria, each with its own care notes.
             </Text>
             <Button
-              title="Shop Now"
+              title="Shop the Catalogue"
               variant="outline"
               fullWidth={false}
               onPress={() => setSearch('')}
@@ -181,12 +182,12 @@ export default function ShopScreen() {
 
           {/* Search */}
           <View style={styles.searchWrap}>
-            <Ionicons name="search" size={18} color={colors.gray400} />
+            <Ionicons name="search" size={18} color={colors.inkMuted} />
             <TextInput
               value={search}
               onChangeText={setSearch}
-              placeholder="Search products…"
-              placeholderTextColor={colors.gray400}
+              placeholder="Search plants…"
+              placeholderTextColor={colors.inkMuted}
               style={styles.searchInput}
               autoCapitalize="none"
               returnKeyType="search"
@@ -195,7 +196,7 @@ export default function ShopScreen() {
               <Ionicons
                 name="close-circle"
                 size={18}
-                color={colors.gray400}
+                color={colors.inkMuted}
                 onPress={() => setSearch('')}
               />
             ) : null}
@@ -206,7 +207,7 @@ export default function ShopScreen() {
       }
       ListEmptyComponent={
         <View style={styles.emptyResults}>
-          <Ionicons name="search-outline" size={36} color={colors.gray400} />
+          <Ionicons name="search-outline" size={36} color={colors.inkMuted} />
           <Text style={styles.errorTitle}>
             {category && !query ? `Nothing in ${category} yet` : 'No products found'}
           </Text>
@@ -220,9 +221,10 @@ export default function ShopScreen() {
       ListFooterComponent={
         <View style={styles.footer}>
           <View style={styles.newsletterCard}>
-            <Text style={styles.newsletterTitle}>Stay in the loop</Text>
+            <Text style={styles.newsletterTitle}>Join the Gazette</Text>
             <Text style={styles.newsletterText}>
-              Subscribe for exclusive offers, new arrivals and style inspiration.
+              Plant care notes, new arrivals and subscribers-only offers — one
+              letter, twice a month.
             </Text>
             <NewsletterForm />
           </View>
@@ -243,19 +245,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 32,
-    backgroundColor: colors.gray50,
+    backgroundColor: colors.surface,
   },
   centerText: {
     marginTop: 8,
     fontSize: 15,
-    color: colors.gray500,
+    fontFamily: fonts.body,
+    color: colors.inkSoft,
     textAlign: 'center',
   },
   errorTitle: {
     marginTop: 12,
+    // Screen headline → Caprasimo.
+    fontFamily: fonts.display,
     fontSize: 18,
-    fontWeight: '700',
-    color: colors.gray900,
+    color: colors.ink,
     textAlign: 'center',
   },
   retry: {
@@ -264,7 +268,7 @@ const styles = StyleSheet.create({
   listContent: {
     padding: 16,
     paddingBottom: 32,
-    backgroundColor: colors.gray50,
+    backgroundColor: colors.surface,
   },
   column: {
     gap: 12,
@@ -274,34 +278,40 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   hero: {
-    backgroundColor: colors.gray900,
+    // Dark banner = ink, per the design system.
+    backgroundColor: colors.ink,
     borderRadius: radius.xl,
     padding: 24,
     marginBottom: 20,
   },
   heroChip: {
     alignSelf: 'flex-start',
-    backgroundColor: 'rgba(255,255,255,0.12)',
+    // Yellow sticker badge — the template's playful accent.
+    backgroundColor: colors.sun,
     borderRadius: radius.full,
     paddingHorizontal: 12,
     paddingVertical: 6,
     marginBottom: 16,
   },
   heroChipText: {
-    color: colors.white,
+    color: colors.ink,
     fontSize: 12,
-    fontWeight: '600',
+    fontFamily: fonts.bodySemiBold,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
   heroTitle: {
+    // Masthead: Caprasimo display face (no fontWeight — it's single-weight).
+    fontFamily: fonts.display,
+    fontSize: 30,
+    lineHeight: 36,
     color: colors.white,
-    fontSize: 28,
-    fontWeight: '800',
-    lineHeight: 34,
     marginBottom: 10,
   },
   heroSubtitle: {
-    color: colors.gray400,
+    color: colors.leafSoft,
     fontSize: 15,
+    fontFamily: fonts.body,
     lineHeight: 22,
     marginBottom: 20,
   },
@@ -315,7 +325,7 @@ const styles = StyleSheet.create({
     gap: 8,
     backgroundColor: colors.white,
     borderWidth: 1,
-    borderColor: colors.gray200,
+    borderColor: colors.line,
     borderRadius: radius.md,
     paddingHorizontal: 12,
     minHeight: 46,
@@ -324,7 +334,8 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: 16,
-    color: colors.gray900,
+    fontFamily: fonts.body,
+    color: colors.ink,
     paddingVertical: 10,
   },
   chipsRow: {
@@ -338,28 +349,30 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: radius.full,
     borderWidth: 1,
-    borderColor: colors.gray200,
+    borderColor: colors.line,
     backgroundColor: colors.white,
   },
   chipActive: {
-    backgroundColor: colors.black,
-    borderColor: colors.black,
+    // Active chip = leaf green, like the web /products filter chips.
+    backgroundColor: colors.leaf,
+    borderColor: colors.leaf,
   },
   chipPressed: {
     opacity: 0.7,
   },
   chipText: {
     fontSize: 13,
-    fontWeight: '500',
-    color: colors.gray500,
+    fontFamily: fonts.bodyMedium,
+    color: colors.inkSoft,
   },
   chipTextActive: {
     color: colors.white,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: colors.gray900,
+    // Screen section heading → Caprasimo.
+    fontFamily: fonts.display,
+    fontSize: 20,
+    color: colors.ink,
     marginBottom: 14,
   },
   emptyResults: {
@@ -370,19 +383,21 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   newsletterCard: {
-    backgroundColor: colors.gray900,
+    // Newsletter block sits on the ink banner, same as the web footer CTA.
+    backgroundColor: colors.ink,
     borderRadius: radius.xl,
     padding: 24,
   },
   newsletterTitle: {
+    fontFamily: fonts.display,
+    fontSize: 22,
     color: colors.white,
-    fontSize: 20,
-    fontWeight: '700',
     marginBottom: 6,
   },
   newsletterText: {
-    color: colors.gray400,
+    color: colors.leafSoft,
     fontSize: 14,
+    fontFamily: fonts.body,
     lineHeight: 20,
     marginBottom: 16,
   },

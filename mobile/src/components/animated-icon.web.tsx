@@ -69,7 +69,11 @@ export function AnimatedIcon() {
       </Animated.View>
 
       <Animated.View style={styles.imageContainer} entering={logoKeyframe.duration(DURATION)}>
-        <Image style={styles.image} source={require('@/assets/images/expo-logo.png')} alt="Expo logo" />
+        <Image
+          style={styles.image}
+          source={require('@/assets/images/splash-icon.png')}
+          alt="The Green Gazette"
+        />
       </Animated.View>
     </View>
   );
@@ -101,7 +105,7 @@ const styles = StyleSheet.create({
   image: {
     position: 'absolute',
     width: 76,
-    height: 71,
+    height: 76,
   },
   background: {
     width: 128,

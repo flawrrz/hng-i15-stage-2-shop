@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Button } from '@/components/Button';
 import { shortOrderId } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
-import { colors, radius } from '@/lib/theme';
+import { colors, fonts, radius } from '@/theme/theme';
 
 /**
  * Order confirmation — shown with router.replace so the back gesture can't
@@ -59,7 +59,7 @@ export default function OrderSuccessScreen() {
 function Step({ icon, text }: { icon: keyof typeof Ionicons.glyphMap; text: string }) {
   return (
     <View style={styles.stepRow}>
-      <Ionicons name={icon} size={18} color={colors.gray500} />
+      <Ionicons name={icon} size={18} color={colors.leafDark} />
       <Text style={styles.stepText}>{text}</Text>
     </View>
   );
@@ -77,29 +77,32 @@ const styles = StyleSheet.create({
     width: 88,
     height: 88,
     borderRadius: radius.full,
-    backgroundColor: colors.success,
+    // Success = leaf green (the design system's positive color).
+    backgroundColor: colors.leaf,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 24,
   },
   title: {
+    // Confirmation headline → Caprasimo.
+    fontFamily: fonts.display,
     fontSize: 24,
-    fontWeight: '800',
-    color: colors.gray900,
+    color: colors.ink,
     textAlign: 'center',
     marginBottom: 10,
   },
   message: {
     fontSize: 15,
+    fontFamily: fonts.body,
     lineHeight: 22,
-    color: colors.gray500,
+    color: colors.inkSoft,
     textAlign: 'center',
     marginBottom: 20,
   },
   orderChip: {
-    backgroundColor: colors.gray50,
+    backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: colors.gray200,
+    borderColor: colors.line,
     borderRadius: radius.md,
     paddingHorizontal: 20,
     paddingVertical: 12,
@@ -108,28 +111,30 @@ const styles = StyleSheet.create({
   },
   orderChipLabel: {
     fontSize: 12,
-    color: colors.gray500,
+    fontFamily: fonts.body,
+    color: colors.inkSoft,
     marginBottom: 2,
   },
   orderChipValue: {
     fontSize: 17,
-    fontWeight: '700',
-    color: colors.gray900,
+    fontFamily: fonts.bodyBold,
+    color: colors.ink,
     letterSpacing: 1,
   },
   stepsCard: {
     alignSelf: 'stretch',
-    backgroundColor: colors.infoBg,
+    // Mint info card (replaces the old blue info box).
+    backgroundColor: colors.mint,
     borderWidth: 1,
-    borderColor: colors.infoBorder,
+    borderColor: colors.leafSoft,
     borderRadius: radius.md,
     padding: 18,
     marginBottom: 32,
   },
   stepsTitle: {
     fontSize: 15,
-    fontWeight: '700',
-    color: colors.info,
+    fontFamily: fonts.bodyBold,
+    color: colors.leafDark,
     marginBottom: 12,
   },
   stepRow: {
@@ -140,7 +145,8 @@ const styles = StyleSheet.create({
   },
   stepText: {
     fontSize: 14,
-    color: colors.info,
+    fontFamily: fonts.body,
+    color: colors.ink,
     flex: 1,
   },
   actions: {

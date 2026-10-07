@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors, radius } from '@/lib/theme';
+import { colors, fonts, radius } from '@/theme/theme';
 
 interface QuantityStepperProps {
   quantity: number;
@@ -56,33 +56,35 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: colors.gray300,
+    borderColor: colors.line,
     borderRadius: radius.md,
     overflow: 'hidden',
+    backgroundColor: colors.white,
   },
   button: {
     width: 44,
     height: 44,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.gray50,
+    backgroundColor: colors.surface,
   },
   buttonDisabled: {
     opacity: 0.4,
   },
   pressed: {
-    backgroundColor: colors.gray100,
+    // Mint wash while pressing — the playful green tint from the web hover.
+    backgroundColor: colors.mint,
   },
   sign: {
     fontSize: 20,
-    fontWeight: '600',
-    color: colors.gray700,
+    fontFamily: fonts.bodySemiBold,
+    color: colors.ink,
   },
   quantity: {
     minWidth: 40,
     textAlign: 'center',
     fontSize: 16,
-    fontWeight: '600',
-    color: colors.gray900,
+    fontFamily: fonts.bodySemiBold,
+    color: colors.ink,
   },
 });

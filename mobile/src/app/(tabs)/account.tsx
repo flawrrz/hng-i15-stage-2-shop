@@ -16,10 +16,11 @@ import {
 
 import { Button } from '@/components/Button';
 import { EmptyState } from '@/components/EmptyState';
-import { formatDate, format, shortOrderId } from '@/lib/api';
+import { formatDate, shortOrderId } from '@/lib/api';
+import { formatNaira } from '@/lib/utils';
 import { useAuth } from '@/lib/auth';
 import { supabase } from '@/lib/supabase';
-import { colors, radius, statusColors } from '@/lib/theme';
+import { colors, fonts, radius, statusColors } from '@/theme/theme';
 import type { OrderWithItems } from '@/lib/types';
 
 type Mode = 'signin' | 'signup';
@@ -150,7 +151,7 @@ export default function AccountScreen() {
   if (loading) {
     return (
       <View style={styles.center}>
-        <ActivityIndicator size="large" color={colors.black} />
+        <ActivityIndicator size="large" color={colors.leaf} />
       </View>
     );
   }
@@ -169,7 +170,7 @@ export default function AccountScreen() {
           keyboardShouldPersistTaps="handled"
         >
           <View style={styles.authIcon}>
-            <Ionicons name="person-outline" size={32} color={colors.gray500} />
+            <Ionicons name="person-outline" size={32} color={colors.leaf} />
           </View>
           <Text style={styles.authTitle}>
             {mode === 'signin' ? 'Welcome back' : 'Create your account'}
@@ -177,7 +178,7 @@ export default function AccountScreen() {
           <Text style={styles.authSubtitle}>
             {mode === 'signin'
               ? 'Sign in to see your orders and check out faster.'
-              : 'Join the shop to track orders and save your details.'}
+              : 'Join The Green Gazette to track orders and save your details.'}
           </Text>
 
           {/* Mode switch */}
@@ -206,7 +207,7 @@ export default function AccountScreen() {
             value={email}
             onChangeText={setEmail}
             placeholder="Email address"
-            placeholderTextColor={colors.gray400}
+            placeholderTextColor={colors.inkMuted}
             keyboardType="email-address"
             autoCapitalize="none"
             autoComplete="email"
@@ -216,7 +217,7 @@ export default function AccountScreen() {
             value={password}
             onChangeText={setPassword}
             placeholder="Password (min. 6 characters)"
-            placeholderTextColor={colors.gray400}
+            placeholderTextColor={colors.inkMuted}
             secureTextEntry
             autoComplete={mode === 'signin' ? 'current-password' : 'new-password'}
             style={styles.input}
@@ -231,7 +232,7 @@ export default function AccountScreen() {
 
           {notice ? (
             <View style={styles.noticeBox}>
-              <Ionicons name="mail-outline" size={16} color={colors.info} />
+              <Ionicons name="mail-outline" size={16} color={colors.leafDark} />
               <Text style={styles.noticeText}>{notice}</Text>
             </View>
           ) : null}
@@ -287,7 +288,7 @@ export default function AccountScreen() {
       <Text style={styles.sectionTitle}>Order History</Text>
 
       {ordersLoading ? (
-        <ActivityIndicator style={styles.ordersLoader} color={colors.black} />
+        <ActivityIndicator style={styles.ordersLoader} color={colors.leaf} />
       ) : orders.length === 0 ? (
         <EmptyState
           icon="cube-outline"
@@ -318,7 +319,7 @@ export default function AccountScreen() {
                     <Text style={styles.orderItemQty}>× {item.quantity}</Text>
                   </Text>
                   <Text style={styles.orderItemPrice}>
-                    ${format(item.price_at_purchase * item.quantity)}
+                    {formatNaira(item.price_at_purchase * item.quantity)}
                   </Text>
                 </View>
               ))}
@@ -326,7 +327,7 @@ export default function AccountScreen() {
               <View style={styles.orderTotalRow}>
                 <Text style={styles.orderTotalLabel}>Total</Text>
                 <Text style={styles.orderTotalValue}>
-                  ${format(order.total_amount)}
+                  {formatNaira(order.total_amount)}
                 </Text>
               </View>
             </View>
@@ -352,38 +353,40 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.gray50,
+    backgroundColor: colors.surface,
   },
   // ── Signed-out layout ──
   authContent: {
     padding: 24,
     paddingTop: 40,
-    backgroundColor: colors.gray50,
+    backgroundColor: colors.surface,
   },
   authIcon: {
     width: 64,
     height: 64,
     borderRadius: radius.full,
-    backgroundColor: colors.gray100,
+    backgroundColor: colors.mint,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
   },
   authTitle: {
+    // Page headline → Caprasimo.
+    fontFamily: fonts.display,
     fontSize: 26,
-    fontWeight: '800',
-    color: colors.gray900,
+    color: colors.ink,
     marginBottom: 6,
   },
   authSubtitle: {
     fontSize: 15,
-    color: colors.gray500,
+    fontFamily: fonts.body,
+    color: colors.inkSoft,
     lineHeight: 21,
     marginBottom: 24,
   },
   segment: {
     flexDirection: 'row',
-    backgroundColor: colors.gray100,
+    backgroundColor: colors.line,
     borderRadius: radius.md,
     padding: 4,
     marginBottom: 20,
@@ -399,20 +402,21 @@ const styles = StyleSheet.create({
   },
   segmentText: {
     fontSize: 15,
-    fontWeight: '600',
-    color: colors.gray500,
+    fontFamily: fonts.bodySemiBold,
+    color: colors.inkSoft,
   },
   segmentTextActive: {
-    color: colors.gray900,
+    color: colors.ink,
   },
   input: {
     minHeight: 48,
     borderWidth: 1,
-    borderColor: colors.gray300,
+    borderColor: colors.line,
     borderRadius: radius.md,
     paddingHorizontal: 14,
     fontSize: 16,
-    color: colors.gray900,
+    fontFamily: fonts.body,
+    color: colors.ink,
     backgroundColor: colors.white,
     marginBottom: 14,
   },
@@ -428,13 +432,14 @@ const styles = StyleSheet.create({
   errorText: {
     flex: 1,
     fontSize: 14,
-    color: colors.danger,
+    fontFamily: fonts.body,
+    color: colors.dangerDark,
   },
   noticeBox: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
-    backgroundColor: colors.infoBg,
+    backgroundColor: colors.mint,
     borderRadius: radius.sm,
     padding: 10,
     marginBottom: 14,
@@ -442,7 +447,8 @@ const styles = StyleSheet.create({
   noticeText: {
     flex: 1,
     fontSize: 14,
-    color: colors.info,
+    fontFamily: fonts.body,
+    color: colors.leafDark,
     lineHeight: 20,
   },
   divider: {
@@ -454,17 +460,18 @@ const styles = StyleSheet.create({
   dividerLine: {
     flex: 1,
     height: 1,
-    backgroundColor: colors.gray200,
+    backgroundColor: colors.line,
   },
   dividerText: {
     fontSize: 13,
-    color: colors.gray400,
+    fontFamily: fonts.body,
+    color: colors.inkMuted,
   },
   // ── Signed-in layout ──
   signedInContent: {
     padding: 16,
     paddingBottom: 32,
-    backgroundColor: colors.gray50,
+    backgroundColor: colors.surface,
   },
   profileCard: {
     flexDirection: 'row',
@@ -473,7 +480,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 1,
-    borderColor: colors.gray200,
+    borderColor: colors.line,
     padding: 16,
     marginBottom: 24,
   },
@@ -481,29 +488,31 @@ const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderRadius: radius.full,
-    backgroundColor: colors.gray900,
+    backgroundColor: colors.leaf,
     alignItems: 'center',
     justifyContent: 'center',
   },
   avatarText: {
     color: colors.white,
     fontSize: 22,
-    fontWeight: '700',
+    fontFamily: fonts.bodyBold,
   },
   profileEmail: {
     fontSize: 16,
-    fontWeight: '600',
-    color: colors.gray900,
+    fontFamily: fonts.bodySemiBold,
+    color: colors.ink,
   },
   profileMeta: {
     fontSize: 13,
-    color: colors.gray500,
+    fontFamily: fonts.body,
+    color: colors.inkSoft,
     marginTop: 2,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: colors.gray900,
+    // Section heading → Caprasimo.
+    fontFamily: fonts.display,
+    fontSize: 20,
+    color: colors.ink,
     marginBottom: 14,
   },
   ordersLoader: {
@@ -513,7 +522,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 1,
-    borderColor: colors.gray200,
+    borderColor: colors.line,
     padding: 16,
     marginBottom: 12,
   },
@@ -525,8 +534,8 @@ const styles = StyleSheet.create({
   },
   orderId: {
     fontSize: 15,
-    fontWeight: '700',
-    color: colors.gray900,
+    fontFamily: fonts.bodyBold,
+    color: colors.ink,
   },
   statusPill: {
     borderRadius: radius.full,
@@ -535,12 +544,13 @@ const styles = StyleSheet.create({
   },
   statusText: {
     fontSize: 12,
-    fontWeight: '600',
+    fontFamily: fonts.bodySemiBold,
     textTransform: 'capitalize',
   },
   orderDate: {
     fontSize: 13,
-    color: colors.gray500,
+    fontFamily: fonts.body,
+    color: colors.inkSoft,
     marginBottom: 10,
   },
   orderItemRow: {
@@ -551,34 +561,36 @@ const styles = StyleSheet.create({
   orderItemName: {
     flex: 1,
     fontSize: 14,
-    color: colors.gray700,
+    fontFamily: fonts.body,
+    color: colors.inkSoft,
     marginRight: 8,
   },
   orderItemQty: {
-    color: colors.gray400,
+    fontFamily: fonts.body,
+    color: colors.inkMuted,
   },
   orderItemPrice: {
     fontSize: 14,
-    fontWeight: '500',
-    color: colors.gray700,
+    fontFamily: fonts.bodyMedium,
+    color: colors.inkSoft,
   },
   orderTotalRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderTopWidth: 1,
-    borderTopColor: colors.gray100,
+    borderTopColor: colors.line,
     marginTop: 8,
     paddingTop: 10,
   },
   orderTotalLabel: {
     fontSize: 15,
-    fontWeight: '600',
-    color: colors.gray900,
+    fontFamily: fonts.bodySemiBold,
+    color: colors.ink,
   },
   orderTotalValue: {
     fontSize: 15,
-    fontWeight: '700',
-    color: colors.gray900,
+    fontFamily: fonts.bodyBold,
+    color: colors.ink,
   },
   signOut: {
     marginTop: 20,

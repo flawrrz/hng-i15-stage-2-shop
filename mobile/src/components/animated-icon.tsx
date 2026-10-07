@@ -8,6 +8,8 @@ import { Dimensions, StyleSheet, View } from 'react-native';
 import Animated, { Easing, Keyframe } from 'react-native-reanimated';
 import { scheduleOnRN } from 'react-native-worklets';
 
+import { colors } from '@/theme/theme';
+
 const INITIAL_SCALE_FACTOR = Dimensions.get('screen').height / 90;
 const DURATION = 600;
 
@@ -37,7 +39,13 @@ export function AnimatedSplashOverlay() {
   });
 
   const image = (
-    <Image style={styles.image} source={require('@/assets/images/expo-logo.png')} alt="Expo logo" />
+    // The Green Gazette leaf mark (same asset the native splash shows in
+    // app.json) instead of the old template's Expo logo.
+    <Image
+      style={styles.image}
+      source={require('@/assets/images/splash-icon.png')}
+      alt="The Green Gazette"
+    />
   );
 
   return animate ? (
@@ -109,7 +117,11 @@ export function AnimatedIcon() {
 
       <Animated.View entering={keyframe.duration(DURATION)} style={styles.background} />
       <Animated.View style={styles.imageContainer} entering={logoKeyframe.duration(DURATION)}>
-        <Image style={styles.image} source={require('@/assets/images/expo-logo.png')} alt="Expo logo" />
+        <Image
+          style={styles.image}
+          source={require('@/assets/images/splash-icon.png')}
+          alt="The Green Gazette"
+        />
       </Animated.View>
     </View>
   );
@@ -134,18 +146,20 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 76,
-    height: 71,
+    height: 76,
   },
   background: {
     borderRadius: 40,
-    experimental_backgroundImage: `linear-gradient(180deg, #3C9FFE, #0274DF)`,
+    // Leaf-green gradient (the old template used a blue one).
+    experimental_backgroundImage: `linear-gradient(180deg, ${colors.leaf}, ${colors.leafDark})`,
     width: 128,
     height: 128,
     position: 'absolute',
   },
   splashOverlay: {
     ...StyleSheet.absoluteFill,
-    backgroundColor: '#208AEF',
+    // Ink, matching the native splash background configured in app.json.
+    backgroundColor: colors.ink,
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 1000,

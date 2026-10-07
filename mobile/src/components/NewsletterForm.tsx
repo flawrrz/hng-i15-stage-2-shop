@@ -3,7 +3,7 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { Button } from './Button';
 import { subscribeToNewsletter } from '@/lib/api';
-import { colors, radius } from '@/lib/theme';
+import { colors, fonts, radius } from '@/theme/theme';
 
 /**
  * Newsletter sign-up (posts to the web app's /api/newsletter route).
@@ -56,7 +56,7 @@ export function NewsletterForm() {
           if (error) setError(null);
         }}
         placeholder="Enter your email"
-        placeholderTextColor={colors.gray400}
+        placeholderTextColor={colors.inkMuted}
         keyboardType="email-address"
         autoCapitalize="none"
         autoComplete="email"
@@ -77,11 +77,12 @@ const styles = StyleSheet.create({
   input: {
     minHeight: 48,
     borderWidth: 1,
-    borderColor: colors.gray300,
+    borderColor: colors.line,
     borderRadius: radius.md,
     paddingHorizontal: 14,
     fontSize: 16,
-    color: colors.gray900,
+    fontFamily: fonts.body,
+    color: colors.ink,
     backgroundColor: colors.white,
     marginBottom: 12,
   },
@@ -89,21 +90,23 @@ const styles = StyleSheet.create({
     borderColor: colors.danger,
   },
   error: {
-    color: colors.danger,
+    color: colors.dangerDark,
     fontSize: 13,
+    fontFamily: fonts.body,
     marginBottom: 8,
   },
   button: {
     marginTop: 4,
   },
   successBox: {
-    backgroundColor: colors.successBg,
+    backgroundColor: colors.mint,
     borderRadius: radius.md,
     padding: 16,
   },
   successText: {
-    color: '#047857',
+    color: colors.leafDark,
     fontSize: 15,
+    fontFamily: fonts.bodyMedium,
     lineHeight: 22,
   },
 });

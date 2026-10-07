@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 
 import { useAuth } from '@/lib/auth';
-import { colors } from '@/lib/theme';
+import { colors, fonts } from '@/theme/theme';
 
 /**
  * Deep-link landing route for email confirmation links
@@ -36,7 +36,7 @@ export default function AuthCallbackScreen() {
 
   return (
     <View style={styles.container}>
-      <ActivityIndicator size="large" color={colors.black} />
+      <ActivityIndicator size="large" color={colors.leaf} />
       <Text style={styles.message}>Completing sign-in…</Text>
     </View>
   );
@@ -53,20 +53,22 @@ const styles = StyleSheet.create({
   message: {
     marginTop: 16,
     fontSize: 15,
-    color: colors.gray500,
+    fontFamily: fonts.body,
+    color: colors.inkSoft,
     textAlign: 'center',
   },
   errorTitle: {
+    // Screen headline → Caprasimo.
+    fontFamily: fonts.display,
     fontSize: 18,
-    fontWeight: '700',
-    color: colors.gray900,
+    color: colors.ink,
     marginBottom: 8,
     textAlign: 'center',
   },
   link: {
     marginTop: 20,
     fontSize: 15,
-    fontWeight: '600',
-    color: colors.info,
+    fontFamily: fonts.bodySemiBold,
+    color: colors.leaf,
   },
 });

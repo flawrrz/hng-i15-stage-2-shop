@@ -12,12 +12,13 @@ import {
 } from 'react-native';
 
 import { Button } from '@/components/Button';
+import { CareDetails } from '@/components/CareDetails';
 import { EmptyState } from '@/components/EmptyState';
 import { QuantityStepper } from '@/components/QuantityStepper';
-import { format } from '@/lib/api';
 import { useCartStore } from '@/lib/cart-store';
 import { supabase } from '@/lib/supabase';
-import { colors, radius } from '@/lib/theme';
+import { formatNaira } from '@/lib/utils';
+import { colors, fonts, radius } from '@/theme/theme';
 import type { Product } from '@/lib/types';
 
 /**
@@ -87,7 +88,7 @@ export default function ProductScreen() {
   if (loading) {
     return (
       <View style={styles.center}>
-        <ActivityIndicator size="large" color={colors.black} />
+        <ActivityIndicator size="large" color={colors.leaf} />
       </View>
     );
   }
@@ -119,7 +120,7 @@ export default function ProductScreen() {
             />
           ) : (
             <View style={styles.imageFallback}>
-              <Ionicons name="image-outline" size={48} color={colors.gray300} />
+              <Ionicons name="image-outline" size={48} color={colors.leafSoft} />
             </View>
           )}
         </View>
@@ -132,28 +133,35 @@ export default function ProductScreen() {
           ) : null}
 
           <Text style={styles.title}>{product.title}</Text>
-          <Text style={styles.price}>${format(product.price)}</Text>
+          {/* Scientific name sits under the title in italic, like the web page */}
+          {product.care_details?.scientific_name ? (
+            <Text style={styles.scientificName}>
+              {product.care_details.scientific_name}
+            </Text>
+          ) : null}
+          <Text style={styles.price}>{formatNaira(product.price)}</Text>
 
           {/* Stock badge — mirrors the web product page messaging */}
           <View style={styles.stockRow}>
             {outOfStock ? (
               <>
                 <View style={[styles.stockDot, { backgroundColor: colors.danger }]} />
-                <Text style={[styles.stockText, { color: colors.danger }]}>
+                <Text style={[styles.stockText, { color: colors.dangerDark }]}>
                   Out of stock
                 </Text>
               </>
             ) : product.stock_quantity <= 5 ? (
               <>
-                <View style={[styles.stockDot, { backgroundColor: colors.warning }]} />
-                <Text style={[styles.stockText, { color: '#b45309' }]}>
+                {/* Sun-yellow = low stock, the design system's warning color */}
+                <View style={[styles.stockDot, { backgroundColor: colors.sun }]} />
+                <Text style={[styles.stockText, { color: colors.ink }]}>
                   Only {product.stock_quantity} left
                 </Text>
               </>
             ) : (
               <>
-                <View style={[styles.stockDot, { backgroundColor: colors.success }]} />
-                <Text style={[styles.stockText, { color: '#047857' }]}>In stock</Text>
+                <View style={[styles.stockDot, { backgroundColor: colors.leaf }]} />
+                <Text style={[styles.stockText, { color: colors.leaf }]}>In stock</Text>
               </>
             )}
           </View>
@@ -168,6 +176,12 @@ export default function ProductScreen() {
             max={Math.max(1, Math.min(product.stock_quantity, 99))}
             onChange={setQuantity}
           />
+
+          {/* Plant care facts — only rendered when the row carries
+              care_details (older products don't have the column filled). */}
+          {product.care_details ? (
+            <CareDetails care={product.care_details} />
+          ) : null}
         </View>
       </ScrollView>
 
@@ -176,7 +190,7 @@ export default function ProductScreen() {
         <View style={styles.footerTotal}>
           <Text style={styles.footerTotalLabel}>Total</Text>
           <Text style={styles.footerTotalValue}>
-            ${format(product.price * quantity)}
+            {formatNaira(product.price * quantity)}
           </Text>
         </View>
         <Button
@@ -199,7 +213,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.gray50,
+    backgroundColor: colors.surface,
   },
   scrollContent: {
     paddingBottom: 24,
@@ -207,7 +221,7 @@ const styles = StyleSheet.create({
   imageWrap: {
     width: '100%',
     aspectRatio: 1,
-    backgroundColor: colors.gray100,
+    backgroundColor: colors.mint,
   },
   image: {
     width: '100%',
@@ -223,7 +237,7 @@ const styles = StyleSheet.create({
   },
   categoryChip: {
     alignSelf: 'flex-start',
-    backgroundColor: colors.gray100,
+    backgroundColor: colors.mint,
     borderRadius: radius.full,
     paddingHorizontal: 12,
     paddingVertical: 5,
@@ -231,20 +245,28 @@ const styles = StyleSheet.create({
   },
   categoryText: {
     fontSize: 12,
-    fontWeight: '600',
-    color: colors.gray600,
+    fontFamily: fonts.bodySemiBold,
+    color: colors.leafDark,
     textTransform: 'capitalize',
   },
   title: {
-    fontSize: 24,
-    fontWeight: '800',
-    color: colors.gray900,
-    marginBottom: 8,
+    // Product name → Caprasimo display face (web: font-display).
+    fontFamily: fonts.display,
+    fontSize: 26,
+    color: colors.ink,
+    marginBottom: 4,
+  },
+  scientificName: {
+    fontSize: 14,
+    fontFamily: fonts.body,
+    fontStyle: 'italic',
+    color: colors.inkSoft,
+    marginBottom: 6,
   },
   price: {
     fontSize: 22,
-    fontWeight: '700',
-    color: colors.black,
+    fontFamily: fonts.bodyBold,
+    color: colors.ink,
     marginBottom: 12,
   },
   stockRow: {
@@ -260,18 +282,19 @@ const styles = StyleSheet.create({
   },
   stockText: {
     fontSize: 14,
-    fontWeight: '500',
+    fontFamily: fonts.bodyMedium,
   },
   description: {
     fontSize: 15,
+    fontFamily: fonts.body,
     lineHeight: 23,
-    color: colors.gray600,
+    color: colors.inkSoft,
     marginBottom: 24,
   },
   quantityLabel: {
     fontSize: 14,
-    fontWeight: '600',
-    color: colors.gray700,
+    fontFamily: fonts.bodySemiBold,
+    color: colors.ink,
     marginBottom: 8,
   },
   footer: {
@@ -279,7 +302,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 16,
     borderTopWidth: 1,
-    borderTopColor: colors.gray200,
+    borderTopColor: colors.line,
     backgroundColor: colors.white,
     paddingHorizontal: 16,
     paddingTop: 12,
@@ -290,12 +313,13 @@ const styles = StyleSheet.create({
   },
   footerTotalLabel: {
     fontSize: 12,
-    color: colors.gray500,
+    fontFamily: fonts.body,
+    color: colors.inkSoft,
   },
   footerTotalValue: {
     fontSize: 20,
-    fontWeight: '800',
-    color: colors.gray900,
+    fontFamily: fonts.bodyExtraBold,
+    color: colors.ink,
   },
   addButton: {
     flex: 1.4,

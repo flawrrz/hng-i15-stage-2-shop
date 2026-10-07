@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { useToastStore } from '@/lib/toast-store';
-import { colors, radius } from '@/lib/theme';
+import { colors, fonts, radius } from '@/theme/theme';
 
 /**
  * Renders the toast queue (lib/toast-store.ts) as a floating stack near the
@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
     elevation: 8, // Android: raises the toast above the screens below it
   },
   toast: {
-    backgroundColor: colors.gray900,
+    // Dark toast banner = ink, per the design system's "dark = ink" rule.
+    backgroundColor: colors.ink,
     borderRadius: radius.md,
     paddingVertical: 12,
     paddingHorizontal: 16,
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
   text: {
     color: colors.white,
     fontSize: 14,
-    fontWeight: '500',
+    fontFamily: fonts.bodyMedium,
     textAlign: 'center',
   },
 });

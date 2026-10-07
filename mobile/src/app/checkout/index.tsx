@@ -14,10 +14,11 @@ import {
 import { Button } from '@/components/Button';
 import { EmptyState } from '@/components/EmptyState';
 import { TextField } from '@/components/TextField';
-import { buildCheckoutPayload, calculateTotals, format, placeOrder } from '@/lib/api';
+import { buildCheckoutPayload, calculateTotals, placeOrder } from '@/lib/api';
+import { formatNaira } from '@/lib/utils';
 import { useAuth } from '@/lib/auth';
 import { useCartStore } from '@/lib/cart-store';
-import { colors, radius } from '@/lib/theme';
+import { colors, fonts, radius } from '@/theme/theme';
 
 type FormData = {
   email: string;
@@ -230,7 +231,7 @@ export default function CheckoutScreen() {
               label="City"
               value={formData.city}
               onChangeText={(value) => handleChange('city', value)}
-              placeholder="San Francisco"
+              placeholder="Ikeja"
               error={errors.city}
             />
           </View>
@@ -239,7 +240,7 @@ export default function CheckoutScreen() {
               label="State"
               value={formData.state}
               onChangeText={(value) => handleChange('state', value)}
-              placeholder="CA"
+              placeholder="Lagos"
               autoCapitalize="characters"
               error={errors.state}
             />
@@ -252,7 +253,7 @@ export default function CheckoutScreen() {
               label="ZIP code"
               value={formData.zipCode}
               onChangeText={(value) => handleChange('zipCode', value)}
-              placeholder="94103"
+              placeholder="100001"
               keyboardType="numbers-and-punctuation"
               error={errors.zipCode}
             />
@@ -281,7 +282,7 @@ export default function CheckoutScreen() {
           label="Phone"
           value={formData.phone}
           onChangeText={(value) => handleChange('phone', value)}
-          placeholder="+1 (555) 123-4567"
+          placeholder="+234 801 234 5678"
           keyboardType="phone-pad"
           autoComplete="tel"
           error={errors.phone}
@@ -305,7 +306,7 @@ export default function CheckoutScreen() {
                 <Text style={styles.summaryMeta}>Qty {item.quantity}</Text>
               </View>
               <Text style={styles.summaryPrice}>
-                ${format(item.price * item.quantity)}
+                {formatNaira(item.price * item.quantity)}
               </Text>
             </View>
           ))}
@@ -314,21 +315,21 @@ export default function CheckoutScreen() {
 
           <View style={styles.summaryRow}>
             <Text style={styles.summaryLabel}>Subtotal</Text>
-            <Text style={styles.summaryValue}>${format(subtotal)}</Text>
+            <Text style={styles.summaryValue}>{formatNaira(subtotal)}</Text>
           </View>
           <View style={styles.summaryRow}>
-            <Text style={styles.summaryLabel}>Shipping</Text>
+            <Text style={styles.summaryLabel}>Delivery</Text>
             <Text style={styles.summaryValue}>
-              {shipping === 0 ? 'Free' : `$${format(shipping)}`}
+              {shipping === 0 ? 'Free' : formatNaira(shipping)}
             </Text>
           </View>
           <View style={styles.summaryRow}>
-            <Text style={styles.summaryLabel}>Estimated Tax (8%)</Text>
-            <Text style={styles.summaryValue}>${format(tax)}</Text>
+            <Text style={styles.summaryLabel}>Estimated Tax (7.5%)</Text>
+            <Text style={styles.summaryValue}>{formatNaira(tax)}</Text>
           </View>
           <View style={[styles.summaryRow, styles.totalRow]}>
             <Text style={styles.totalLabel}>Total</Text>
-            <Text style={styles.totalValue}>${format(total)}</Text>
+            <Text style={styles.totalValue}>{formatNaira(total)}</Text>
           </View>
         </View>
 
@@ -340,14 +341,14 @@ export default function CheckoutScreen() {
         ) : null}
 
         <Button
-          title={`Place Order — $${format(total)}`}
+          title={`Place Order — ${formatNaira(total)}`}
           onPress={handleSubmit}
           loading={isSubmitting}
           style={styles.submitButton}
         />
 
         <Text style={styles.secureNote}>
-          <Ionicons name="lock-closed" size={12} color={colors.gray400} /> Order details are
+          <Ionicons name="lock-closed" size={12} color={colors.inkMuted} /> Order details are
           processed securely
         </Text>
       </ScrollView>
@@ -358,16 +359,17 @@ export default function CheckoutScreen() {
 const styles = StyleSheet.create({
   flex: {
     flex: 1,
-    backgroundColor: colors.gray50,
+    backgroundColor: colors.surface,
   },
   scrollContent: {
     padding: 16,
     paddingBottom: 40,
   },
   sectionTitle: {
-    fontSize: 17,
-    fontWeight: '700',
-    color: colors.gray900,
+    // Section heading → Caprasimo.
+    fontFamily: fonts.display,
+    fontSize: 18,
+    color: colors.ink,
     marginTop: 8,
     marginBottom: 14,
   },
@@ -380,8 +382,8 @@ const styles = StyleSheet.create({
   },
   countryLabel: {
     fontSize: 14,
-    fontWeight: '500',
-    color: colors.gray700,
+    fontFamily: fonts.bodyMedium,
+    color: colors.ink,
     marginBottom: 6,
   },
   countryRow: {
@@ -392,11 +394,11 @@ const styles = StyleSheet.create({
   },
   countryChip: {
     fontSize: 13,
-    fontWeight: '600',
-    color: colors.gray500,
+    fontFamily: fonts.bodySemiBold,
+    color: colors.inkSoft,
     backgroundColor: colors.white,
     borderWidth: 1,
-    borderColor: colors.gray300,
+    borderColor: colors.line,
     borderRadius: radius.sm,
     paddingHorizontal: 10,
     paddingVertical: 8,
@@ -404,14 +406,14 @@ const styles = StyleSheet.create({
   },
   countryChipActive: {
     color: colors.white,
-    backgroundColor: colors.black,
-    borderColor: colors.black,
+    backgroundColor: colors.leaf,
+    borderColor: colors.leaf,
   },
   summaryCard: {
     backgroundColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 1,
-    borderColor: colors.gray200,
+    borderColor: colors.line,
     padding: 16,
     marginBottom: 16,
   },
@@ -425,26 +427,27 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: radius.sm,
-    backgroundColor: colors.gray100,
+    backgroundColor: colors.mint,
   },
   summaryName: {
     fontSize: 14,
-    fontWeight: '500',
-    color: colors.gray900,
+    fontFamily: fonts.bodyMedium,
+    color: colors.ink,
   },
   summaryMeta: {
     fontSize: 12,
-    color: colors.gray500,
+    fontFamily: fonts.body,
+    color: colors.inkSoft,
     marginTop: 2,
   },
   summaryPrice: {
     fontSize: 14,
-    fontWeight: '600',
-    color: colors.gray900,
+    fontFamily: fonts.bodySemiBold,
+    color: colors.ink,
   },
   summaryDivider: {
     height: 1,
-    backgroundColor: colors.gray100,
+    backgroundColor: colors.line,
     marginBottom: 10,
   },
   summaryRow: {
@@ -454,28 +457,29 @@ const styles = StyleSheet.create({
   },
   summaryLabel: {
     fontSize: 14,
-    color: colors.gray500,
+    fontFamily: fonts.body,
+    color: colors.inkSoft,
   },
   summaryValue: {
     fontSize: 14,
-    fontWeight: '500',
-    color: colors.gray900,
+    fontFamily: fonts.bodyMedium,
+    color: colors.ink,
   },
   totalRow: {
     borderTopWidth: 1,
-    borderTopColor: colors.gray100,
+    borderTopColor: colors.line,
     marginTop: 6,
     paddingTop: 12,
   },
   totalLabel: {
     fontSize: 16,
-    fontWeight: '700',
-    color: colors.gray900,
+    fontFamily: fonts.bodyBold,
+    color: colors.ink,
   },
   totalValue: {
     fontSize: 16,
-    fontWeight: '800',
-    color: colors.gray900,
+    fontFamily: fonts.bodyExtraBold,
+    color: colors.ink,
   },
   errorBox: {
     flexDirection: 'row',
@@ -489,7 +493,8 @@ const styles = StyleSheet.create({
   errorText: {
     flex: 1,
     fontSize: 14,
-    color: colors.danger,
+    fontFamily: fonts.body,
+    color: colors.dangerDark,
   },
   submitButton: {
     marginTop: 4,
@@ -497,7 +502,8 @@ const styles = StyleSheet.create({
   secureNote: {
     marginTop: 14,
     fontSize: 12,
-    color: colors.gray400,
+    fontFamily: fonts.body,
+    color: colors.inkMuted,
     textAlign: 'center',
   },
 });

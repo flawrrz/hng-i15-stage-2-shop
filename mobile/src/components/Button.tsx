@@ -7,7 +7,7 @@ import {
   type ViewStyle,
 } from 'react-native';
 
-import { colors, radius } from '@/lib/theme';
+import { colors, fonts, radius } from '@/theme/theme';
 
 interface ButtonProps {
   title: string;
@@ -28,22 +28,25 @@ interface VariantStyle {
 // Plain typed object rather than StyleSheet.create: each variant pairs a
 // container style with a label style, and StyleSheet.create would type every
 // entry as a generic style.
+//
+// Variant colors mirror the web app's Button (src/components/Button.tsx):
+// primary = leaf green, outline = ink border on white, ghost = quiet ink.
 const variantStyles: Record<NonNullable<ButtonProps['variant']>, VariantStyle> = {
   primary: {
-    container: { backgroundColor: colors.black },
+    container: { backgroundColor: colors.leaf },
     label: { color: colors.white },
   },
   outline: {
     container: {
       backgroundColor: colors.white,
       borderWidth: 1,
-      borderColor: colors.gray300,
+      borderColor: colors.ink,
     },
-    label: { color: colors.black },
+    label: { color: colors.ink },
   },
   ghost: {
     container: { backgroundColor: 'transparent' },
-    label: { color: colors.black },
+    label: { color: colors.inkSoft },
   },
   danger: {
     container: { backgroundColor: colors.danger },
@@ -52,8 +55,8 @@ const variantStyles: Record<NonNullable<ButtonProps['variant']>, VariantStyle> =
 };
 
 /**
- * The one button style in the app — solid black primary like the web app's
- * Button component, with outline/ghost/danger variants.
+ * The one button style in the app — solid leaf-green primary like the web
+ * app's Button component, with outline/ghost/danger variants.
  */
 export function Button({
   title,
@@ -76,7 +79,10 @@ export function Button({
         styles.base,
         fullWidth && styles.fullWidth,
         variantStyles[variant].container,
-        pressed && !isDisabled && styles.pressed,
+        // Pressed feedback: primary darkens to leaf-dark (web hover state),
+        // the others just dim so the label keeps its contrast.
+        pressed && !isDisabled && variant === 'primary' && styles.primaryPressed,
+        pressed && !isDisabled && variant !== 'primary' && styles.pressed,
         isDisabled && styles.disabled,
         style,
       ]}
@@ -85,7 +91,7 @@ export function Button({
         <ActivityIndicator
           size="small"
           color={
-            variant === 'primary' || variant === 'danger' ? colors.white : colors.black
+            variant === 'primary' || variant === 'danger' ? colors.white : colors.ink
           }
         />
       ) : (
@@ -108,6 +114,9 @@ const styles = StyleSheet.create({
   fullWidth: {
     alignSelf: 'stretch',
   },
+  primaryPressed: {
+    backgroundColor: colors.leafDark,
+  },
   pressed: {
     opacity: 0.75,
   },
@@ -116,6 +125,6 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: fonts.bodySemiBold,
   },
 });

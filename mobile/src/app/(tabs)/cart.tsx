@@ -7,14 +7,15 @@ import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Button } from '@/components/Button';
 import { EmptyState } from '@/components/EmptyState';
 import { QuantityStepper } from '@/components/QuantityStepper';
-import { calculateTotals, format } from '@/lib/api';
+import { calculateTotals } from '@/lib/api';
 import { useCartStore } from '@/lib/cart-store';
-import { colors, radius } from '@/lib/theme';
+import { formatNaira, FREE_DELIVERY_THRESHOLD } from '@/lib/utils';
+import { colors, fonts, radius } from '@/theme/theme';
 
 /**
  * Cart: line items with quantity controls plus an order summary.
- * Totals use the same shipping/tax rules as the web checkout
- * (free shipping at $50+, 8% tax) so both apps agree on the price.
+ * Totals use the same rules as the web checkout (delivery ₦3,500 — free at
+ * ₦50,000+ — plus 7.5% VAT) so both apps agree on the price.
  */
 export default function CartScreen() {
   const { items, hydrated, updateQuantity, removeItem, clearCart } = useCartStore();
@@ -82,11 +83,11 @@ export default function CartScreen() {
                 <Ionicons
                   name="trash-outline"
                   size={20}
-                  color={colors.gray400}
+                  color={colors.inkMuted}
                   onPress={() => confirmRemove(item.product_id, item.title)}
                 />
               </View>
-              <Text style={styles.itemPrice}>${format(item.price)}</Text>
+              <Text style={styles.itemPrice}>{formatNaira(item.price)}</Text>
               <View style={styles.itemBottom}>
                 <QuantityStepper
                   quantity={item.quantity}
@@ -94,7 +95,7 @@ export default function CartScreen() {
                   onChange={(next) => updateQuantity(item.product_id, next)}
                 />
                 <Text style={styles.lineTotal}>
-                  ${format(item.price * item.quantity)}
+                  {formatNaira(item.price * item.quantity)}
                 </Text>
               </View>
             </View>
@@ -114,24 +115,24 @@ export default function CartScreen() {
 
             <View style={styles.summaryRow}>
               <Text style={styles.summaryLabel}>Subtotal</Text>
-              <Text style={styles.summaryValue}>${format(subtotal)}</Text>
+              <Text style={styles.summaryValue}>{formatNaira(subtotal)}</Text>
             </View>
 
             {showSummary ? (
               <>
                 <View style={styles.summaryRow}>
-                  <Text style={styles.summaryLabel}>Shipping</Text>
+                  <Text style={styles.summaryLabel}>Delivery</Text>
                   <Text style={styles.summaryValue}>
-                    {shipping === 0 ? 'Free' : `$${format(shipping)}`}
+                    {shipping === 0 ? 'Free' : formatNaira(shipping)}
                   </Text>
                 </View>
                 <View style={styles.summaryRow}>
-                  <Text style={styles.summaryLabel}>Estimated Tax (8%)</Text>
-                  <Text style={styles.summaryValue}>${format(tax)}</Text>
+                  <Text style={styles.summaryLabel}>Estimated Tax (7.5%)</Text>
+                  <Text style={styles.summaryValue}>{formatNaira(tax)}</Text>
                 </View>
                 <View style={[styles.summaryRow, styles.totalRow]}>
                   <Text style={styles.totalLabel}>Total</Text>
-                  <Text style={styles.totalValue}>${format(total)}</Text>
+                  <Text style={styles.totalValue}>{formatNaira(total)}</Text>
                 </View>
               </>
             ) : null}
@@ -143,18 +144,19 @@ export default function CartScreen() {
         <View style={styles.footer}>
           <View style={styles.footerTotal}>
             <Text style={styles.footerTotalLabel}>Total</Text>
-            <Text style={styles.footerTotalValue}>${format(total)}</Text>
+            <Text style={styles.footerTotalValue}>{formatNaira(total)}</Text>
           </View>
           <Button
             title="Proceed to Checkout"
             onPress={() => router.push('/checkout')}
           />
-          {subtotal < 50 ? (
+          {subtotal < FREE_DELIVERY_THRESHOLD ? (
             <Text style={styles.shippingNote}>
-              Add ${format(50 - subtotal)} more for free shipping
+              Add {formatNaira(FREE_DELIVERY_THRESHOLD - subtotal)} more for free
+              delivery
             </Text>
           ) : (
-            <Text style={styles.shippingNote}>✓ You&apos;ve unlocked free shipping</Text>
+            <Text style={styles.shippingNote}>✓ You&apos;ve unlocked free delivery</Text>
           )}
         </View>
       ) : null}
@@ -165,7 +167,7 @@ export default function CartScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.gray50,
+    backgroundColor: colors.surface,
   },
   scrollContent: {
     padding: 16,
@@ -178,21 +180,22 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   heading: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: colors.gray900,
+    // Screen heading → Caprasimo.
+    fontFamily: fonts.display,
+    fontSize: 20,
+    color: colors.ink,
   },
   clear: {
     fontSize: 14,
-    color: colors.danger,
-    fontWeight: '500',
+    fontFamily: fonts.bodyMedium,
+    color: colors.dangerDark,
   },
   itemCard: {
     flexDirection: 'row',
     backgroundColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 1,
-    borderColor: colors.gray200,
+    borderColor: colors.line,
     padding: 12,
     marginBottom: 12,
   },
@@ -200,7 +203,7 @@ const styles = StyleSheet.create({
     width: 84,
     height: 84,
     borderRadius: radius.sm,
-    backgroundColor: colors.gray100,
+    backgroundColor: colors.mint,
   },
   itemBody: {
     flex: 1,
@@ -214,13 +217,14 @@ const styles = StyleSheet.create({
   itemTitle: {
     flex: 1,
     fontSize: 15,
-    fontWeight: '600',
-    color: colors.gray900,
+    fontFamily: fonts.bodySemiBold,
+    color: colors.ink,
     marginRight: 8,
   },
   itemPrice: {
     fontSize: 14,
-    color: colors.gray500,
+    fontFamily: fonts.body,
+    color: colors.inkSoft,
     marginTop: 2,
     marginBottom: 10,
   },
@@ -231,21 +235,21 @@ const styles = StyleSheet.create({
   },
   lineTotal: {
     fontSize: 16,
-    fontWeight: '700',
-    color: colors.gray900,
+    fontFamily: fonts.bodyBold,
+    color: colors.ink,
   },
   summaryCard: {
     backgroundColor: colors.white,
     borderRadius: radius.lg,
     borderWidth: 1,
-    borderColor: colors.gray200,
+    borderColor: colors.line,
     padding: 16,
     marginTop: 4,
   },
   summaryToggle: {
     fontSize: 15,
-    fontWeight: '600',
-    color: colors.gray900,
+    fontFamily: fonts.bodySemiBold,
+    color: colors.ink,
     marginBottom: 6,
   },
   summaryRow: {
@@ -255,32 +259,33 @@ const styles = StyleSheet.create({
   },
   summaryLabel: {
     fontSize: 14,
-    color: colors.gray500,
+    fontFamily: fonts.body,
+    color: colors.inkSoft,
   },
   summaryValue: {
     fontSize: 14,
-    fontWeight: '500',
-    color: colors.gray900,
+    fontFamily: fonts.bodyMedium,
+    color: colors.ink,
   },
   totalRow: {
     borderTopWidth: 1,
-    borderTopColor: colors.gray200,
+    borderTopColor: colors.line,
     marginTop: 6,
     paddingTop: 12,
   },
   totalLabel: {
     fontSize: 16,
-    fontWeight: '700',
-    color: colors.gray900,
+    fontFamily: fonts.bodyBold,
+    color: colors.ink,
   },
   totalValue: {
     fontSize: 16,
-    fontWeight: '700',
-    color: colors.gray900,
+    fontFamily: fonts.bodyBold,
+    color: colors.ink,
   },
   footer: {
     borderTopWidth: 1,
-    borderTopColor: colors.gray200,
+    borderTopColor: colors.line,
     backgroundColor: colors.white,
     padding: 16,
     paddingBottom: 20,
@@ -292,18 +297,19 @@ const styles = StyleSheet.create({
   },
   footerTotalLabel: {
     fontSize: 16,
-    fontWeight: '600',
-    color: colors.gray700,
+    fontFamily: fonts.bodySemiBold,
+    color: colors.inkSoft,
   },
   footerTotalValue: {
     fontSize: 18,
-    fontWeight: '800',
-    color: colors.gray900,
+    fontFamily: fonts.bodyExtraBold,
+    color: colors.ink,
   },
   shippingNote: {
     marginTop: 10,
     fontSize: 13,
-    color: colors.gray500,
+    fontFamily: fonts.body,
+    color: colors.inkSoft,
     textAlign: 'center',
   },
 });

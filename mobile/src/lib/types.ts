@@ -13,6 +13,37 @@ export interface Product {
   image_url: string | null;
   category: string | null;
   created_at: string;
+  /**
+   * Plant care metadata (watering, sunlight, soil, names…), stored as JSONB.
+   * Absent on rows created before the Green Gazette migration — hence optional.
+   */
+  care_details?: CareDetails | null;
+}
+
+/**
+ * Plant care facts sourced from the Perenual API (same shape as the web
+ * app's CareDetails). Every field is optional — the API omits values it
+ * doesn't have for a species, and older products have no care_details at all.
+ */
+export interface CareDetails {
+  scientific_name?: string;
+  other_names?: string[];
+  type?: string;
+  origin?: string[];
+  cycle?: string;
+  watering?: string;
+  watering_benchmark?: string;
+  sunlight?: string[];
+  soil?: string[];
+  care_level?: string;
+  maintenance?: string;
+  growth_rate?: string;
+  hardiness?: string | { min?: string; max?: string };
+  indoor?: boolean;
+  poisonous_to_pets?: boolean;
+  poisonous_to_humans?: boolean;
+  flowering_season?: string;
+  description_source?: string;
 }
 
 export interface CartItem {
