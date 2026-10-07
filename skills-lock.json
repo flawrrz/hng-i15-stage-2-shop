@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "figma-sites-extension": {
+      "source": "ChenYCL/web-design-harvester",
+      "sourceType": "github",
+      "skillPath": "skills/figma-sites-extension/SKILL.md",
+      "computedHash": "f4cad5259514af359d637b54d0c7cb21c5e23d140fbcfff50dc58bc0fb743888"
+    }
+  }
+}
