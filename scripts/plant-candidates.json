@@ -1,0 +1,2126 @@
+{
+  "generated_at": "2026-10-07T20:57:38.750Z",
+  "requests_used": 11,
+  "probe": {
+    "id": 155,
+    "common_name": "Bowhall Red Maple",
+    "type": "tree",
+    "watering": "Average",
+    "sunlight": [
+      "full sun",
+      "part shade"
+    ],
+    "care_level": "Medium",
+    "has_description": true,
+    "image_urls": {
+      "regular": "https://s3.us-central-1.wasabisys.com/perenual/species_image/155_acer_rubrum_bowhall/regular/Acer_rubrum_28summertime29.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=8385b3f9f8a1ff7041c11ac0d88460ff691494279b795716ef62b9fe364b55b0",
+      "medium": "https://s3.us-central-1.wasabisys.com/perenual/species_image/155_acer_rubrum_bowhall/medium/Acer_rubrum_28summertime29.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=3bf755b3eafd4d45d9408e6ef3a350c5a25a78345324f5795be12a1dc955f044"
+    }
+  },
+  "candidates": [
+    {
+      "id": 11,
+      "common_name": "Snakebark Maple",
+      "scientific_name": [
+        "Acer davidii"
+      ],
+      "other_name": [
+        "Father David's Maple",
+        "Pere David's Maple"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/11_acer_davidii/thumbnail/6868591754_f4ac5b0510_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=d7591f17643efae638beb212447ea632ed5727af5651729d7b73d9707bdc0c50"
+    },
+    {
+      "id": 27,
+      "common_name": "Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/27_acer_palmatum/thumbnail/2560px-Acer_palmatum_27Bloodgood27_kz01.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=659c944bf6b9c72b80413de599737d2e1d646785469f0cb22fbfbdac3c476e35"
+    },
+    {
+      "id": 28,
+      "common_name": "Aka Shigitatsu Sawa Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Aka Shigitatsu Sawa'"
+      ],
+      "other_name": [
+        "Samurai"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/28_acer_palmatum_aka_shigitatsu_sawa/thumbnail/Acer_palmatum_Aka_shigitatsu_sawa_2zz.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=a1ce6ef044f8a7676ba5eb4c7555847e0bee6a00fcc63b48cafcafe53ba6285b"
+    },
+    {
+      "id": 29,
+      "common_name": "Alpenweiss Variegated Dwarf Japanese Maple*",
+      "scientific_name": [
+        "Acer palmatum 'Alpenweiss'"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 30,
+      "common_name": "Ao Shime No Uchi Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Ao Shime No Uchi'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/30_acer_palmatum_ao_shime_no_uchi/thumbnail/Acer_palmatum_Ao_shime_no_uchi_3zz.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b6143435ca6119dbb0b8a3b4aaa45b8117cef6f6978ac3ea41d3ba757cde9b71"
+    },
+    {
+      "id": 31,
+      "common_name": "Aoyagi Japanese Maple*",
+      "scientific_name": [
+        "Acer palmatum 'Aoyagi'"
+      ],
+      "other_name": [
+        "Green Coral Japanese Maple"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/31_acer_palmatum_aoyagi/thumbnail/acer_palmatum_japanese_maples_trees_red_red_leaves_blue_sky_blue_white-1126158.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=46c72305450847176b89b161711345ec4bba93db42826ae1a39051a199c9ba32"
+    },
+    {
+      "id": 32,
+      "common_name": "Arakawa Cork Bark Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Arakawa'"
+      ],
+      "other_name": [
+        "Rough-Bark Japanese Maple",
+        "Arakawa Ukon"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/32_acer_palmatum_arakawa/thumbnail/2560px-Montagnac-Acer-palmatum_04.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=a6b1775493935df3497ebea130a7d87638a98ba6799c43d5312fee3d953021c5"
+    },
+    {
+      "id": 33,
+      "common_name": "Asahi Zuru Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Asahi Zuru'"
+      ],
+      "other_name": [
+        "Rising Sun",
+        "Dawn Swan"
+      ],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 34,
+      "common_name": "Ribbon-leaf Japanese Maple*",
+      "scientific_name": [
+        "Acer palmatum 'Atrolineare'"
+      ],
+      "other_name": [
+        "Red Strap-Leaf Japanese Maple"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/34_acer_palmatum_atrolineare/thumbnail/2560px-Acer_Palmatum_27Red_Pygmy27.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b605b868ad149dd15f875ecb4be8d1c1884e1336d93a2df75760168e610ebc5e"
+    },
+    {
+      "id": 35,
+      "common_name": "Purple-Leaf Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Atropurpureum'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/35_acer_palmatum_atropurpureum/thumbnail/5656874577_617188e307_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=e552dcc339fa189ec953ac27bbd711f4587be426884c297be4b666f9bdf2b546"
+    },
+    {
+      "id": 36,
+      "common_name": "Aureum Japanese Maple*",
+      "scientific_name": [
+        "Acer palmatum 'Aureum'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/36_acer_palmatum_aureum/thumbnail/2560px-Acer_shirasawanum_22aureum22.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=dc4d65ccbebf84749a42b17fb75d1f37ca63e03544a0e503e161dab666dfde25"
+    },
+    {
+      "id": 37,
+      "common_name": "Autumn Fire Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Autumn Fire'"
+      ],
+      "other_name": [
+        "Herbstfeuer"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/37_acer_palmatum_autumn_fire/thumbnail/2560px-Acer_palmatum_fall_foliage_01.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=fd61667231bfc59d5a5d974fecf74f198b89bbcaa64a453656928171945a288f"
+    },
+    {
+      "id": 38,
+      "common_name": "Azuma Murasaki Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Azuma Murasaki'"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 39,
+      "common_name": "Beni Kawa Coral Bark Japanese Maple*",
+      "scientific_name": [
+        "Acer palmatum 'Beni Kawa'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/39_acer_palmatum_beni_kawa/thumbnail/5695802528_935d72efaa_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=89c86c63b20568c3d31ec3f8bfe27967e9b0c739b99a0d008a348afaed5be26b"
+    },
+    {
+      "id": 40,
+      "common_name": "Beni Otake Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Beni Otake'"
+      ],
+      "other_name": [
+        "Big Red Bamboo"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/40_acer_palmatum_beni_otake/thumbnail/Acer_palmatum_27Oshio_beni27_-_JPG2.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c9c6625fd1f2d707f6fdb3e824eaf152f7c3b12450001a3d1e8e3278a2261d27"
+    },
+    {
+      "id": 41,
+      "common_name": "Beni Schichihenge Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Beni Schichihenge'"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 42,
+      "common_name": "Beni Tsukasa Japanese Maple*",
+      "scientific_name": [
+        "Acer palmatum 'Beni Tsukasa'"
+      ],
+      "other_name": [
+        "Calico Cloth"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/42_acer_palmatum_beni_tsukasa/thumbnail/pexels-photo-11870811.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=2bccbf06c1c008def989f44337622c9e635deb8dff7e4d200832fcc9ff21ede7"
+    },
+    {
+      "id": 43,
+      "common_name": "Bloodgood Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Bloodgood'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/43_acer_palmatum_bloodgood/thumbnail/47923603032_5a96106ac6_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=3c5c4b3b209e256a17fc008a86ce430f2ada93430b626cc0da955687a7c2341b"
+    },
+    {
+      "id": 44,
+      "common_name": "Bonfire Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Bonfire'"
+      ],
+      "other_name": [
+        "Seigai"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/44_acer_palmatum_bonfire/thumbnail/sk3776-image-kwvuoab1.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=6742f85d021e2f663614b00e51fa31755b5fd83449c96dcbb9c085bc4420695c"
+    },
+    {
+      "id": 45,
+      "common_name": "Brandt's Dwarf Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Brandt's Dwarf'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/45_acer_palmatum_brandts_dwarf/thumbnail/Acer_palmatum_BotGartenMuenster_Faecherahorn_6691.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=806fb78853bd71bd876aa99a22a8706ee0d24b808aab088b4d71db4e9ba084f0"
+    },
+    {
+      "id": 46,
+      "common_name": "Burgundy Lace Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Burgundy Lace'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/46_acer_palmatum_burgundy_lace/thumbnail/50082938346_1040fdd690_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=6bf565098e1361532cd257ef278389d31287d1bc88bb5bf64fe8b96c60a1033b"
+    },
+    {
+      "id": 47,
+      "common_name": "Butterfly Variegated Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Butterfly'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/47_acer_palmatum_butterfly/thumbnail/20251027248_dc9cfd6f65_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=bf63c7720bad4506e52249ff55068fbce937a3e856d33972f1682749e16cda0c"
+    },
+    {
+      "id": 48,
+      "common_name": "Chantilly Lace Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Chantilly Lace'"
+      ],
+      "other_name": [
+        "Threadleaf Japanese Maple"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/48_acer_palmatum_chantilly_lace/thumbnail/4714671587_8ecba52560_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c5cedae69dcb4d456aae01b3bf3d2e45dcaa22e6822402ffb3d34fff5eb7e964"
+    },
+    {
+      "id": 49,
+      "common_name": "Chishio Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Chishio'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/49_acer_palmatum_chishio/thumbnail/Acer_palmatum_Atropurpureum_JPG1fuA.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=184633a192ff00b8adb3bd4039fa53ddf8cf867892386410961bca8f9c531c06"
+    },
+    {
+      "id": 50,
+      "common_name": "Chitose Yama Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Chitose Yama'"
+      ],
+      "other_name": [
+        "Chitoseyama"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/50_acer_palmatum_chitose_yama/thumbnail/pexels-photo-4977537.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=280d0fc165f013def4154b9ee0545209aed26bd2db4b1f5a7ca1bf8dbd76c8e9"
+    },
+    {
+      "id": 51,
+      "common_name": "Coonara Pygmy Japanese Maple",
+      "scientific_name": [
+        "Acer palmatum 'Coonara Pygmy'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/51_acer_palmatum_coonara_pygmy/thumbnail/japan-maple-maple-leaf-red-leaf-nature.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=3daa194bd75d5eff79dcec751ccda6c827498127cd81970d05c56843309b9db1"
+    },
+    {
+      "id": 52,
+      "common_name": "Crimson Prince Japanese Maple*",
+      "scientific_name": [
+        "Acer palmatum 'Crimson Prince'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/52_acer_palmatum_crimson_prince/thumbnail/1-1274349109Jjby.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=f3481131b774321cfcb3e5e13bc95e87dae814678ef0fc4e23081188bb2c9a0c"
+    },
+    {
+      "id": 53,
+      "common_name": "Ever Red Lace-Leaf Japanese Maple*",
+      "scientific_name": [
+        "Acer palmatum 'Ever Red'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/53_acer_palmatum_ever_red/thumbnail/9651313679_caf5a0d447_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=cc92539438f045ede65be03358b98c60b580e9d1ab5f18200460ac761793360e"
+    },
+    {
+      "id": 54,
+      "common_name": "Glowing Embers Japanese Maple*",
+      "scientific_name": [
+        "Acer palmatum 'Glowing Embers'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/54_acer_palmatum_glowing_embers/thumbnail/2016-11-18_12_20_19_Callery_Pear_displaying_autumn_foliage_along_Franklin_Farm_Road_between_Tranquility_Lane_and_Old_Dairy_Road_in_the_Franklin_Farm_section_of_Oak_Hill2C_Fairfax_County2C_Virginia.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=30f04b405ef8e81edf8fc7a9c25c3a53595b440f3b3ed69b8320f2b136da96e4"
+    },
+    {
+      "id": 55,
+      "common_name": "Grandma Ghost Japanese Maple*",
+      "scientific_name": [
+        "Acer palmatum 'Grandma Ghost'"
+      ],
+      "other_name": [
+        "Grandma's Ghost Japanese Maple"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/55_acer_palmatum_grandma_ghost/thumbnail/51480401507_4b9def5883_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=22ee2b0d6453c5253ccb5e620e6962c4dc20c0a4eb8b6a1dd582cb8b5f246bc8"
+    },
+    {
+      "id": 56,
+      "common_name": "Green Hornet Cutleaf Japanese Maple*",
+      "scientific_name": [
+        "Acer palmatum 'Green Hornet'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/56_acer_palmatum_green_hornet/thumbnail/Acer_palmatum_var._dissectum_Viridis_0zz.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205736Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=8b56b49199ccd92b222852d1a1ecd31f00101c12d1a98ffeadc8c4bfd2fe9833"
+    },
+    {
+      "id": 144,
+      "common_name": "Moosewood",
+      "scientific_name": [
+        "Acer pensylvanicum"
+      ],
+      "other_name": [
+        "Striped Maple",
+        "Snakebark Maple",
+        "Moose Maple",
+        "Whistlewood",
+        "Goosefoot Maple"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/144_acer_pensylvanicum/thumbnail/50159672678_a016bd18b9_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=df61b78d688976507df6f076f2e816d3802baf967318adc528bf7ad5daff2617"
+    },
+    {
+      "id": 166,
+      "common_name": "Snakebark Maple",
+      "scientific_name": [
+        "Acer tegmentosum"
+      ],
+      "other_name": [
+        "Manchurian Striped Maple"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/166_acer_tegmentosum/thumbnail/9310377367_1b5eed3b3a_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=a9c2d90fb91b79c3ec98ff92faae5c3e9fc9bc5c9198c15cb228c291569850d2"
+    },
+    {
+      "id": 167,
+      "common_name": "Joe Witt Snakebark Maple",
+      "scientific_name": [
+        "Acer tegmentosum 'Joe Witt'"
+      ],
+      "other_name": [
+        "Manchurian Striped Maple"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/167_acer_tegmentosum_joe_witt/thumbnail/800px-Acer_tegmentosum_-_Morris_Arboretum_-_DSC00441.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=2654d853a08bd12c3bc036ebfb203c978834ed375934b86d929e492bfdd94f08"
+    },
+    {
+      "id": 288,
+      "common_name": "Common Fig",
+      "scientific_name": [
+        "Ficus carica"
+      ],
+      "other_name": [
+        "garden fig"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/288_ficus_carica/thumbnail/52377169610_b7a247a378_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=5259957a03afe05a36457e60bc83033d27664c800806581abfd255571ee53699"
+    },
+    {
+      "id": 289,
+      "common_name": "Kadota Fig",
+      "scientific_name": [
+        "Ficus carica 'Kadota'"
+      ],
+      "other_name": [
+        "garden fig"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/289_ficus_carica_kadota/thumbnail/48265972037_27e005c4ab_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=46929e8faaa3097d790aeb8a66c7f4e5c477e39b89b3a1336346b352f2e411ae"
+    },
+    {
+      "id": 290,
+      "common_name": "Mission Fig",
+      "scientific_name": [
+        "Ficus carica 'Mission'"
+      ],
+      "other_name": [
+        "garden fig"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/290_ficus_carica_mission/thumbnail/Fig.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b26504c106e1fb10e5d78cc398e6282135316c2121dd7968360199b3f5d2fa4d"
+    },
+    {
+      "id": 291,
+      "common_name": "Peter's Honey Fig",
+      "scientific_name": [
+        "Ficus carica 'Peter's Honey'"
+      ],
+      "other_name": [
+        "garden fig"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/291_ficus_carica_peters_honey/thumbnail/Ficus_carica5.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=961d2ef5c018c63a1860e293d028d571b4d96c21ffc4d318c08231ecb6d28d21"
+    },
+    {
+      "id": 425,
+      "common_name": "flowering-maple",
+      "scientific_name": [
+        "Abutilon hybridum"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/425_abutilon_hybridum/thumbnail/24527654869_ac712f58c7_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=ffe73fbe2bd0e68b3ec5896aec6982c5491cf824f2cd1a807a91a46ddd5b5cf5"
+    },
+    {
+      "id": 426,
+      "common_name": "flowering-maple",
+      "scientific_name": [
+        "Abutilon hybridum 'Bella Red'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/426_abutilon_hybridum_bella_red/thumbnail/abutilon-mallow-flower-red.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=3500c9a9ba2e86f406e3dadadc8253f27bad618f986246c2e99a12ef7d1d5586"
+    },
+    {
+      "id": 427,
+      "common_name": "flowering-maple",
+      "scientific_name": [
+        "Abutilon 'Moonchimes'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/427_abutilon_moonchimes/thumbnail/Abutilon_x_hybridum_27Moonchimes27_Flower_2800px.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=685380ac29de229e1d9521146e3e14675d3e39d09a22dd63d62b0e629ef5e453"
+    },
+    {
+      "id": 428,
+      "common_name": "flowering-maple",
+      "scientific_name": [
+        "Abutilon pictum 'Gold Dust'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/428_abutilon_pictum_gold_dust/thumbnail/Redvein_Abutilon.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=9037336f15b214ce0509f37a4b8e2c9b36cff0a79228adb8c6566abab7460d32"
+    },
+    {
+      "id": 434,
+      "common_name": "Jacob's coat",
+      "scientific_name": [
+        "Acalypha wilkesiana"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/434_acalypha_wilkesiana/thumbnail/24945289366_5035e5d0a9_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b4f0cad8cc6b9867f50b6916addd990a73eca4d3a5f6ae25613f3904ff0f225b"
+    },
+    {
+      "id": 448,
+      "common_name": "snakebark maple",
+      "scientific_name": [
+        "Acer capillipes"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/448_acer_capillipes/thumbnail/26770321825_d1a6cc2fee_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=8d6b2899d7881e4cf72195bdbb3f5e9766c13a7c573e817d6fa15b01b8cd89d7"
+    },
+    {
+      "id": 452,
+      "common_name": "snakebark maple",
+      "scientific_name": [
+        "Acer conspicuum 'Phoenix'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/452_acer_conspicuum_phoenix/thumbnail/4847364629_825daaff21_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=52eda5276b5f49397b7b673358a9d787ba10da87f56aaa67c37d34107a9d9d20"
+    },
+    {
+      "id": 502,
+      "common_name": "hot water plant",
+      "scientific_name": [
+        "Achimenes (group)"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 527,
+      "common_name": "black cohosh",
+      "scientific_name": [
+        "Actaea racemosa"
+      ],
+      "other_name": [
+        "Bugbane",
+        "Black Snakeroot",
+        "Fairy Candles",
+        "Black Bugbane",
+        "Black Snakeroot",
+        "Fairy Candles",
+        "Black Bugbane"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/527_actaea_racemosa/thumbnail/28204469216_e9680ed0a4_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=330517945aad92925a534be4312e29bc195f980d9b84c881a4e9bd4253400641"
+    },
+    {
+      "id": 540,
+      "common_name": "desert rose",
+      "scientific_name": [
+        "Adenium obesum"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/540_adenium_obesum/thumbnail/9244335137_6d662ed77c_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c023aee9faaf8bbc02687d4c98d4dbfe8753f20375a47c299f99c1a2e37e1517"
+    },
+    {
+      "id": 543,
+      "common_name": "maidenhair fern",
+      "scientific_name": [
+        "Adiantum capillus-veneris"
+      ],
+      "other_name": [
+        "Southern Maidenhair",
+        "Venus' Hair Fern",
+        "Venus' Hair Fern"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/543_adiantum_capillus-veneris/thumbnail/49636882698_cb4fa4c685_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=a81232a118897158df654326d4daa0ddffaf5475e93e5157470143ad6e195779"
+    },
+    {
+      "id": 546,
+      "common_name": "delta maidenhair fern",
+      "scientific_name": [
+        "Adiantum raddianum"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/546_adiantum_raddianum/thumbnail/48134564587_c4562175cb_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=1487ae15d86b447b109354055f7aa00d50f7a3891cb28c67ae57b85210379979"
+    },
+    {
+      "id": 549,
+      "common_name": "urn plant",
+      "scientific_name": [
+        "Aechmea fasciata"
+      ],
+      "other_name": [
+        "silver vase"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/549_aechmea_fasciata/thumbnail/51446529161_03b99a881f_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=f5a99cc3f89ecbaf1db54def14c524ccf60567e476e8091b5ba543dc3182ca60"
+    },
+    {
+      "id": 551,
+      "common_name": "stalked aeonium",
+      "scientific_name": [
+        "Aeonium undulatum"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/551_aeonium_undulatum/thumbnail/023e2628848775ea95af34a39eaee4d60fab11ed.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=9caf0b743b5ed418297c11026fe8c7efe76123a09a8f27061f29777fd5c0e87a"
+    },
+    {
+      "id": 552,
+      "common_name": "lipstick plant",
+      "scientific_name": [
+        "Aeschynanthus radicans"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/552_aeschynanthus_radicans/thumbnail/29949422675_2671589cdf_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=a8805cbbd3de41720ec0ebbd711891da7bead87d3353b602e4dd55d16817e94f"
+    },
+    {
+      "id": 619,
+      "common_name": "white snakeroot",
+      "scientific_name": [
+        "Ageratina altissima"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/619_ageratina_altissima/thumbnail/51543903434_138f246306_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=7e3a0dba9ab63ddbe4e88561d0bc322129460af27163a2d350fbb4cddad8f87c"
+    },
+    {
+      "id": 620,
+      "common_name": "white snakeroot",
+      "scientific_name": [
+        "Ageratina altissima 'Chocolate'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/620_ageratina_altissima_chocolate/thumbnail/51543903434_138f246306_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=e2b9cf4fa4e903eb551f53ab30f593a17ffe29509d62d476b1f7a32ecf98e7c1"
+    },
+    {
+      "id": 625,
+      "common_name": "Philippine evergreen",
+      "scientific_name": [
+        "Aglaonema commutatum"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/625_aglaonema_commutatum/thumbnail/24798632751_3a039ecbc6_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=ec885b1803590765cc24297c4e19ef12e4dc63e75afbc0b1af688f2cdaa44689"
+    },
+    {
+      "id": 626,
+      "common_name": "Chinese evegreen",
+      "scientific_name": [
+        "Aglaonema 'Cutlass'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/626_aglaonema_cutlass/thumbnail/2560px-Chinese_Evergreen_28Aglaonema_nitidum_27Silver_Queen2729_1.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=0c1be0f318a59870f4693951306171e53edf8963148e8e8b30f408a05f5853c5"
+    },
+    {
+      "id": 627,
+      "common_name": "Chinese evergreen",
+      "scientific_name": [
+        "Aglaonema 'Red Gold'"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 628,
+      "common_name": "Chinese evergreen",
+      "scientific_name": [
+        "Aglaonema 'Silver Queen'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/628_aglaonema_silver_queen/thumbnail/24798632751_3a039ecbc6_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c4bca930e75112abaedb2c8e39acd5edf955221dedf092b6585239a6d351c3e3"
+    },
+    {
+      "id": 667,
+      "common_name": "onion",
+      "scientific_name": [
+        "Allium cepa"
+      ],
+      "other_name": [
+        "spring onion",
+        "shallot"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/667_allium_cepa/thumbnail/24466615444_a161c175d3_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=0539b8b0adf5a10a85b2d15d15b6006c4f8ee8ee9c514bcbb10113b12023ee8b"
+    },
+    {
+      "id": 677,
+      "common_name": "ornamental onion",
+      "scientific_name": [
+        "Allium 'Lavender Bubbles'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/677_allium_lavender_bubbles/thumbnail/35648651144_c62b038777_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b8763175c273009ec6364de16682e2ebc5ad1cf464070788309a1c138fb19830"
+    },
+    {
+      "id": 710,
+      "common_name": "elephant's ear",
+      "scientific_name": [
+        "Alocasia amazonica"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/710_alocasia_amazonica/thumbnail/24444063964_a3054131aa_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=402a536f65dff2402a21e7c004ed40fa3e4167f9921a687d0323ce66eb47dc2e"
+    },
+    {
+      "id": 711,
+      "common_name": "Amazonian elephant's ear",
+      "scientific_name": [
+        "Alocasia amazonica 'Polly'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/711_alocasia_amazonica_polly/thumbnail/pexels-photo-12419491.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=d59e7f0494688667e332ea6620e580faed6305751694eca710fabd40da5db9fd"
+    },
+    {
+      "id": 712,
+      "common_name": "elephant's ear",
+      "scientific_name": [
+        "Alocasia 'Frydek'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/712_alocasia_frydek/thumbnail/Alocasia_micholitziana.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=7226c4cc8cfc6ee32c816371d11749be36cc0549fe327e9f8c1bfb8a375f9799"
+    },
+    {
+      "id": 713,
+      "common_name": "elephant's ear",
+      "scientific_name": [
+        "Alocasia (group)"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/713_alocasia_group/thumbnail/24444063964_a3054131aa_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=1a6f2d99e7d53d4624759c55b2e6b3055f5038c13a3f99f1ac80aa67c9234427"
+    },
+    {
+      "id": 714,
+      "common_name": "elephant's ear",
+      "scientific_name": [
+        "Alocasia LOW RIDER"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/714_alocasia_low_rider/thumbnail/8415446715_799e70b503_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=0c1f30fce48f49a7fd38954362bc7d3bf789aa39b4b86fa6ce61bbe309c39984"
+    },
+    {
+      "id": 715,
+      "common_name": "giant elephant's ear",
+      "scientific_name": [
+        "Alocasia macrorrhizos"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/715_alocasia_macrorrhizos/thumbnail/33234440338_8b31463973_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=834185646fdd287cf4329d57645787b5679f4eba0ac719e8baaa7882624df774"
+    },
+    {
+      "id": 716,
+      "common_name": "elephant's ear",
+      "scientific_name": [
+        "Alocasia 'Metalhead'"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 717,
+      "common_name": "elephant's ear",
+      "scientific_name": [
+        "Alocasia 'Portora'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/717_alocasia_portora/thumbnail/50513640218_140cd83c95_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=df7bc1d93c114270d6c2582e0fad74d2d8723af1c2535cdccc7acbc03aa7cd0c"
+    },
+    {
+      "id": 718,
+      "common_name": "elephant's ear",
+      "scientific_name": [
+        "Alocasia 'Sarian'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": null
+    },
+    {
+      "id": 719,
+      "common_name": "torch plant",
+      "scientific_name": [
+        "Aloe aristata"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/719_aloe_aristata/thumbnail/23962599232_fdc4070814_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205729Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=d277c2305daac8b800abba5ee56e42740b2c26c15328bc521345f0c5267f5d2e"
+    },
+    {
+      "id": 720,
+      "common_name": "Cape aloe",
+      "scientific_name": [
+        "Aloe ferox"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/720_aloe_ferox/thumbnail/52617385752_7902a3eda2_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205729Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b8277f39929787b094242b4f9f44c7e27d0c4bfdb0de929f50dcf50e22b74255"
+    },
+    {
+      "id": 721,
+      "common_name": "aloe",
+      "scientific_name": [
+        "Aloe harlana"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/721_aloe_harlana/thumbnail/5582077315_8d613454aa_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=e1f065f0e2004f085de0bbd9f5564cc91654c8ed5c4c0e7468eb6af52dba13d8"
+    },
+    {
+      "id": 722,
+      "common_name": "Karoo aloe",
+      "scientific_name": [
+        "Aloe longistyla"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/722_aloe_longistyla/thumbnail/pexels-photo-6156450.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205729Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=2eab5a0747f7fa9b18a6b58057a53f417f2576b02d28b53ec06833eb4e656b1b"
+    },
+    {
+      "id": 723,
+      "common_name": "large Chimanimani aloe",
+      "scientific_name": [
+        "Aloe munchii"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/723_aloe_munchii/thumbnail/4329678019_9e37d1442d_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205729Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=9fe29029cd9c67b068cb3bf3d97e9e8d01e27129b207b148a84ae9cb9dbb0701"
+    },
+    {
+      "id": 724,
+      "common_name": "aloe",
+      "scientific_name": [
+        "Aloe rauhii"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/724_aloe_rauhii/thumbnail/49632877987_c3e54f1a2f_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205729Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=73dbfda358bac546cf7c0ad6b23e458980e548fd7dcdfbd68bcd0b4ef8fa5e62"
+    },
+    {
+      "id": 725,
+      "common_name": "Yemen tree aloe",
+      "scientific_name": [
+        "Aloe sabaea"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/725_aloe_sabaea/thumbnail/488c2e98bae5c75ae8edcb2901f56875341dae17.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205729Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=79043872e516c39c974135b146e2a0041e6f8acaaf5f25398c511d5144b2cc9c"
+    },
+    {
+      "id": 726,
+      "common_name": "coral aloe",
+      "scientific_name": [
+        "Aloe striata"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/726_aloe_striata/thumbnail/46765462314_294129dbb5_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205729Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b03878eced791ae7cc103b5e6c0090f13ecb4c1eb8c3fbc202593a995613fb7c"
+    },
+    {
+      "id": 727,
+      "common_name": "aloe",
+      "scientific_name": [
+        "Aloe suzannae"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/727_aloe_suzannae/thumbnail/23704519300_5ec1807143_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=33ac20e2bbc8d2801a13b74453c8a329ee1c1d3de85e748ce334caf700576bc8"
+    },
+    {
+      "id": 728,
+      "common_name": "aloe",
+      "scientific_name": [
+        "Aloe vera"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/728_aloe_vera/thumbnail/52619084582_6ebcfe6a74_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205717Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=e22507e8ae14306d581d875bb27f6260f5e12d8cbdaa589020c57e45a6f875d0"
+    },
+    {
+      "id": 747,
+      "common_name": "Joseph's coat",
+      "scientific_name": [
+        "Alternanthera ficoidea"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/747_alternanthera_ficoidea/thumbnail/48756446498_fc5901c40d_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205718Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86399&X-Amz-Signature=63143507a525edafd9d0f878e5a657c3ef4918aa7126ebad6d6faf4f82118ce4"
+    },
+    {
+      "id": 748,
+      "common_name": "Joseph's coat",
+      "scientific_name": [
+        "Alternanthera ficoidea (yellow form)"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 855,
+      "common_name": "anthurium",
+      "scientific_name": [
+        "Anthurium andraeanum"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/855_anthurium_andraeanum/thumbnail/49388458462_0ef650db39_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=cbde4e87d459a836473135af2329073facd72d8edc00d6d8b3751f3697b25c27"
+    },
+    {
+      "id": 856,
+      "common_name": "anthurium",
+      "scientific_name": [
+        "Anthurium crassinervium"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/856_anthurium_crassinervium/thumbnail/2560px-Anthurium_crassinervium.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=44fb2a9d82018543d24c8dcd459c6364a67231ee4379edc2f3c2ff4faab66627"
+    },
+    {
+      "id": 861,
+      "common_name": "zebra plant",
+      "scientific_name": [
+        "Aphelandra squarrosa"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/861_aphelandra_squarrosa/thumbnail/9216112108_2bb5c403b3_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=8546bba694e91bd3225a2ed796d6b55dd7a652851ef7ff9ff861214432f4c257"
+    },
+    {
+      "id": 998,
+      "common_name": "bamboo orchid",
+      "scientific_name": [
+        "Arundina graminifolia"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": null
+    },
+    {
+      "id": 1001,
+      "common_name": "trailing snapdragon",
+      "scientific_name": [
+        "Asarina procumbens"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1001_asarina_procumbens/thumbnail/9240253872_46be573382_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=d81daec550aaeeacf8b9b3e8f661bdc61a1964c3c29c1474cea65a2ce84309ff"
+    },
+    {
+      "id": 1002,
+      "common_name": "wild ginger",
+      "scientific_name": [
+        "Asarum canadense"
+      ],
+      "other_name": [
+        "Canada Wild Ginger",
+        "Canadian Wildginger",
+        "Canada Snakeroot",
+        "Canadian Wildginger",
+        "Canada Snakeroot"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1002_asarum_canadense/thumbnail/52350964958_9a74ba5715_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b3f6d4cc03f9a20fa5ea114fb4c1a36e6ba149daa32ac48d3fc4581bc946eeca"
+    },
+    {
+      "id": 1023,
+      "common_name": "Sprenger's asparagus fern",
+      "scientific_name": [
+        "Asparagus densiflorus"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1023_asparagus_densiflorus/thumbnail/49289066276_4bbe4e5b94_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=a984070a816d801f9a5be853d90dd94a4775c32df2496a1013487a45af13bc6c"
+    },
+    {
+      "id": 1024,
+      "common_name": "asparagus fern",
+      "scientific_name": [
+        "Asparagus densiflorus 'Myersii'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1024_asparagus_densiflorus_myersii/thumbnail/24611964210_ce3afbb0e8_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=7a88fb593c043d09323a345b437c6d7668d66a0075e76344739abc2d88fd434d"
+    },
+    {
+      "id": 1025,
+      "common_name": "asparagus fern",
+      "scientific_name": [
+        "Asparagus densiflorus 'Sprengeri'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1025_asparagus_densiflorus_sprengeri/thumbnail/24818361201_11881d4f76_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b2f17b99ea348b321b664dafc7f9d9b1a4196ddebb3407d3af5a4b0457c682bb"
+    },
+    {
+      "id": 1031,
+      "common_name": "asparagus fern",
+      "scientific_name": [
+        "Asparagus setaceus"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1031_asparagus_setaceus/thumbnail/24274026853_98d1a2733a_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=51c539a6212ed9519e832349c74cfda388e32278bc650b4f9039511aec6af914"
+    },
+    {
+      "id": 1036,
+      "common_name": "cast-iron plant",
+      "scientific_name": [
+        "Aspidistra elatior"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1036_aspidistra_elatior/thumbnail/e5c6a91ae63e816bdb0d287f549bd74829e09923.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=3cf3550203a5c88e157a28d8902620a42a2fb0c2ed75e94a1fb9ab75d069f0a3"
+    },
+    {
+      "id": 1038,
+      "common_name": "bird's nest fern",
+      "scientific_name": [
+        "Asplenium nidus 'Antiquum'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1038_asplenium_nidus_antiquum/thumbnail/29457334967_82a2d8789c_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=16918e93a0e1d514b2de720f96b8a1799971853038f1e4064e71ef22e6f90806"
+    },
+    {
+      "id": 1130,
+      "common_name": "Japanese painted fern",
+      "scientific_name": [
+        "Athyrium niponicum var. pictum"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1130_athyrium_niponicum_var_pictum/thumbnail/27024762402_1df320b955_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b547ef1a20204236c0854ca0720d14f4f87150b73be5cd2659fcad6f4dbbd0f8"
+    },
+    {
+      "id": 1133,
+      "common_name": "Japanese painted fern",
+      "scientific_name": [
+        "Athyrium niponicum var. pictum 'Metallicum'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1133_athyrium_niponicum_var_pictum_metallicum/thumbnail/Athyrium_niponicum_pictum_1.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=78885973962aff3933f180268cb2e5ababa177e63574050798019a036e8b7a89"
+    },
+    {
+      "id": 1147,
+      "common_name": "spotted laurel",
+      "scientific_name": [
+        "Aucuba japonica 'Mr. Goldstrike'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1147_aucuba_japonica_mr_goldstrike/thumbnail/50589856477_0b4ceffe2a_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=32fc23cb3e4f8b348f8757d31d8e12cf5aaf401698b6c1d1ded88e6f6404894d"
+    },
+    {
+      "id": 1149,
+      "common_name": "spotted laurel",
+      "scientific_name": [
+        "Aucuba japonica 'Suruga Benten'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1149_aucuba_japonica_suruga_benten/thumbnail/51218918813_f1ca2c7a36_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=f72d90ffab5972d60a0866c4a6717554cb92762d857bcbca42e474606748431a"
+    },
+    {
+      "id": 1150,
+      "common_name": "spotted laurel",
+      "scientific_name": [
+        "Aucuba japonica 'Variegata'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1150_aucuba_japonica_variegata/thumbnail/2560px-Aucuba_japonica_27Variegata27_A.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c35f76088282098bc15373477b89fbb734817709ba6d15f9e3dca43780e66c43"
+    },
+    {
+      "id": 1191,
+      "common_name": "Hong Kong orchid tree",
+      "scientific_name": [
+        "Bauhinia blakeana"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1191_bauhinia_blakeana/thumbnail/52661560703_469c6c5af9_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=a8df4c1ee55585421e8e6b8937be3bcdec714939dd5e4a0e83d0244c5fb8baca"
+    },
+    {
+      "id": 1192,
+      "common_name": "ponytail palm",
+      "scientific_name": [
+        "Beaucarnea recurvata"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1192_beaucarnea_recurvata/thumbnail/51792797390_1b15a8415d_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=59d695ef68487508d5b57e998650f26eaf8a5a969840763e160689577f111909"
+    },
+    {
+      "id": 1194,
+      "common_name": "begonia",
+      "scientific_name": [
+        "Begonia 'Art Hodes'"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 1195,
+      "common_name": "begonia",
+      "scientific_name": [
+        "Begonia benariensis BIG SERIES"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1195_begonia_benariensis_big_series/thumbnail/51286779053_5a7aca2a7b_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=8193fde172805ede15c016b3e3acee2cf6138b0ebf0a8c5a8ce9d978c058f8f1"
+    },
+    {
+      "id": 1196,
+      "common_name": "begonia",
+      "scientific_name": [
+        "Begonia 'Bepared' DRAGON WING RED"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1196_begonia_bepared_dragon_wing_red/thumbnail/52542250837_647bf91a34_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=8cfedbbac9f13526ec1adb321b37cc0c47e581f69a88d5dec27fc06278e2d034"
+    },
+    {
+      "id": 1197,
+      "common_name": "begonia",
+      "scientific_name": [
+        "Begonia boliviensis BOSSA NOVA RED"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1197_begonia_boliviensis_bossa_nova_red/thumbnail/52496552436_073086053b_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=269c8628ee80390dd45467c1222f9187f8b421993feff931f230c14fcfd61a20"
+    },
+    {
+      "id": 1198,
+      "common_name": "begonia",
+      "scientific_name": [
+        "Begonia 'Canary Wing'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1198_begonia_canary_wing/thumbnail/48860938088_382c518a2b_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=e30497125a3dcb3b9d75634d0f3e990cbdb2cf9d4985df9788999e4d6bb4fcf5"
+    },
+    {
+      "id": 1199,
+      "common_name": "begonia",
+      "scientific_name": [
+        "Begonia 'Casper'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1199_begonia_casper/thumbnail/52423452233_02b4dc198b_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=51a724606a6687429128105a70f0a3ff965efd1a39ad686519f2777d9e622be0"
+    },
+    {
+      "id": 1200,
+      "common_name": "begonia",
+      "scientific_name": [
+        "Begonia 'Curly Fireflush'"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 1201,
+      "common_name": "begonia",
+      "scientific_name": [
+        "Begonia 'Dangling Pearls'"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 1202,
+      "common_name": "begonia",
+      "scientific_name": [
+        "Begonia 'Emerald Glow'"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 1203,
+      "common_name": "hybrid tuberous begonia",
+      "scientific_name": [
+        "Begonia FUNKY PINK"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1203_begonia_funky_pink/thumbnail/Begonia_CorallinaHybrids_PresidentCarnotInflorescenceA.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=9d7aa0b809ec7ece137df9d30b2d5f584813f469b7ff01d43777a9783e42f96f"
+    },
+    {
+      "id": 1208,
+      "common_name": "begonia",
+      "scientific_name": [
+        "Begonia 'Green Gold'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1208_begonia_green_gold/thumbnail/Begonia_28Rex-hybrid29_27Merry_Christmas27_02.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=bf8e8e0f3e5c1b5fa21755122a8b02da8579d9e15572376edfd0079e5d1a9495"
+    },
+    {
+      "id": 1209,
+      "common_name": "begonia",
+      "scientific_name": [
+        "Begonia 'Gryphon'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1209_begonia_gryphon/thumbnail/9656051530_21f82c3dc7_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205723Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=28b69bf1e3dbec80cb872a24373040102a82526024538646242897737d9992d4"
+    },
+    {
+      "id": 1210,
+      "common_name": "begonia",
+      "scientific_name": [
+        "Begonia 'Lime Royale'"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 1299,
+      "common_name": "Chinese ground orchid",
+      "scientific_name": [
+        "Bletilla striata"
+      ],
+      "other_name": [
+        "Chinese ground orchid"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1299_bletilla_striata/thumbnail/46779845065_57a4c9f61d_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=f65165366abd61ea3dbe9bb41bd8e0ad88e91c451c95af1dbb8fc1f738379614"
+    },
+    {
+      "id": 1300,
+      "common_name": "Chinese ground orchid",
+      "scientific_name": [
+        "Bletilla striata 'Albostriata'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1300_bletilla_striata_albostriata/thumbnail/1536px-Bletilla_striata_27Chinese_ground_orchid27_28Orchidaceae29_flower.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=5d80ff35433d6299dceb50e7cde337db1a51c15210f7180abd125d90ca069494"
+    },
+    {
+      "id": 1301,
+      "common_name": "Chinese ground orchid",
+      "scientific_name": [
+        "Bletilla striata f. gebina"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1301_bletilla_striata_f_gebina/thumbnail/50068016736_541acf3459_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=5912c3009baa7b6b77056c4c8e41eed904828402d88b3fa687264161ec3445f5"
+    },
+    {
+      "id": 1468,
+      "common_name": "orchid",
+      "scientific_name": [
+        "Calanthe 'Kozu Spice'"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 1469,
+      "common_name": "rattlesnake plant",
+      "scientific_name": [
+        "Calathea lancifolia",
+        "Goeppertia insignis"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1469_calathea_lancifolia/thumbnail/3676781257_2e8730f471_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=ae58e2346fa683de020dc8a8b4b84398365b8a81fa0e32ba60c828490c5a056f"
+    },
+    {
+      "id": 1508,
+      "common_name": "grass pink orchid",
+      "scientific_name": [
+        "Calopogon tuberosus"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1508_calopogon_tuberosus/thumbnail/52305878150_64123b8a74_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=029fb2e770117a08d12063d3e7908051326b3a20c2a80acb2a4059c5cf6a9856"
+    },
+    {
+      "id": 1716,
+      "common_name": "orchid",
+      "scientific_name": [
+        "Cattleya (group)"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/1716_cattleya_group/thumbnail/orchid-flower-colombia-flowers.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=0c61de39e8cc02167187be0a50e1904e955686920da31f41101dd3dd92954561"
+    },
+    {
+      "id": 2279,
+      "common_name": "orchid",
+      "scientific_name": [
+        "Cymbidium (group)"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 2301,
+      "common_name": "dahlia",
+      "scientific_name": [
+        "Dahlia 'Lavender Chiffon'"
+      ],
+      "other_name": [],
+      "has_image": false,
+      "image": null
+    },
+    {
+      "id": 2354,
+      "common_name": "orchid",
+      "scientific_name": [
+        "Dendrobium (group)"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2354_dendrobium_group/thumbnail/24982123521_e383f1921f_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=99a1d6e33a1c5c9214f1dc7ff353bc1cfef2c28ae3e4875a8cc0fe7118d84079"
+    },
+    {
+      "id": 2711,
+      "common_name": "common water hyacinth",
+      "scientific_name": [
+        "Eichhornia crassipes"
+      ],
+      "other_name": [
+        "water orchid"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2711_eichhornia_crassipes/thumbnail/Eichhornia_crassipes_002.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c4df4887dd52e7bd81e9cbf76deb5b1fbd999ebea3f0c6c85fa5161a4fae417a"
+    },
+    {
+      "id": 2810,
+      "common_name": "rattlesnake master",
+      "scientific_name": [
+        "Eryngium yuccifolium"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2810_eryngium_yuccifolium/thumbnail/51507915961_da9407fd67_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=4b77645ef41ebe5a34b67a03a238d92157621a64f4e435c82f98c3e866cf7c1c"
+    },
+    {
+      "id": 2811,
+      "common_name": "rattlesnake master",
+      "scientific_name": [
+        "Eryngium yuccifolium 'Prairie Moon'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2811_eryngium_yuccifolium_prairie_moon/thumbnail/51507915961_da9407fd67_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=2e9213b429bedadaa5e45fab84be3ea25543b4ffb1f8ebb9ed3f9a5ed67c1645"
+    },
+    {
+      "id": 2954,
+      "common_name": "weeping fig",
+      "scientific_name": [
+        "Ficus benjamina"
+      ],
+      "other_name": [
+        "weeping fig"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2954_ficus_benjamina/thumbnail/48923602057_6c919e42f1_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b8b12d9ea27f784f9372ae2098e34f7855589d41b7810ec37af3764fcfa0e854"
+    },
+    {
+      "id": 2955,
+      "common_name": "weeping fig",
+      "scientific_name": [
+        "Ficus benjamina 'Variegata'"
+      ],
+      "other_name": [
+        "weeping fig"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2955_ficus_benjamina_variegata/thumbnail/2560px-Ficus_benjamina_27Starlight27_2831265262129.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=e66aeaaa0464ca9640ea0d5bc5bc46737be0781e38b90dd3852eb104726d3a04"
+    },
+    {
+      "id": 2956,
+      "common_name": "fig",
+      "scientific_name": [
+        "Ficus carica 'Brown Turkey'"
+      ],
+      "other_name": [
+        "garden fig"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2956_ficus_carica_brown_turkey/thumbnail/24950994930_238a64dd6b_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=1032bae9c1c6813ecd3d7c04503180141e025bc03dbe0bc33301f6c8c6ceec19"
+    },
+    {
+      "id": 2957,
+      "common_name": "fig",
+      "scientific_name": [
+        "Ficus carica 'Celeste'"
+      ],
+      "other_name": [
+        "garden fig"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2957_ficus_carica_celeste/thumbnail/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL2ZsNTEzMzgwODExMjUtaW1hZ2UuanBn.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=391d7380d404cf9162a3694eaad3fa60f2e31acf80b7b596ffb306dee498434a"
+    },
+    {
+      "id": 2958,
+      "common_name": "fig",
+      "scientific_name": [
+        "Ficus carica 'Chicago Hardy'"
+      ],
+      "other_name": [
+        "garden fig"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2958_ficus_carica_chicago_hardy/thumbnail/croatia-mljet-fig-leavs.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=aa22643a0c46a7b456a9f6b00cc8883d762f2fd7cfba3bb1b4d45660e966fc27"
+    },
+    {
+      "id": 2959,
+      "common_name": "fig",
+      "scientific_name": [
+        "Ficus carica 'MAJOAM' LITTLE MISS FIGGY"
+      ],
+      "other_name": [
+        "garden fig"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2959_ficus_carica_majoam_little_miss_figgy/thumbnail/Ficus_carica_006.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=9c74537d9b137b2b73553c933edeabe2f7a047ab5c92edcdf94d07fea8ca4d2d"
+    },
+    {
+      "id": 2960,
+      "common_name": "common fig",
+      "scientific_name": [
+        "Ficus carica 'Petite Negra'"
+      ],
+      "other_name": [
+        "garden fig"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2960_ficus_carica_petite_negra/thumbnail/fig-mature-fig-tree-fruit.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=5578838204a01a8f92f35c162b0ade2bb385303b45efc783e2ef7f930e6765c7"
+    },
+    {
+      "id": 2961,
+      "common_name": "Indian rubberplant",
+      "scientific_name": [
+        "Ficus elastica"
+      ],
+      "other_name": [
+        "India rubber plant",
+        "rubber tree"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2961_ficus_elastica/thumbnail/533092219_8da73ba0d2_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=6d414eeb8602a6a3b1b3cc2a63f94216c4f32ab1a2d5f033382cf86edaac747f"
+    },
+    {
+      "id": 2962,
+      "common_name": "India rubber plant",
+      "scientific_name": [
+        "Ficus elastica 'Burgundy'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2962_ficus_elastica_burgundy/thumbnail/Ficus_elastica_Burgundy_0zz.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=f86dda21fa6139d1268492790e0491a7fb060ef0cfebaf9d79313f528d5fc8d5"
+    },
+    {
+      "id": 2963,
+      "common_name": "fiddle-leaf fig",
+      "scientific_name": [
+        "Ficus lyrata"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2963_ficus_lyrata/thumbnail/48139747872_36fa010c48_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=1693f7dba8f9cbbbbf2d4af6d17398a9130171b2799bab860f4039a2940a6dc1"
+    },
+    {
+      "id": 2964,
+      "common_name": "rock fig",
+      "scientific_name": [
+        "Ficus petiolaris"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2964_ficus_petiolaris/thumbnail/48273773021_081332388d_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=1aae48a7f47bd7bc7495ca366cc5ddcb2478d3f22db98eb72d3a545747704960"
+    },
+    {
+      "id": 2965,
+      "common_name": "climbing fig",
+      "scientific_name": [
+        "Ficus pumila"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2965_ficus_pumila/thumbnail/49109063727_f18da1075f_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=f9b1c32916a6902ce4f2907a65480ecda29e62286b7e2f25d892619bdc8039b8"
+    },
+    {
+      "id": 2966,
+      "common_name": "sacred bo tree",
+      "scientific_name": [
+        "Ficus religiosa"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/species_image/2966_ficus_religiosa/thumbnail/4592316774_63b8b635ca_b.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=4b755280f37ad4261f57ba6ffc2d75e82be0b977dc1481f3654dd4ac0f9dc321"
+    },
+    {
+      "id": 3054,
+      "common_name": "snake's head fritillary",
+      "scientific_name": [
+        "Fritillaria meleagris"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=2d62acb90189b60fc361adbf969099173f3926bbc86a2cba62afbea11198974d"
+    },
+    {
+      "id": 3080,
+      "common_name": "orchid",
+      "scientific_name": [
+        "Galearis spectabilis"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b85690a0159d2b8b4374c325cea33ad8c6cc1d8fc8a91c9f6471bade40f0c351"
+    },
+    {
+      "id": 3245,
+      "common_name": "sea lavender",
+      "scientific_name": [
+        "Goniolimon incanum 'Blue Diamond'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 3247,
+      "common_name": "rattlesnake plantain",
+      "scientific_name": [
+        "Goodyera pubescens"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=2d62acb90189b60fc361adbf969099173f3926bbc86a2cba62afbea11198974d"
+    },
+    {
+      "id": 3554,
+      "common_name": "daylily",
+      "scientific_name": [
+        "Hemerocallis 'Lavender Stardust'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 3584,
+      "common_name": "daylily",
+      "scientific_name": [
+        "Hemerocallis 'Pink Lavender Appeal'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 3644,
+      "common_name": "redflower false yucca",
+      "scientific_name": [
+        "Hesperaloe parviflora"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205729Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=f1f00a2aa1116c8beeda71763ae7eb8a7be67fefa9b74e1aa3406cec05385c3e"
+    },
+    {
+      "id": 3645,
+      "common_name": "redflower false yucca",
+      "scientific_name": [
+        "Hesperaloe parviflora 'Coral Glow'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205729Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=f1f00a2aa1116c8beeda71763ae7eb8a7be67fefa9b74e1aa3406cec05385c3e"
+    },
+    {
+      "id": 3646,
+      "common_name": "false yucca",
+      "scientific_name": [
+        "Hesperaloe parviflora (yellow form)"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205729Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=f1f00a2aa1116c8beeda71763ae7eb8a7be67fefa9b74e1aa3406cec05385c3e"
+    },
+    {
+      "id": 3822,
+      "common_name": "rose of Sharon",
+      "scientific_name": [
+        "Hibiscus syriacus 'Notwoodone' LAVENDER CHIFFON"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4377,
+      "common_name": "Siberian iris",
+      "scientific_name": [
+        "Iris 'Lavender Bounty'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4658,
+      "common_name": "crape myrtle",
+      "scientific_name": [
+        "Lagerstroemia 'JD818' EARLY BIRD LAVENDER"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4702,
+      "common_name": "English lavender",
+      "scientific_name": [
+        "Lavandula angustifolia"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4703,
+      "common_name": "English lavender",
+      "scientific_name": [
+        "Lavandula angustifolia 'Buena Vista'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4704,
+      "common_name": "English lavender",
+      "scientific_name": [
+        "Lavandula angustifolia 'Hidcote'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4705,
+      "common_name": "English lavender",
+      "scientific_name": [
+        "Lavandula angustifolia 'Hidcote Superior'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4706,
+      "common_name": "English lavender",
+      "scientific_name": [
+        "Lavandula angustifolia 'KERLAVANGEM' SWEET ROMANCE"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4707,
+      "common_name": "English lavender",
+      "scientific_name": [
+        "Lavandula angustifolia 'Lavandula Schola' BLUE CUSHION"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4708,
+      "common_name": "English lavender",
+      "scientific_name": [
+        "Lavandula angustifolia 'Lavang 21' VIOLET INTRIGUE"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4709,
+      "common_name": "English lavender",
+      "scientific_name": [
+        "Lavandula angustifolia 'Potpourri Sky Blue'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4710,
+      "common_name": "English lavender",
+      "scientific_name": [
+        "Lavandula angustifolia 'Rosea'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4711,
+      "common_name": "English lavender",
+      "scientific_name": [
+        "Lavandula angustifolia 'Royal Velvet'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4712,
+      "common_name": "English lavender",
+      "scientific_name": [
+        "Lavandula angustifolia 'Sharon Roberts'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4713,
+      "common_name": "English lavender",
+      "scientific_name": [
+        "Lavandula angustifolia 'SuperBlue'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4718,
+      "common_name": "lavender",
+      "scientific_name": [
+        "Lavandula intermedia 'Niko' PHENOMENAL"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4721,
+      "common_name": "lavender",
+      "scientific_name": [
+        "Lavandula 'Regal Splendour'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4722,
+      "common_name": "lavender",
+      "scientific_name": [
+        "Lavandula 'Silver Frost'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4723,
+      "common_name": "Spanish lavender",
+      "scientific_name": [
+        "Lavandula stoechas 'Bandera Deep Rose'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 4800,
+      "common_name": "button snake root",
+      "scientific_name": [
+        "Liatris ligulistylis 'Monarch'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=2d62acb90189b60fc361adbf969099173f3926bbc86a2cba62afbea11198974d"
+    },
+    {
+      "id": 4908,
+      "common_name": "sea lavender",
+      "scientific_name": [
+        "Limonium platyphyllum"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 5007,
+      "common_name": "jewel orchid",
+      "scientific_name": [
+        "Ludisia (group)"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b85690a0159d2b8b4374c325cea33ad8c6cc1d8fc8a91c9f6471bade40f0c351"
+    },
+    {
+      "id": 5235,
+      "common_name": "bee balm",
+      "scientific_name": [
+        "Monarda didyma 'Pardon My Lavender'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 5257,
+      "common_name": "Swiss cheese plant",
+      "scientific_name": [
+        "Monstera deliciosa"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205726Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=90320614003796fae4de6cae850c69687cf767b437d95b3cc56dab48d75b2068"
+    },
+    {
+      "id": 5258,
+      "common_name": "variegated Swiss cheese plant",
+      "scientific_name": [
+        "Monstera deliciosa 'Variegata'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205726Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=90320614003796fae4de6cae850c69687cf767b437d95b3cc56dab48d75b2068"
+    },
+    {
+      "id": 5520,
+      "common_name": "orchid",
+      "scientific_name": [
+        "Oncidium (group)"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b85690a0159d2b8b4374c325cea33ad8c6cc1d8fc8a91c9f6471bade40f0c351"
+    },
+    {
+      "id": 5805,
+      "common_name": "Egyptian star flower",
+      "scientific_name": [
+        "Pentas lanceolata 'Butterfly Orchid'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b85690a0159d2b8b4374c325cea33ad8c6cc1d8fc8a91c9f6471bade40f0c351"
+    },
+    {
+      "id": 5809,
+      "common_name": "rose cactus",
+      "scientific_name": [
+        "Pereskia grandifolia"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205731Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c33f2377059cc4e05135d835a3f6362638fcf7f7b702b41414f998eb1bea0007"
+    },
+    {
+      "id": 5836,
+      "common_name": "orchid",
+      "scientific_name": [
+        "Phaius (group)"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b85690a0159d2b8b4374c325cea33ad8c6cc1d8fc8a91c9f6471bade40f0c351"
+    },
+    {
+      "id": 5837,
+      "common_name": "moth orchid",
+      "scientific_name": [
+        "Phalaenopsis (group)"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b85690a0159d2b8b4374c325cea33ad8c6cc1d8fc8a91c9f6471bade40f0c351"
+    },
+    {
+      "id": 5901,
+      "common_name": "garden phlox",
+      "scientific_name": [
+        "Phlox paniculata 'David's Lavender'"
+      ],
+      "other_name": [
+        "border phlox",
+        "common phlox",
+        "common phlox"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 5938,
+      "common_name": "moss phlox",
+      "scientific_name": [
+        "Phlox subulata 'Bedazzled Lavender'"
+      ],
+      "other_name": [
+        "moss phlox"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 5950,
+      "common_name": "orchid",
+      "scientific_name": [
+        "Phragmipedium (group)"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b85690a0159d2b8b4374c325cea33ad8c6cc1d8fc8a91c9f6471bade40f0c351"
+    },
+    {
+      "id": 6010,
+      "common_name": "snake fir",
+      "scientific_name": [
+        "Picea abies 'Virgata'"
+      ],
+      "other_name": [
+        "Norwegian Spruce"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=2d62acb90189b60fc361adbf969099173f3926bbc86a2cba62afbea11198974d"
+    },
+    {
+      "id": 6203,
+      "common_name": "Swedish ivy",
+      "scientific_name": [
+        "Plectranthus 'Mona Lavender'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 6225,
+      "common_name": "snakemouth orchid",
+      "scientific_name": [
+        "Pogonia ophioglossoides"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=2d62acb90189b60fc361adbf969099173f3926bbc86a2cba62afbea11198974d"
+    },
+    {
+      "id": 6624,
+      "common_name": "evergreen azalea",
+      "scientific_name": [
+        "Rhododendron 'Girard Dwarf Lavender'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205738Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=88c88c9d0f9d2dcc25cc8406a997a7f100cc8cd2fc2e3c0139016b28b0789b2b"
+    },
+    {
+      "id": 6692,
+      "common_name": "deciduous azalea",
+      "scientific_name": [
+        "Rhododendron 'Orchid Lights'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b85690a0159d2b8b4374c325cea33ad8c6cc1d8fc8a91c9f6471bade40f0c351"
+    },
+    {
+      "id": 7168,
+      "common_name": "snake plant",
+      "scientific_name": [
+        "Sansevieria patens"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=2d62acb90189b60fc361adbf969099173f3926bbc86a2cba62afbea11198974d"
+    },
+    {
+      "id": 7260,
+      "common_name": "poor man's orchid",
+      "scientific_name": [
+        "Schizanthus pinnatus"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b85690a0159d2b8b4374c325cea33ad8c6cc1d8fc8a91c9f6471bade40f0c351"
+    },
+    {
+      "id": 7265,
+      "common_name": "Christmas cactus",
+      "scientific_name": [
+        "Schlumbergera buckleyi"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205731Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c33f2377059cc4e05135d835a3f6362638fcf7f7b702b41414f998eb1bea0007"
+    },
+    {
+      "id": 7266,
+      "common_name": "Christmas cactus",
+      "scientific_name": [
+        "Schlumbergera truncata"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205731Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c33f2377059cc4e05135d835a3f6362638fcf7f7b702b41414f998eb1bea0007"
+    },
+    {
+      "id": 7511,
+      "common_name": "orchid",
+      "scientific_name": [
+        "Spiranthes odorata 'Chadds Ford'"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b85690a0159d2b8b4374c325cea33ad8c6cc1d8fc8a91c9f6471bade40f0c351"
+    },
+    {
+      "id": 8422,
+      "common_name": "orchid",
+      "scientific_name": [
+        "Zygopetalum (group)"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b85690a0159d2b8b4374c325cea33ad8c6cc1d8fc8a91c9f6471bade40f0c351"
+    },
+    {
+      "id": 8551,
+      "common_name": "golden barrel cactus",
+      "scientific_name": [
+        "Echinocactus grusonii"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205731Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c33f2377059cc4e05135d835a3f6362638fcf7f7b702b41414f998eb1bea0007"
+    },
+    {
+      "id": 8573,
+      "common_name": "banyan",
+      "scientific_name": [
+        "Ficus benghalensis"
+      ],
+      "other_name": [
+        "Audrey fig"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=19fdaed59b928f846345a0a42d994919480694bbf3e27fa4df8601dd162c1105"
+    },
+    {
+      "id": 8601,
+      "common_name": "Easter cactus",
+      "scientific_name": [
+        "Hatiora x graeseri"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205731Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c33f2377059cc4e05135d835a3f6362638fcf7f7b702b41414f998eb1bea0007"
+    },
+    {
+      "id": 8830,
+      "common_name": "Red Baneberry",
+      "scientific_name": [
+        "Actaea rubra"
+      ],
+      "other_name": [
+        "Snakeberry"
+      ],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=2d62acb90189b60fc361adbf969099173f3926bbc86a2cba62afbea11198974d"
+    },
+    {
+      "id": 9353,
+      "common_name": "Rattlesnake Fern",
+      "scientific_name": [
+        "Botrypus virginianus"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205727Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=2d62acb90189b60fc361adbf969099173f3926bbc86a2cba62afbea11198974d"
+    },
+    {
+      "id": 9401,
+      "common_name": "Pacific Brome",
+      "scientific_name": [
+        "Bromus pacificus"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205734Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=19fdaed59b928f846345a0a42d994919480694bbf3e27fa4df8601dd162c1105"
+    },
+    {
+      "id": 9980,
+      "common_name": "Phantom Orchid",
+      "scientific_name": [
+        "Cephalanthera austiniae"
+      ],
+      "other_name": [],
+      "has_image": true,
+      "image": "https://s3.us-central-1.wasabisys.com/perenual/image/upgrade_access.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=0MPGHU7CIPXNPMVWMXUW%2F20261007%2Fus-central-1%2Fs3%2Faws4_request&X-Amz-Date=20261007T205732Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=b85690a0159d2b8b4374c325cea33ad8c6cc1d8fc8a91c9f6471bade40f0c351"
+    }
+  ]
+}
