@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -29,13 +30,8 @@ export function Footer() {
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4" aria-label="Go to homepage">
-              <svg className="w-8 h-8" viewBox="0 0 32 32" aria-hidden="true">
-                <path
-                  d="M23 7c-7.5.3-13.2 4-14.6 10.2-.5 2.2.1 4.4 1.5 6.1l1.9-1.9c-.7-1-1-2.2-.7-3.5C12 12.6 16.4 9.6 22 9V7h1z"
-                  fill="#8E9B77"
-                />
-                <circle cx="9.5" cy="23" r="3" fill="#FFC700" />
-              </svg>
+              {/* Same canonical logo file as the navbar — see src/app/icon.svg */}
+              <Image src="/icon.svg" alt="" width={32} height={32} unoptimized className="w-8 h-8" />
               <span className="font-display text-xl tracking-tight text-white">
                 The Green Gazette<sup className="text-[0.55em] align-super">™</sup>
               </span>

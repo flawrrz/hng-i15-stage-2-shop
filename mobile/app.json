@@ -8,8 +8,7 @@
     "scheme": "stage2shop",
     "userInterfaceStyle": "light",
     "ios": {
-      "bundleIdentifier": "com.stage2shop.app",
-      "icon": "./assets/expo.icon"
+      "bundleIdentifier": "com.stage2shop.app"
     },
     "android": {
       "package": "com.stage2shop.app",

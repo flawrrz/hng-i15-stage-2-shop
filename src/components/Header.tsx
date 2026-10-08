@@ -92,15 +92,11 @@ export function Header() {
       {/* Main Navigation */}
       <nav className="max-w-7xl mx-auto px-4" aria-label="Main navigation">
         <div className="flex items-center justify-between h-16">
-          {/* Logo — Caprasimo wordmark, per the template's masthead style */}
+          {/* Logo — /icon.svg is the canonical logo file (also the favicon source).
+              Every other logo instance (footer, admin, app icons) uses this file.
+              priority: above-the-fold site logo, preload it (it was inline SVG before). */}
           <Link href="/" className="flex items-center gap-2" aria-label="Go to homepage">
-            <svg className="w-7 h-7" viewBox="0 0 32 32" aria-hidden="true">
-              <path
-                d="M23 7c-7.5.3-13.2 4-14.6 10.2-.5 2.2.1 4.4 1.5 6.1l1.9-1.9c-.7-1-1-2.2-.7-3.5C12 12.6 16.4 9.6 22 9V7h1z"
-                fill="#486C49"
-              />
-              <circle cx="9.5" cy="23" r="3" fill="#FFC700" />
-            </svg>
+            <Image src="/icon.svg" alt="" width={28} height={28} unoptimized priority className="w-7 h-7" />
             <span className="font-display text-xl tracking-tight text-ink">
               The Green Gazette<sup className="text-[0.55em] align-super">™</sup>
             </span>

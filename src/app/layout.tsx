@@ -35,9 +35,12 @@ export const metadata: Metadata = {
     "The Green Gazette",
   ],
   icons: {
+    // Canonical logo file: src/app/icon.svg (the exact mark in the navbar).
     icon: "/icon.svg",
     shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    // iOS ignores SVG touch icons — apple-icon.png is generated from the same
+    // canonical file by scripts/generate-icons.mjs.
+    apple: "/apple-icon.png",
   },
 };
 
