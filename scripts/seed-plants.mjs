@@ -254,8 +254,12 @@ async function ensureBucket() {
       fileSizeLimit: "5MB",
     }),
   });
+  // Supabase wraps this as HTTP 400 with a JSON body of statusCode 409
+  // (BucketAlreadyExists) — so check both the status and the body.
   if (res.status === 409) return; // already exists
-  if (!res.ok) throw new Error(`bucket create failed: HTTP ${res.status} ${await res.text()}`);
+  const body = await res.text();
+  if (res.status === 400 && body.includes("BucketAlreadyExists")) return;
+  if (!res.ok) throw new Error(`bucket create failed: HTTP ${res.status} ${body}`);
   console.log(`Created public storage bucket: ${BUCKET}`);
 }
 
@@ -320,7 +324,15 @@ async function seed() {
     const id = typeof item === "number" ? item : item.id;
     const overrides = typeof item === "number" ? {} : item;
     process.stdout.write(`seed: #${id} `);
-    const d = await perenual(`species/details/${id}`);
+    // One failed detail fetch (e.g. plan gating on a stray high id) must not
+    // abort the whole run — skip that plant and keep going.
+    let d;
+    try {
+      d = await perenual(`species/details/${id}`);
+    } catch (err) {
+      console.log(`SKIP (detail fetch failed: ${err.message})`);
+      continue;
+    }
     await sleep(150);
 
     if (!d.default_image) {
